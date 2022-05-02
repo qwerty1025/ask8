@@ -33,13 +33,13 @@
     </v-tab>
     
     <v-tab key='k1' href='#k1' v-if="!hide"  >    
-       13:00 
+       收單.排程工具 
     </v-tab>
 
     
 
     <v-tab key='k5' href='#k5' v-if="!hide"  >    
-        15:00   
+       客服聯繫，客製化.工具討論
     </v-tab>
 
     

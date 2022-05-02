@@ -20,12 +20,12 @@
           重新設定
         </v-btn> 
 
-        <v-btn  class="1/5 border-2 border-solid px-2 mx-2" @click="deleteTutorial">
+        <!-- <v-btn  class="1/5 border-2 border-solid px-2 mx-2" @click="deleteTutorial">
           清除資料
         </v-btn> 
         <v-btn  class="border-2 border-solid px-2" @click="removeAllTutorials">
           刪除全部
-        </v-btn> 
+        </v-btn>  -->
         <v-chip color="red" text-color="white"  class="mt-1 px-3 py-3 text-s font-bold"> {{ message }} </v-chip>
 
         <!-- <v-alert   type="info" > </v-alert> -->

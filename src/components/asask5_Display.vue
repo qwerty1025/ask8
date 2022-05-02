@@ -237,7 +237,7 @@
 
 <script>
 
-import TutorialDetails from "./bkadd4_Mdf";
+import TutorialDetails from "./asask5_Mdf";
  
 import SeatDataService from "../services/SeatPrepareService";
 

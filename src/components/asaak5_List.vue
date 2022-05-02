@@ -16,7 +16,7 @@
 
   <div class=" flex justify-center  "> 
 
-    <div class="w-7/12 ">
+    <div class="w-5/12 ">
     <v-banner  
       sticky
     >
@@ -90,12 +90,12 @@
           </div> -->
 
 
-              <v-dialog
+              <!-- <v-dialog
                 transition="dialog-top-transition"
                 max-width="600"
               >
               
-              <!-- <v-text-field v-model="left_time" fill >  </v-text-field> -->
+           
 
 
                 <template v-slot:activator="{ on, attrs }">
@@ -140,7 +140,7 @@
                     </v-card-actions>
                   </v-card>
                 </template>
-              </v-dialog> 
+              </v-dialog>  -->
 </div> 
 
 
@@ -152,12 +152,12 @@
       </div>
       <div v-else>
         <br />
-        <p>Please 確認 on a Tutorial...</p>
+        <p>請選擇右方 題目...</p>
       </div>
       </v-banner>
     </div>
     
-    <div class="w-5/12">  
+    <div class="w-7/12">  
       <v-tabs
             v-model="tab"
             background-color="primary" 
