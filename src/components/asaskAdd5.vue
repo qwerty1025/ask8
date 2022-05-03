@@ -2,21 +2,22 @@
 
 <div class=" w-full item-start  ">
  
-
+<div class=" grid grid-cols-3 gap-2 ">   
+      <div class= "col-end-5 m-2"> 
+        <v-btn @click="saveS" class="btn btn-success ">儲存.單筆內容</v-btn> 
+      </div>   
+  </div> 
   <div class=" grid grid-cols-3 gap-2  "> 
  
 
  
       
-      
+<!--       
       <div class= "col-span-1 ">
-        <!-- <button @click="saveODR" class="btn btn-success"> 儲存...記錄 </button> -->
-        <!-- <button @click="saveT" class="btn btn-success">T</button> -->
+         
         <button @click="saveS" class="btn btn-success ">儲存.單筆內容</button>
-                {{ this.msg}}
-        <!-- <button @click="autoBud" class="btn btn-success">autoBud</button> -->
-        <!-- <button @click="autoInstallByforLoop" class="btn btn-success">批次_新增靶位</button> -->
-      </div>   
+                {{ this.msg}} 
+      </div>    -->
   </div> 
 
 
@@ -34,9 +35,7 @@
     
     <v-tab key='k1' href='#k1' v-if="!hide"  >    
        收單.排程工具 
-    </v-tab>
-
-    
+    </v-tab> 
 
     <v-tab key='k5' href='#k5' v-if="!hide"  >    
        客服聯繫，客製化.工具討論
@@ -262,7 +261,7 @@
 
 <script>
 import TutorialDataService from "../services/TutorialDataService";  
-import SeatDataService from "../services/SeatPrepareService";
+import SeatDataService from "../services/SeatPrepareService"; 
 
 
 export default {

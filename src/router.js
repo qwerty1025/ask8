@@ -13,9 +13,19 @@ export default new Router({
       component: () => import("./components/asaskAdd5")
     },
     {
+      path: "/adPlayer",
+      name: "adPlayer",
+      component: () => import("./components/asask5_AddPlayer")
+    }, 
+    {
       path: "/",
       name: "asaskAdd5",
       component: () => import("./components/asaskAdd5")
+    },
+    {
+      path: "/adPList",
+      name: "asaak5_List",
+      component: () => import("./components/asask5_PlayerList")
     },
     {
       path: "/asaak5_List",
