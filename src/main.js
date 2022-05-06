@@ -13,8 +13,11 @@ Vue.use(VueResource)
 import PrettyCheckbox from 'pretty-checkbox-vue';
 Vue.use(PrettyCheckbox);
 
-import JsonCSV from 'vue-json-csv'
+// import JsonCSV from 'vue-json-csv'
 // Vue.use(JsonCSV) 
+
+import JsonCSV from 'vue-json-csv'
+Vue.use(JsonCSV) 
 
 import axios from 'axios'
 // import VueAxios from 'vue-axios'
@@ -25,6 +28,11 @@ Vue.use(Print); //註冊
 // Vue.use(vdnd); //註冊 
 // Vue.use(vuedraggable); //註冊 
 Vue.config.productionTip = false  
+
+// import Cookies from 'js-cookie';
+// Vue.use(Cookies); 
+
+
 
 new Vue({
   // store,

@@ -34,31 +34,7 @@
     <form>
       
     <div class="flex flex-col my-3">
-          <div class="flex">
-             <!-- 
-
-            <v-text-field
-              type="number"   
-              v-model="currentTutorial.patient_ID"
-              label="病號"
-              step="1"
-              min="0" 
-              solo
-              rounded
-              
-              class=" mx-2" 
-            ></v-text-field>   
-
-            <v-text-field 
-              v-model="currentTutorial.name"
-              label="玩家名稱" 
-              solo
-              rounded
-              
-              class="w-full mx-2" 
-            ></v-text-field>  -->
-
-             
+          <div class="flex"> 
             <v-text-field 
               solo  
               v-model="currentTutorial.patient_ID"     
@@ -129,26 +105,8 @@
           
             </v-container>  
           </div>  
-          <div class="flex"> 
+          <div class="flex">  
 
-             <!-- <v-select
-              solo
-              v-model="currentTutorial.quiz_statu"
-              label="評估狀態"  
-              class="w-1/2 "
-              :items="cut_opts" 
-            ></v-select> 
-
-             <v-text-field 
-              solo  
-              v-model="currentTutorial.quiz_date"     
-              v-on:change="updateTutorial" 
-              class="w-1/2 text-xs  px-1" label="日期" >
-            </v-text-field>   -->
-
-            <!-- <v-date-picker 
-              v-model="currentTutorial.quiz_date"
-            ></v-date-picker>  -->
           </div>
           <v-select
               solo
@@ -174,9 +132,7 @@
             ></v-textarea> 
 
              
-    </div>
-​
-
+    </div> 
      <div class="flex justify-end w-full mt-10 my-3">  
 
         <div class="w-1/6 ">  </div> 

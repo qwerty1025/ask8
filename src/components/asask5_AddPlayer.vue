@@ -85,7 +85,7 @@
                                 
                                 <div class="col-span-2">  
                                   <span class=" py-2 my-2 mx-4 text-base font-normal">  {{ tutorial.name }} 
-                                    <span class="px-2 text-gary-200 text-xs "> 先生/ 小姐 </span>
+                                    <span class="py-2 text-gary-200 text-xs "> 先生/ 小姐 </span>
                                   </span>  
                                 </div> 
                                 <div class="col-span-6 ">  
@@ -119,7 +119,7 @@
 </a> --> 
                         <div class="col-start-10 col-span-1 "> 
                             <v-btn solo color="orange lighten-2"  >
-                              前往作答
+                              修改內容
                             </v-btn>  
                         </div>
                           <div class="col-start-12 col-span-1 "> 
@@ -134,7 +134,12 @@
                               <v-divider></v-divider>
 
                               <v-card-text>
-                                尚未完成，任何題本內容。
+
+                                {{  tutorial.quiz_1 }}  
+                                <br>
+                                 {{  tutorial.quiz_1_dtl }}  
+                                  <br>
+                                  {{  tutorial.quiz_1_fdbk }} 
                               </v-card-text>
                             </div>
                           </v-expand-transition> 
@@ -374,14 +379,8 @@ export default {
           name:"",
           patient_ID:"",
           prePare:[],
-          quiz_1:[],
+          quiz_1_dtl:[],
           quiz_1_fdbk:[],
-
-          quiz_2:[],
-          quiz_2_fdbk:[],
-
-          quiz_3:[],
-          quiz_3_fdbk:[], 
         },
 
         tutorial: {
@@ -396,14 +395,10 @@ export default {
           name:"",
           patient_ID:"",
           prePare:[],
-          quiz_1:[],
+          quiz_1_dtl:[],
           quiz_1_fdbk:[],
 
-          quiz_2:[],
-          quiz_2_fdbk:[],
-
-          quiz_3:[],
-          quiz_3_fdbk:[], 
+         
         },
 
         st: { 
@@ -572,8 +567,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-
+    }, 
     copyopts(idx){ 
         this.st.quesopts[0]= this.slt_opts[idx].opts_A,
         this.st.quesopts[1]= this.slt_opts[idx].opts_B,
@@ -581,8 +575,7 @@ export default {
         this.st.quesopts[3]= this.slt_opts[idx].opts_D,
         this.st.quesopts[4]= this.slt_opts[idx].opts_E 
 
-    }, 
-
+    },  
     saveP() {
       var data = {
         quiz_statu : this.player.quiz_statu,
@@ -594,14 +587,9 @@ export default {
         
         memo       : this.player.memo, 
 
-        quiz_1_dtl  : this.player.quiz_1,
+        quiz_1_dtl  : this.player.quiz_1_dtl,
         quiz_1_fdbk : this.player.quiz_1_fdbk, 
-
-        quiz_2_dtl  : this.player.quiz_2,
-        quiz_2_fdbk : this.player.quiz_1_fdbk,
-
-        quiz_3_dtl  : this.player.quiz_1,
-        quiz_3_fdbk : this.player.quiz_1_fdbk, 
+ 
       };
 
       PlayerService.create(data)
@@ -612,10 +600,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    }, 
-
-
-
+    },   
     newSt() {
       this.submitted = false;
       this.st = {
@@ -625,8 +610,7 @@ export default {
         quesopts:["","","","",""]
          
       };
-    }, 
-
+    },  
     newPlayer() {
       this.submitted = false;
       this.player = {
@@ -649,8 +633,7 @@ export default {
         quiz_3_fdbk : "", 
  
       };
-    }, 
-
+    },  
     saveS_by_idx(_sno_idx) {
       var data = {
         pos: this.st.pos,
@@ -666,9 +649,8 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    }, 
- 
-      autoInstallByforLoop() { 
+    },  
+    autoInstallByforLoop() { 
       
           for(let ii = 13; ii <= 18; ii++){ 
             for (let i = 1; i <= 3; i++) {
@@ -683,8 +665,7 @@ export default {
                   }  
           } 
            this.submitted = true; 
-    },
-
+    }, 
     autoBud() { 
       
        var data = {
@@ -759,28 +740,10 @@ export default {
         });
 
 
-    },
-
-    newDataa(_sno,_sno_idx){ 
-        var dta = {
-                pos: '南',
-                sno: _sno.toString(),
-                sno_idx: '0'+_sno_idx.toString(),
-                tmp_idx: this.st.tmp_idx, 
-                left_time: this.st.left_time, 
-                memo: this.st.memo, 
-                slted: this.st.slted,
-                statu: this.st.statu 
-              }; 
-          return dta
-     },
-
-     updateP() {
-      const data = {
-         
-        name: this.currentTutorial.name,  
- 
-         
+    }, 
+    updateP() {
+      const data = { 
+        name: this.currentTutorial.name, 
       };
 
       PlayerService.update(this.currentTutorial.key, data)
@@ -794,31 +757,28 @@ export default {
 
     onDataChange(items) {
        
-      let _tutorials = []; 
-
-
+      let _tutorials = [];  
       items.forEach((item) => {
         let key = item.key;
         let data = item.val();
         _tutorials.push({
-          key: key, 
-
-  
-           quiz_statu : data.quiz_statu,
+          key: key,  
+          
+          quiz_statu : data.quiz_statu,
           quiz_date  : data.quiz_date, 
+          memo       : data.memo, 
 
           name       : data.name,
           patient_ID : data.patient_ID,
           prePare    : data.prePare,
           
-          memo       : data.memo, 
-
-        
-
- 
+          
+          // quiz_1_dtl : data.quiz_1_dtl, 
+          quiz_1_fdbk: data.quiz_1_fdbk,
+          
+           
         });
-      });
-
+      }); 
       this.tutorials = _tutorials; 
     },
 

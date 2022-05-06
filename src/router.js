@@ -17,11 +17,11 @@ export default new Router({
       name: "adPlayer",
       component: () => import("./components/asask5_AddPlayer")
     }, 
-    {
-      path: "/",
-      name: "asaskAdd5",
-      component: () => import("./components/asaskAdd5")
-    },
+    // {
+    //   path: "/",
+    //   name: "asaskAdd5",
+    //   component: () => import("./components/asaskAdd5")
+    // }, 
     {
       path: "/adPList",
       name: "asaak5_List",
@@ -33,10 +33,30 @@ export default new Router({
       component: () => import("./components/asaak5_List")
     },
     {
-      path: "/asaak5_Display",
+      path: "/tst_Dpy",
       name: "asaak5_Display",
-      component: () => import("./components/asask5_Display")
-    } 
+      component: () => import("./components/tst_Dpy")
+    },
+    {
+      path: "/tst_List",
+      name: "tst_List",
+      component: () => import("./components/tst_List")
+    },
+    {
+      path: "/tst_List2",
+      name: "tst_List",
+      component: () => import("./components/tst_List2")
+    },
+    {
+      path: "/tst_Email",
+      name: "tst_Email",
+      component: () => import("./components/tst_Email")
+    },
+    {
+      path: "/tst_Dpy",
+      name: "tst_Dpy",
+      component: () => import("./components/tst_Dpy")
+    },  
      
   ]
 });

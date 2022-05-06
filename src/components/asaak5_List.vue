@@ -161,133 +161,21 @@
       <v-tabs
             v-model="tab"
             background-color="primary" 
-            fixed-tabs
-              
+            fixed-tabs 
           > 
-           <v-tab key='k3' href='#k3' v-if="!hide"  >    
-              北北東 _場  
-            </v-tab> 
+          <v-tab key='k1' href='#k1' v-if="!hide"  >   題庫1  </v-tab>   
+          <v-tab key='k2' href='#k2' >  題庫2 </v-tab> 
+          <v-tab key='k3' href='#k3' v-if="!hide"  >  題庫3 </v-tab> 
 
-           <v-tab key='k2' href='#k2' > 
-              中央 _南場
-            </v-tab>
-
-          <v-tab key='k1' href='#k1' v-if="!hide"  >    
-              中央 _北場
-            </v-tab> 
+           
 
            
       </v-tabs>  
       <v-tabs-items v-model="tab"> 
-        <v-tab-item key='k1' value='k1'>  
-          <!-- <v-radio-group 
-            color="primary" >
-            <v-radio
-              v-for="(tutorial, index) in tutorials"  
-              :key="index"
-              :label= "tutorial.slted"
+        <v-tab-item key='k3' value='k3'>   </v-tab-item> 
+        <v-tab-item key='k2' value='k2' >  </v-tab-item>
 
-              @click="setActiveTutorial(tutorial, index)"
-            >   
-            </v-radio>
-          </v-radio-group> -->
-{{ this.ex7 }}
-          <v-radio-group
-              v-model="ex7"
-              column
-               v-for="(tutorial, index) in tutorials"  
-              :key="index" 
-            >
-              <v-radio
-                :label="tutorial.pos+ '_' +tutorial.sno + '_' +tutorial.sno_idx"
-                color="red"
-                :value="index"
-              ></v-radio>  
-            </v-radio-group>
-
-        </v-tab-item>
-
-                <v-tab-item key='k2' value='k2' > 
-                  
-          <v-list-item-group 
-            color="primary" 
-            >
-            <v-list-item
-              v-for="(tutorial, index) in tutorials"  
-              :key="index" 
-              v-if="tutorial.pos =='南'"
-              @click="setActiveTutorial(tutorial, index)"
-            > 
-                  
-              <v-list-item-content 
-                      class=" text-xs  py-2 pl-3 my-1 border-2 rounded-sm bg-blue-100 border-blue-300 "
-                      v-if="tutorial.sno == 13 | tutorial.sno == 14 "
-              >
-                <div class="grid grid-cols-7 gap-1"> 
-                 <div class=" "> 
-                      {{ tutorial.pos }}_{{ tutorial.sno }}_{{ tutorial.sno_idx }} 
-                    </div>  
-                 <div class="  col-span-2    text-xs font-black"> 
-                      <span class=" p-1 bg-red-500 rounded-full text-white text-xs font-black"> {{ tutorial.tmp_idx }} </span>  
-                      , {{ tutorial.left_time }} 離場 </div>  
-                    <div class=" col-span-4   text-xs text-blue-500 "> {{ tutorial.memo }}   </div> 
-
-                    <div class=" col-span-4   text-xs text-blue-500 "> {{ tutorial.slted}}   
-                      //// {{ ex7 }}
-                      <v-radio-group
-                            v-model="ex7"
-                            column
-                            v-for="(slted, index) in tutorial.slted"  
-                            :key="index" 
-                          >
-                            <v-radio
-                              :label="slted"
-                              color="red"
-                              :value="index"
-                            ></v-radio>  
-                          </v-radio-group>
-                      
-                      </div> 
-                     
-
-              </div>
-              </v-list-item-content>   
-
-              <v-list-item-content 
-                      class=" text-xs  py-2 pl-3 my-1 border-2 rounded-sm bg-green-100 border-green-300 "
-                      v-if="tutorial.sno == 15 | tutorial.sno == 16 "
-              >
-                <div class="grid grid-cols-7 gap-1"> 
-                 <div class=" "> 
-                      {{ tutorial.pos }}_{{ tutorial.sno }}_{{ tutorial.sno_idx }} 
-                    </div>  
-                 <div class="  col-span-2    text-xs font-black"> 
-                      <span class=" p-1 bg-red-500 rounded-full text-white text-xs font-black"> {{ tutorial.tmp_idx }} </span>  
-                      , {{ tutorial.left_time }} 離場 </div>  
-                    <div class=" col-span-4   text-xs text-blue-500 "> {{ tutorial.memo }}   </div> 
-              </div>
-              </v-list-item-content>
-
-              <v-list-item-content 
-                      class=" text-xs  py-2 pl-3 my-1 border-2 rounded-sm bg-red-100 border-red-300 "
-                      v-if="tutorial.sno == 17 | tutorial.sno == 18 "
-              >
-               <div class="grid grid-cols-7 gap-1"> 
-                 <div class=" "> 
-                      {{ tutorial.pos }}_{{ tutorial.sno }}_{{ tutorial.sno_idx }} 
-                    </div>  
-                 <div class="  col-span-2    text-xs font-black"> 
-                      <span class=" p-1 bg-red-500 rounded-full text-white text-xs font-black"> {{ tutorial.tmp_idx }} </span>  
-                      , {{ tutorial.left_time }} 離場 </div>  
-                    <div class=" col-span-4   text-xs text-blue-500 "> {{ tutorial.memo }}   </div> 
-              </div>
-              </v-list-item-content>
-              
-            </v-list-item>
-          </v-list-item-group>
-        </v-tab-item>
-
-         <v-tab-item key='k3' value='k3' > 
+         <v-tab-item key='k1' value='k1' > 
 
           <v-list-item-group 
             color="primary" 

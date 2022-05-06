@@ -29,17 +29,9 @@
       
   > 
      
-     <v-tab key='k3' href='#k3' v-if="!hide"  >    
-        題庫.編輯工具  
-    </v-tab>
-    
-    <v-tab key='k1' href='#k1' v-if="!hide"  >    
-       收單.排程工具 
-    </v-tab> 
-
-    <v-tab key='k5' href='#k5' v-if="!hide"  >    
-       客服聯繫，客製化.工具討論
-    </v-tab>
+     <v-tab key='k3' href='#k3' v-if="!hide"  >   題庫.編輯工具   </v-tab> 
+     <v-tab key='k1' href='#k1' v-if="!hide"  >  功能2 尚未設定 </v-tab>  
+    <v-tab key='k5' href='#k5' v-if="!hide"  >   功能3 尚未設定 </v-tab> 
 
     
 
@@ -47,9 +39,7 @@
 
   <v-tabs-items v-model="tab">
  
-  <v-tab-item key='k1' value='k1' >
-
-    
+  <v-tab-item key='k1' value='k1' >  
 
   </v-tab-item>
 
@@ -268,6 +258,7 @@ export default {
   name: "add-tutorial",
   data() {
     return {
+      radios:[],
       msg:"",
       quxDtaidx:['1','2','3','4','5','6','7','8'],
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],

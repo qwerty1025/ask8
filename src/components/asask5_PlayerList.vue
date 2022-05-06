@@ -207,7 +207,7 @@ export default {
   data() {
     return { 
       tab:"",
-      radios:["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],
+      radios:["99","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],
       radios1:"null",
       radios2:"null",
       ex7:[],
@@ -246,16 +246,20 @@ alert('gooo');
           // question:data.question,
           // quesopts:data.quesopts,
           // quesinduc:data.quesinduc,
-          // quesimge:data.quesimge, 
-
-          quiz_statu : data.quiz_statu,
-          quiz_date  : data.quiz_date, 
-
+          // quesimge:data.quesimge,
           name       : data.name,
           patient_ID : data.patient_ID,
           prePare    : data.prePare,
+
+
+          quiz_statu : data.quiz_statu,
+          quiz_date  : data.quiz_date,  
           
           memo       : data.memo, 
+ 
+          quiz_1: data.quiz_1,
+          quiz_1_fdbk: data.quiz_1_fdbk,
+ 
 
  
         });
