@@ -37,10 +37,22 @@ Vue.config.productionTip = false
 // import Cookies from 'js-cookie';
 // Vue.use(Cookies); 
 
+// https://www.npmjs.com/package/vue-sweetalert2
+// main.js 
+// import VueSweetalert2 from 'vue-sweetalert2';
 
+// If you don't need the styles, do not connect
+// import 'sweetalert2/dist/sweetalert2.min.css';
+
+// Vue.use(VueSweetalert2);
+
+
+
+import Swal from 'sweetalert2';
+window.Swal = Swal;
 
 new Vue({
-  // store,
+  // store, 
   axios,
   router,
   JsonCSV,

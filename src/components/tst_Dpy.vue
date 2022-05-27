@@ -308,7 +308,7 @@
               @click="setActiveTutorial(tutorial, inx)" 
             > 
              <div class="grid grid-cols-6 gap-1">
-              <div class="col-span-1  ">
+              <div class="col-span-6  ">
                 <!-- {{ this.dayjs(Date.now()).format("HH:mm:ss") }} -->
 
 <!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
@@ -317,9 +317,8 @@
                    {{ tutorial.pos }} 
                    {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
                 </span>
-              </div>
-              <br>
-               <div class="col-span-5  "> 
+              </div> 
+               <div class="col-span-6  "> 
                   <span class="text-lg text-green-700 font-semibold tracking-wide">{{ tutorial.question }}</span>
               </div>
 
@@ -402,6 +401,7 @@
           <!-- 得分摘要：{{rds}}  -->
             <hr>
             <div class=" mb-30"  >
+              
               <div>
                 答題計算結果，如以下 4個指數 ：
                   <br> 
@@ -424,7 +424,7 @@
                       完成
                     </button>
 
-                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"  >
+                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="hr" >
                       了解 指標意義
                     </button>
               </div> 
@@ -481,6 +481,8 @@ import PlayerService    from "../services/playerService";
 import SeatDataService  from "../services/SeatPrepareService";
 import Cookies          from 'js-cookie' 
 
+//  import Swal from 'sweetalert2';
+// window.Swal = Swal;
 
 export default {
   name: "tutorials-list",
@@ -555,6 +557,27 @@ export default {
     };
   }, 
   methods: { 
+  
+  hr(){
+    // Swal.fire({
+    //                     position: 'top',
+    //                     icon: 'success',
+    //                     title: '正在開啟!!',
+    //                     showConfirmButton: false,
+    //                     timer: 1500
+    //                     }).then(() => {
+    //                         this.$refs['login'].hide()
+    //                         window.location.reload() 
+    //                         });
+    
+
+              Swal.fire({
+              icon: 'question',
+              title: '是否好奇 測試完的結果?',
+              text: '讓我 分析數據後,帶您了解 相關的診斷 建議',
+              footer: '<a href=""> 重新測驗 </a>'
+            })
+  },
 
 Te(idx){ 
   if(idx == 1) { this.rds = this.test_DTA;  }
@@ -751,7 +774,7 @@ chkrds(){
     },
     updateCurrentTime(){ this.cT = Date.now(); },
     transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); },
-
+ 
 // this.cT = Date.now();
     
   },
