@@ -63,8 +63,7 @@
 
             <v-tab key='k2' href='#k2' v-if="!hide"  >    
               題本_2
-            </v-tab> 
-
+            </v-tab>  
 
             <v-tab key='k3' href='#k3' v-if="!hide"  >    
               題本_3
@@ -112,6 +111,7 @@
                         >
                           關閉
                         </v-btn>
+                        
                         <!-- <v-btn
                           color="blue darken-1"
                           text
@@ -119,6 +119,7 @@
                         >
                           儲存
                         </v-btn> -->
+
                       </v-card-actions>
 
                     </v-card>

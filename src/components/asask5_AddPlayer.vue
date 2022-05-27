@@ -67,7 +67,6 @@
                   <div class="grid grid-cols-12 gap-0 "> 
                                
                                 <div class="col-span-1 "> 
-
                                   <div class="flex flex-col . ">
                                     <div>
                                        <span class="px-2 my-2 bg-red-500 rounded-full text-white text-lg font-black"> 
@@ -76,11 +75,7 @@
                                     <div> <span class=" px-2 my-2 bg-red-100 rounded-b-full text-red-900 text-xs "> 
                                       {{ tutorial.quiz_date  }}  </span>
                                     </div> 
-                                  </div>
-                                
-                                    
-
-                                     
+                                  </div> 
                                 </div> 
                                 
                                 <div class="col-span-2">  
@@ -166,9 +161,9 @@
 
         </v-tab-item>
 
-                <v-tab-item key='k2' value='k2' > 
+        <v-tab-item key='k2' value='k2' > 
                   
-          <v-list-item-group 
+          <!-- <v-list-item-group 
             color="primary" 
             >
             <v-list-item
@@ -187,10 +182,10 @@
                
               
             </v-list-item>
-          </v-list-item-group>
-
-      
+          </v-list-item-group> -->
+ 
         </v-tab-item> 
+
         <v-tab-item key='k3' value='k3'   >   
           <div class="ml-20 " >  
             <div class="flex justify-center w-full my-3">  
@@ -319,6 +314,7 @@
      
     </div>   
         </v-tab-item> 
+        
         </v-tabs-items>  
     </div>
 

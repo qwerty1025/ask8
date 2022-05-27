@@ -16,7 +16,7 @@
 
   <div class=" flex justify-center  "> 
 
-    <div class="w-2/12 ">
+    <div class="w-1/12 ">
     <v-banner  
       sticky
     >
@@ -27,31 +27,44 @@
 </div> 
 
       <download-csv
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-base my-2 py-1 px-2 rounded"
         :data   = "tutorials"
-        name    = "本日資料回報.csv"
+        name    = "本日資料回報.csv"  
+        :labels="labels"
+        :fields="fields"
       >下載.CSV
       </download-csv>
 
+      
+
+      <!-- <v-btn
+        color="bg-blue-500 hover:bg-blue-700 text-xs text-white font-base py-1 px-2 rounded"
+        text
+        @click="newAdd_()"
+      >
+        Save
+      </v-btn> -->
+
+     <!-- {{ tutorials }}  -->
+{{ tmp_show  }}
 
       
-      <div v-if="currentTutorial">
+      <!-- <div v-if="currentTutorial">
         <tutorial-details
           :tutorial="currentTutorial"
           @refreshList="refreshList"
         />
-      </div>
-      
+      </div> 
       <div v-else>
         <br />
         <p>請選擇右方 題目...</p>
 
-        {{ tutorials }}
-      </div>
+         
+      </div> -->
       </v-banner>
     </div>
     
-    <div class="w-10/12">  
+    <div class="w-11/12">  
       <v-tabs
             v-model="tab"
             background-color="primary" 
@@ -73,7 +86,7 @@
 
           <v-dialog
           v-model="dialog"
-          max-width="500px"
+          max-width="900px"
         >
            
           <v-card>
@@ -83,19 +96,72 @@
 
             <v-card-text>
               <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="t.name"
-                      label="Dessert name"
-                    ></v-text-field>
-                  </v-col>
-                  
-                </v-row>
+                
+
+                <div class="flex">
+                      <v-select
+                        :items="cut_opts"
+                        v-model="t.quiz_statu"
+                        label="評估狀態"
+                        solo
+                        rounded
+                        class="md:w-1/3 mx-2"
+                      ></v-select>
+
+                      <v-text-field
+                        type="number"   
+                        v-model="t.patient_ID"
+                        label="病號"
+                        step="1"
+                        min="0" 
+                        solo
+                        rounded
+                        
+                        class="md:w-1/3 mx-2" 
+                      ></v-text-field>   
+
+                      <v-text-field 
+                        v-model="t.name"
+                        label="玩家名稱" 
+                        solo
+                        rounded
+                        
+                        class="md:w-1/3 mx-2" 
+                      ></v-text-field> 
+
+                      <v-menu
+                        v-model="menu2"
+                        :close-on-content-click="false"
+                        :nudge-right="40"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="auto"
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-text-field
+                            v-model="t.quiz_date"
+                            label="請選擇填寫日期"
+                            prepend-icon="mdi-calendar"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                          ></v-text-field>
+                        </template>
+                        <v-date-picker
+                          v-model="t.quiz_date"
+                          @input="menu2 = false"
+                        ></v-date-picker>
+                      </v-menu>
+                    </div> 
+
+                    <v-textarea
+                        v-model="t.memo"
+                        label="備註內容" 
+                        solo
+                        rounded
+                        clearable
+                        class="mx-2" 
+                      ></v-textarea> 
               </v-container>
             </v-card-text>
 
@@ -106,24 +172,33 @@
                 text
                 @click="dialog=false"
               >
-                Cancel
+                取消
               </v-btn>
               <v-btn
                 color="blue darken-1"
                 text
-                @click="up()"
+                @click="upPlayerDTA()"
               >
-                Save
+                儲存
               </v-btn>
+              <v-btn
+                color="blue darken-1" 
+                @click="saveP()"
+              >
+                新增
+              </v-btn>
+              
             </v-card-actions>
           </v-card>
         </v-dialog>
 <!-- :items="desserts" -->
             <v-data-table 
               class="elevation-1"
-
+              
               :headers="headers"
               :items="tutorials"
+              v-model="tmp_show"
+              show-select
 
               item-key="patient_ID"
               multi-sort 
@@ -135,19 +210,31 @@
               :custom-filter="filterOnlyCapsText"
             >
            <template v-slot:item.actions="{ item }">
-              <v-icon
-                small
-                class="mr-2"
-                @click="editItem(item)"
-              >
-                mdi-pencil
-              </v-icon>
-              <v-icon
+              <!-- <v-icon
+                  small
+                  color="red"
+                  class="mr-2 hover:bg-red-500 "
+                  
+                >
+                  
+                </v-icon> -->
+
+                <v-btn
+                  class="ma-2"
+                  text
+                  icon
+                  color="blue lighten-2"
+                  @click="editItem(item)"
+                >
+                  <v-icon>mdi-pencil</v-icon>
+                </v-btn>
+              
+              <!-- <v-icon
                 small
                 @click="deleteTutorial(item)"
               >
                 mdi-delete
-              </v-icon>
+              </v-icon> -->
             </template>
             <template v-slot:no-data>
               <v-btn
@@ -226,19 +313,33 @@ export default {
          
         search: '',
         calories: '',
+        menu2:'',
+
+      tmp_show:[],
       t:{
           // memo:"",
           key:"",
           name:"",
           quiz_statu:"",
           quiz_date:"",
+          memo:"",
           
           patient_ID:"",
           prePare:[],
           quiz_1_dtl:[],
           quiz_1_fdbk:[], 
+ 
         },
-      // - - - - 
+      // - - - - - - - - - - - - - - - - - - - 
+      labels: {
+        name:       '姓名',
+        patient_ID: '病號',
+        quiz_date : '日期',
+        quiz_fdbk: '指標分數',
+      },
+      fields: [ 'patient_ID','name', 'quiz_date','quiz_fdbk',],
+
+      // - - - - - - - - - - - - - - - - - - - 
       p_ID:"",
 
       radioGroup:"",
@@ -260,7 +361,9 @@ export default {
       show: false,
       tutorials: [],
       currentTutorial: null,
-      currentIndex: -1
+      currentIndex: -1,
+
+      cut_opts:['術前','術後一個月','術後三個月','術後四個月','術後六個月','術後九個月','術後一年','術後兩年','術後三年'], 
     };
   }, 
   computed: {
@@ -287,12 +390,17 @@ export default {
           { text: '數值概要2', value: 'quiz_fdbk[1]' },
           { text: '數值概要3', value: 'quiz_fdbk[2]' },
           { text: '數值概要4', value: 'quiz_fdbk[3]' },
-          { text: '流水編號', value: 'key' },
+          { text: '備註內容', value: 'memo' },
           { text: '編輯內容', value: 'actions' },
         ]
       },
     },
   methods: { 
+
+    jj(){
+
+      this.tmp_show
+    },
     filterOnlyCapsText (value, search, item) {
         return value != null &&
           search != null &&
@@ -318,6 +426,7 @@ export default {
             name: data.name,
             quiz_dtl: data.quiz_dtl,
             quiz_fdbk: data.quiz_fdbk, 
+            memo: data.memo,
 
         });
       });
@@ -384,7 +493,7 @@ setActiveTutorial(tutorial, index) {
         },
 
         de2(k) {
-          SeatDataService.delete(k)
+          PlayerService.delete(k)
             .then(() => {
               alert(k);
               // this.$emit("refreshList");
@@ -396,60 +505,77 @@ setActiveTutorial(tutorial, index) {
         },
 
 
-        editItem (item) {
-        this.editedIndex = this.tutorials.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        
-        this.dialog = true
-        this.t.key = item.key
-        this.t.name = item.name
+      editItem (item) {
+                      this.editedIndex = this.tutorials.indexOf(item)
+                      this.editedItem = Object.assign({}, item) 
+                      this.dialog = true 
 
-      },
- 
+                      this.t.key = item.key
+                      this.t.name = item.name  
+                      this.t.memo = item.memo 
+
+                      this.t.patient_ID = item.patient_ID  
+                      this.t.quiz_date = item.quiz_date
+
+                      this.t.quiz_statu = item.quiz_statu
+
+                      },
+                
 
     removeAllTutorials() {
-      SeatDataService.deleteAll()
-        .then(() => {
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
+                        SeatDataService.deleteAll()
+                          .then(() => {
+                            this.refreshList();
+                          })
+                          .catch((e) => {
+                            console.log(e);
+                          });
+                      },
 
-    up() {
-      this.dialog=false;
-      const data = {
-         
-        // tmp_idx: this.currentTutorial.tmp_idx,
+    upPlayerDTA() { 
+              // alert('this.t.patient_ID = ' +this.t.patient_ID)
+      
+            const data = { 
+              
+              name: this.t.name,  
+              memo: this.t.memo,
 
-        // left_time: this.currentTutorial.left_time,
-        // memo: this.currentTutorial.memo,
- 
-        // slted: this.currentTutorial.slted,
-        // statu: this.currentTutorial.statu,
-        
-        name: this.t.name, 
-         
+              patient_ID: this.t.patient_ID,
+              quiz_date: this.t.quiz_date, 
+              quiz_statu: this.t.quiz_statu, 
+              
+            };
+      
+            PlayerService.update(this.t.key, data)
+              .then(() => {
+                
+                this.message = "更新資料,上傳成功!";
+              })
+              .catch((e) => {
+                console.log(e);
+              }); 
+              this.dialog=false;
+          },
 
-        // questype:this.currentTutorial.questype,
-        // quesimge:this.currentTutorial.quesimge, 
- 
-         
+    saveP() {
+      var data = {
+              name: this.t.name,  
+              memo: this.t.memo, 
+              patient_ID: this.t.patient_ID,
+              quiz_date: this.t.quiz_date, 
+              quiz_statu: this.t.quiz_statu, 
       };
 
-//       const words = k.split('-');
-// // alert(words[1]);
-      SeatDataService.update(this.t.k, data)
+      PlayerService.create(data)
         .then(() => {
-          alert('更新資料,上傳成功!');
-          this.message = "更新資料,上傳成功!";
+          console.log("Created new item successfully!");
+          alert('Created new item successfully!');
+          // this.submitted = true;
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(e);
         });
-        
-    },
+    }, 
 
     
   },

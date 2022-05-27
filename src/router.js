@@ -34,7 +34,7 @@ export default new Router({
     },
     {
       path: "/tst_Dpy",
-      name: "asaak5_Display",
+      name: "tst_Dpy",
       component: () => import("./components/tst_Dpy")
     },
     {
@@ -52,11 +52,11 @@ export default new Router({
       name: "tst_Email",
       component: () => import("./components/tst_Email")
     },
-    {
-      path: "/tst_Dpy",
-      name: "tst_Dpy",
-      component: () => import("./components/tst_Dpy")
-    },  
+    // {
+    //   path: "/tst_Dpy",
+    //   name: "tst_Dpy",
+    //   component: () => import("./components/tst_Dpy")
+    // },  
      
   ]
 });
