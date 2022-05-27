@@ -54,7 +54,7 @@
            >  
 
             <v-tab key='k0' href='#k0' v-if="!hide"  >    
-              登入作業
+              登 入
             </v-tab>
 
             <v-tab key='k1' href='#k1' v-if="!hide"  >    
@@ -313,9 +313,10 @@
 
 <!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
 
-                 <v-chip small class="text-white text-xs mr-5 px-3" color="green"  >
+                <v-chip small class="text-white text-xs mr-5 px-8 justify-center " color="green"  >
                    {{ tutorial.pos }} 
-                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} </v-chip>
+                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
+                </v-chip>
               </div>
               <br>
                <div class="col-span-5  "> 
@@ -423,7 +424,7 @@
                       完成
                     </button>
 
-                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="savePtst(1)" >
+                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"  >
                       了解 指標意義
                     </button>
               </div> 
