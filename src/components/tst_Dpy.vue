@@ -10,14 +10,14 @@
                 <div class="col-span-2 ..."></div> -->
               
               <div class =" col-span-4">
-                <span class="pt-30 text-xl font-base " > {{msg}} 請 {{ tmplr.patient_ID }} - {{ tmplr.name }} ，完成 {{ tmplr.prePare }}</span>
+                <span class="text-xs font-base " > {{msg}} 請 {{ tmplr.patient_ID }} - {{ tmplr.name }} ，完成 {{ tmplr.prePare }}</span>
 
               </div>
                <div class ="col-span-5">
                  <v-btn
                     class="mx-3 my-1"
                     color="secondary" 
-                    solo
+                    solo small
                     @click="Te(1)"
                   >
                     載入 測試數據 1
@@ -26,7 +26,7 @@
                   <v-btn
                     class="mx-3 my-1"
                     color="secondary" 
-                    solo
+                    solo small
                     @click="Te(2)"
                   >
                     載入 測試數據 2
@@ -35,7 +35,7 @@
                   <v-btn
                     class="mx-3 my-1"
                     color="secondary" 
-                    solo
+                    solo small
                     @click="Te(3)"
                   >
                     載入 測試數據 3
@@ -313,11 +313,11 @@
 
 <!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
 
-                 <v-chip class="text-white text-xs mr-5" color="green"  >
+                 <v-chip small class="text-white text-xs mr-5 px-3" color="green"  >
                    {{ tutorial.pos }} 
                    {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} </v-chip>
               </div>
-
+              <br>
                <div class="col-span-5  "> 
                   <span class="text-lg text-green-700 font-semibold tracking-wide">{{ tutorial.question }}</span>
               </div>
@@ -398,24 +398,36 @@
                        
             </v-list-item>
           </v-list-item-group> 
-          得分摘要：{{rds}} 
-            <br>
+          <!-- 得分摘要：{{rds}}  -->
+            <hr>
+            <div class=" mb-30"  >
+              <div>
+                答題計算結果，如以下 4個指數 ：
+                  <br> 
+                  PHYS : {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
 
-            答題計算結果，如以下 4個指數 ：
-            <br> 
-             PHYS : {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                  <br/>
+                  PSYCH : {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
 
-            <br/>
-             PSYCH : {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
+                  <br/>
+                  SOCIAL : {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
+                
+                  <br/>
+                  ENVIR : {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
+                  
+              </div>
+              <div >  
+                <br>
+                <!-- <v-btn class="w-32 h-24" depressed color="error" @click="savePtst(1)" >  完成 </v-btn> -->
+                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="savePtst(1)" >
+                      完成
+                    </button>
 
-            <br/>
-             SOCIAL : {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
-           
-            <br/>
-             ENVIR : {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
-             
-
-          <v-btn class="w-full" depressed color="error" @click="savePtst(1)" >  完成 </v-btn>
+                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="savePtst(1)" >
+                      了解 指標意義
+                    </button>
+              </div> 
+            </div>  
         </v-tab-item> 
 
          <v-tab-item key='k2' value='k2' > 
@@ -432,7 +444,7 @@
 
          <v-tab-item key='k3' value='k3' > 
             <!--  這邊是測試可以存取的一個過程，希望可以再往下執行 -->
-             題本2
+             題本3
               <v-btn
                 color="primary" 
                 @click="savePtst(4)"
@@ -489,7 +501,7 @@ export default {
 
       menu2:false,
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
-      tab:"",
+      tab:"k1",
       // radios:[],
       rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],

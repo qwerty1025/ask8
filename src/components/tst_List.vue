@@ -224,30 +224,32 @@
         </v-tab-item> 
         <v-tab-item key='k4' value='k4'>
           <div class="m-10">
+
+            <!-- <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="primary"
+                dark
+                v-bind="attrs"
+                v-on="on"
+                width="300px"
+                height="300px"
+              >
+                首次登入
+              </v-btn>
+            </template> -->
      
-              <download-csv
-                class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              <download-csv 
+                dark 
+                class=" bg-green-800 hover:bg-green-500 w-120 h-120 text-white font-bold py-2 px-4 rounded"
                 :data   = "tutorials"
-                name    = "本日資料回報.csv"
+                name    = "[題本１]資料回報.csv"
+                
   
                 :labels="labels"
                 :fields="fields"
-              >下載.CSV
+              >下載已填寫資料 [題本１].CSV
               </download-csv> 
-              
-              <div v-if="currentTutorial">
-                <tutorial-details
-                  :tutorial="currentTutorial"
-                  @refreshList="refreshList"
-                />
-              </div>
-              
-              <div v-else>
-                <br />
-                <p>請選擇右方 題目...</p>
-
-                <!-- {{ tutorials }} -->
-              </div> 
+               
             </div>
           </v-tab-item>
 
@@ -327,10 +329,11 @@ export default {
                 cvs_dtl_26:'第26題',
                 cvs_dtl_27:'第27題',
                 cvs_dtl_28:'第28題',
+                quiz_encode:'題本編號',
                   
             },
         // fields: [ 'name','ply_amt','key','phone','plyd'],
-        fields: [ 'name','patient_ID','quiz_date','quiz_time',
+        fields: [ 'quiz_encode','name','patient_ID','quiz_date','quiz_time',
                         'cvs_fdbk_1',
                         'cvs_fdbk_2',
                         'cvs_fdbk_3',
@@ -404,7 +407,7 @@ export default {
           { text: '指標 <2>', value: 'quiz_fdbk[1]' ,width: "6%" },
           { text: '指標 <3>', value: 'quiz_fdbk[2]' ,width: "6%"},
           { text: '指標 <4>', value: 'quiz_fdbk[3]' ,width: "6%"},
-          { text: '題本名稱', value: 'quiz_name' ,width: "12%"},
+          { text: '題本名稱', value: 'quiz_encode' ,width: "12%"},
           { text: '編輯', value: 'edit' ,width: "24%"},
           
           // { text: '流水編號', value: 'key' },
@@ -450,6 +453,8 @@ export default {
 
             quiz_dtl: data.quiz_dtl,
             quiz_fdbk: data.quiz_fdbk,  
+
+            quiz_encode: data.quiz_encode,
             
             cvs_fdbk_1:data.quiz_fdbk[0],  
             cvs_fdbk_2:data.quiz_fdbk[1],  
