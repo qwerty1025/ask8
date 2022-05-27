@@ -19,6 +19,11 @@ Vue.use(PrettyCheckbox);
 import JsonCSV from 'vue-json-csv'
 Vue.use(JsonCSV) 
 
+
+import dayjs from 'dayjs';
+Vue.prototype.dayjs = dayjs;
+
+
 import axios from 'axios'
 // import VueAxios from 'vue-axios'
 // Vue.use(VueAxios, axios)

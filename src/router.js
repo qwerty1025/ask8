@@ -33,6 +33,11 @@ export default new Router({
       component: () => import("./components/asaak5_List")
     },
     {
+      path: "/",
+      name: "tst_Dpy",
+      component: () => import("./components/tst_Dpy")
+    },
+    {
       path: "/tst_Dpy",
       name: "tst_Dpy",
       component: () => import("./components/tst_Dpy")

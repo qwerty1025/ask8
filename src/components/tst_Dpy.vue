@@ -16,7 +16,7 @@
                <div class ="col-span-5">
                  <v-btn
                     class="mx-3 my-1"
-                    color="primary" 
+                    color="secondary" 
                     solo
                     @click="Te(1)"
                   >
@@ -25,7 +25,7 @@
 
                   <v-btn
                     class="mx-3 my-1"
-                    color="primary" 
+                    color="secondary" 
                     solo
                     @click="Te(2)"
                   >
@@ -34,22 +34,22 @@
 
                   <v-btn
                     class="mx-3 my-1"
-                    color="primary" 
+                    color="secondary" 
                     solo
                     @click="Te(3)"
                   >
                     載入 測試數據 3
                   </v-btn>
                 
-              </div>
-              
-            </div>
-             
+              </div> 
+            </div> 
 
-              
            <v-tabs
-            v-model="tab"
-            background-color="primary" 
+            v-model="tab" 
+            color="light-green darken-4"
+            background-color="light-green lighten-2"  
+            active-class="font-weight-black .text-lg"
+            
             fixed-tabs 
            >  
 
@@ -110,15 +110,7 @@
                           @click="dialog2 = false"
                         >
                           關閉
-                        </v-btn>
-                        
-                        <!-- <v-btn
-                          color="blue darken-1"
-                          text
-                          @click="dialog2 = false"
-                        >
-                          儲存
-                        </v-btn> -->
+                        </v-btn> 
 
                       </v-card-actions>
 
@@ -304,6 +296,7 @@
 
          <v-tab-item key='k1' value='k1'>   
             
+          <!-- {{ trns(tutorials[1].qzSno)}} -->
 
            <v-list-item-group 
             color="primary"
@@ -316,49 +309,58 @@
             > 
              <div class="grid grid-cols-6 gap-1">
               <div class="col-span-1  ">
+                <!-- {{ this.dayjs(Date.now()).format("HH:mm:ss") }} -->
+
+<!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
+
                  <v-chip class="text-white text-xs mr-5" color="green"  >
-                   {{ tutorial.pos }}
-                   {{ tutorial.sno }}_{{ tutorial.sno_idx }}_{{ tutorial.sno_dtl }}</v-chip>
+                   {{ tutorial.pos }} 
+                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} </v-chip>
               </div>
 
                <div class="col-span-5  "> 
-                  <span class="text-base text-green-700 font-semibold tracking-wide">{{ tutorial.question }}</span>
+                  <span class="text-lg text-green-700 font-semibold tracking-wide">{{ tutorial.question }}</span>
               </div>
 
 
-              <div class="col-span-6">   
+              <div class="col-span-6">  
+                <v-container
+                  class="px-0"
+                  fluid
+                >  
+                
                      <v-radio-group  v-if="tutorial.sno_idx == 1" v-model="rds[1]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1" ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1" ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 2" v-model="rds[2]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                         <v-radio-group  v-if="tutorial.sno_idx == 3" v-model="rds[3]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 4" v-model="rds[4]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 5" v-model="rds[5]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 6" v-model="rds[6]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 7" v-model="rds[7]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 8" v-model="rds[8]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 9" v-model="rds[9]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 10" v-model="rds[10]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                         <v-radio-group  v-if="tutorial.sno_idx == 11" v-model="rds[11]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 12" v-model="rds[12]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 13" v-model="rds[13]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 14" v-model="rds[14]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 15" v-model="rds[15]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 16" v-model="rds[16]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
@@ -386,16 +388,17 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 27" v-model="rds[27]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-      
+                      
+                       <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                 </v-container>
               </div> 
             </div> 
             
                        
             </v-list-item>
           </v-list-item-group> 
-          得分摘要：{{rds}}
+          得分摘要：{{rds}} 
             <br>
 
             答題計算結果，如以下 4個指數 ：
@@ -460,13 +463,11 @@
 
 <script>
 
-import TutorialDetails from "./asask5_Mdf";
- 
-import SeatDataService from "../services/SeatPrepareService";
-import Cookies from 'js-cookie'
+import TutorialDetails  from "./asask5_Mdf";
+import PlayerService    from "../services/playerService";
+import SeatDataService  from "../services/SeatPrepareService";
+import Cookies          from 'js-cookie' 
 
-
-import PlayerService from "../services/playerService";
 
 export default {
   name: "tutorials-list",
@@ -475,6 +476,11 @@ export default {
 
   data() {
     return { 
+      // - - - - - 
+        currentTime: Date.now(),
+        cT:"",
+        // - - - - - 
+
       msg:"",
       dialog: false,
       dialog2: false,
@@ -495,8 +501,7 @@ export default {
       show: false,
       tutorials: [],
       currentTutorial: null,
-      currentIndex: -1,
-      
+      currentIndex: -1, 
       
       pS:"",
       pN:"",
@@ -514,7 +519,8 @@ export default {
           name:"",
           quiz_statu:"",
           quiz_date:"",
-          
+          quiz_name:"",
+
           patient_ID:"",
           prePare:[],
           quiz_1_dtl:[],
@@ -542,8 +548,12 @@ Te(idx){
   else if( idx == 2 ){ this.rds = this.test_DTA2; } 
   else if( idx == 3 ){ this.rds = this.test_DTA3; } 
 },
-
-    
+trns(idx){
+  let r ="" ;
+  if(idx == 1)
+  { r = '生活品質.量表' }
+  return r 
+},   
 chkrds(){
  for(let i = 0; i <= this.rds.length; i++){
 
@@ -585,6 +595,7 @@ chkrds(){
 
                       quiz_dtl    : this.rds, 
                       quiz_fdbk   : this.qufd,  
+                      quiz_time: this.transCurrentTime(this.cT),
                    };
 
         PlayerService.create(data)
@@ -613,16 +624,15 @@ chkrds(){
       this.qufd[0]=((((((6-this.radios[3])+(6-this.radios[4])+this.radios[10]+this.radios[15]+this.radios[16]+this.radios[17]+this.radios[18])/7)*4)-4)*(100/16)); 
       this.qufd[1]= ((((this.radios[5] + this.radios[6] +this.radios[7]+this.radios[11]+this.radios[19]+(6-+this.radios[26]))/6)*4)-4)*(100/16);
       this.qufd[2]=(((((this.radios[20] + this.radios[21] +this.radios[22]+this.radios[27])/4)*4)-4)*(100/16));           
-  //     this.qufd[3]=( (((this.radios[8] + this.radios[9] +this.radios[12] +this.radios[13] +this.radios[14] +this.radios[23] +this.radios[24] +this.radios[25] +this.radios[28]  )/9)*4)-4)*(100/16);
+      this.qufd[3]=( (((this.radios[8] + this.radios[9] +this.radios[12] +this.radios[13] +this.radios[14] +this.radios[23] +this.radios[24] +this.radios[25] +this.radios[28]  )/9)*4)-4)*(100/16);
            
 
-      var data = {
-       
-
+      var data = {  
         name        : this.tmplr.name,
         patient_ID  : this.tmplr.patient_ID,
         prePare     : this.tmplr.prePare, 
-        quiz_1_fdbk : this.qufd,  
+        quiz_1_fdbk : this.qufd,
+        quiz_name   : this.tmplr.quiz_name,
       };
 
       PlayerService.create(data)
@@ -684,6 +694,7 @@ chkrds(){
           sno: data.sno,
           sno_idx: data.sno_idx,
           sno_dtl:data.sno_dtl,
+          qzSno: data.qzSno,
 
           questype:data.questype,
           question:data.question,
@@ -725,8 +736,10 @@ chkrds(){
     {
         this.ex8[sno_idx].ans
     },
+    updateCurrentTime(){ this.cT = Date.now(); },
+    transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); },
 
-
+// this.cT = Date.now();
     
   },
   // async mounted() {
@@ -735,7 +748,7 @@ chkrds(){
   // }, 
   mounted() {
     // console.log(_tutorials.title);  
-
+this.interval = setInterval(this.updateCurrentTime, 1000);
      SeatDataService.getAll().on("value", this.onDataChange);  
   },
   beforeDestroy() {
