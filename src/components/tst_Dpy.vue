@@ -9,18 +9,18 @@
                 <div class="col-span-1 ..."></div>
                 <div class="col-span-2 ..."></div> -->
               
-              <div class =" col-span-4">
-                <span class="text-xs font-base " > {{msg}} 請 {{ tmplr.patient_ID }} - {{ tmplr.name }} ，完成 {{ tmplr.prePare }}</span>
+              <div class =" col-span-9">
+                <!-- <span class="text-xs font-base " > {{msg}} 請 {{ tmplr.patient_ID }} - {{ tmplr.name }} ，完成 {{ tmplr.prePare }}</span> -->
 
-              </div>
-               <div class ="col-span-5">
+              <!-- </div>
+               <div class ="col-span-5"> -->
                  <v-btn
                     class="mx-3 my-1"
                     color="secondary" 
                     solo small
                     @click="Te(1)"
                   >
-                    載入 測試數據 1
+                    載入 路人甲
                   </v-btn>
 
                   <v-btn
@@ -29,7 +29,7 @@
                     solo small
                     @click="Te(2)"
                   >
-                    載入 測試數據 2
+                    載入 路人乙
                   </v-btn>
 
                   <v-btn
@@ -38,7 +38,7 @@
                     solo small
                     @click="Te(3)"
                   >
-                    載入 測試數據 3
+                    載入 路人丙
                   </v-btn>
                 
               </div> 
@@ -313,10 +313,10 @@
 
 <!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
 
-                <v-chip small class="text-white text-xs mr-5 px-8 justify-center " color="green"  >
+                <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
                    {{ tutorial.pos }} 
                    {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
-                </v-chip>
+                </span>
               </div>
               <br>
                <div class="col-span-5  "> 
