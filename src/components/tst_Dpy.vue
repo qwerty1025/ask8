@@ -754,6 +754,7 @@ chkrds(){
                       name: this.pN,
                       patient_ID  : this.pI, 
                       quiz_statu  : this.pS,
+                      quiz_encode : 1,
                       
 
                       // name        : this.tmplr.name,
