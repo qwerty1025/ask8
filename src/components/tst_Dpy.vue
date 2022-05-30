@@ -20,7 +20,7 @@
                     solo small
                     @click="Te(1)"
                   >
-                    載入 路人甲
+                    載入 路人甲 資料
                   </v-btn>
 
                   <v-btn
@@ -29,7 +29,7 @@
                     solo small
                     @click="Te(2)"
                   >
-                    載入 路人乙
+                    載入 路人乙 資料
                   </v-btn>
 
                   <v-btn
@@ -38,7 +38,7 @@
                     solo small
                     @click="Te(3)"
                   >
-                    載入 路人丙
+                    載入 路人丙 資料
                   </v-btn>
                 
               </div> 
@@ -75,7 +75,7 @@
         <v-tab-item key='k0' value='k0'>
               <div class="flex justify-center items-stretch ">
                 
-                <div class="m-3 ">
+                <!-- <div class="m-3 ">
                   
                   <v-dialog
                     v-model="dialog2"
@@ -117,9 +117,136 @@
                     </v-card>
                   </v-dialog> 
 
-                </div>
+                </div> -->
                 <div class="m-3">
-                  <v-dialog
+                   <v-container>
+                          <v-row>
+                            
+                            <v-col cols="12" sm="3" md="3" >
+                                    <v-select
+                                      solo 
+                                      label="評估狀態"  
+                                      class=""
+                                      v-model="pS"
+                                      
+                                      :items="cut_opts" 
+                                    ></v-select>
+                            </v-col> 
+
+                            <v-col cols="12" sm="3" md="3" >
+                              <v-text-field 
+                                      solo  
+                                      v-model="pI"  
+                                      
+                                      class=" text-xs  px-1" label="病號" >
+                                    </v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" sm="3" md="3" > 
+                              <v-text-field 
+                                      solo  
+                                      v-model="pN"      
+                                      class="  text-xs  px-1" label="姓名" >
+                                    </v-text-field>  
+                            </v-col>
+
+                            <v-col cols="12" sm="3" md="3" > 
+                              <v-menu
+                                v-model="menu2"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                transition="scale-transition"
+                                offset-y
+                                min-width="auto"
+                              >
+                                <template v-slot:activator="{ on, attrs }">
+                                  <v-text-field
+                                    v-model="DaTe"
+                                    label="請選擇填寫日期"
+                                    prepend-icon="mdi-calendar"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                  ></v-text-field>
+                                </template>
+                                <v-date-picker
+                                  v-model="date"
+                                  @input="menu2 = false"
+                                ></v-date-picker>
+                              </v-menu>
+                            </v-col>
+
+                            <v-col cols="12" sm="12" md="12" >
+                            <v-container fluid  class ="flex justify-center " > 
+                                <v-checkbox
+                                        v-model="pP[0]"
+                                        label="題本1"
+                                        value="題本1"
+                                        class="mx-3"
+                                      ></v-checkbox>
+                                      <v-checkbox
+                                        v-model="pP[1]"
+                                        label="題本2"
+                                        value="題本2"
+                                        class="mx-3"
+                                      ></v-checkbox>
+                                      <v-checkbox
+                                        v-model="pP[2]"
+                                        label="題本3"
+                                        value="題本3"
+                                        class="mx-3"
+                                      ></v-checkbox>
+                                      <v-checkbox
+                                        v-model="pP[3]"
+                                        label="題本4"
+                                        value="題本4"
+                                        class="mx-3"
+                                      ></v-checkbox>
+
+                                      <v-checkbox
+                                        v-model="pP[4]"
+                                        label="題本5"
+                                        value="題本5"
+                                        class="mx-3"
+                                      ></v-checkbox>
+                                      <v-checkbox
+                                        v-model="pP[5]"
+                                        label="題本6"
+                                        value="題本6"
+                                        class="mx-3"
+                                      ></v-checkbox>
+                                      <v-checkbox
+                                        v-model="pP[6]"
+                                        label="題本7"
+                                        value="題本7"
+                                        class="mx-3"
+                                      ></v-checkbox> 
+                                      <v-checkbox
+                                        v-model="pP[7]"
+                                        label="題本8"
+                                        value="題本8"
+                                        class="mx-3"
+                                      ></v-checkbox>  
+                                    </v-container>  
+                            </v-col> 
+                          
+                            <v-col cols="12">
+                                    <v-textarea
+                                      clearable
+                                      class="w-full"
+                                      outlined 
+                                      shaped
+                                      rows="2"
+                                      row-height="15"
+                                      v-model="pM"
+                                      
+                                      label="診治備註" 
+                                    ></v-textarea>
+                            </v-col> 
+                          </v-row>
+                        </v-container>
+
+                  <!-- <v-dialog
                     v-model="dialog"
                     persistent
                     max-width="1000px"
@@ -289,7 +416,9 @@
                       </v-card-actions>
 
                     </v-card>
-                  </v-dialog>
+                  </v-dialog> -->
+
+ 
                 </div> 
               </div> 
         </v-tab-item> 
@@ -424,7 +553,7 @@
                       完成
                     </button>
 
-                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="hr" >
+                     <button class="py-5 mx-2 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" @click="getAnysisReport" >
                       了解 指標意義
                     </button>
               </div> 
@@ -504,7 +633,7 @@ export default {
 
       menu2:false,
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
-      tab:"k1",
+      tab:"k0",
       // radios:[],
       rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -558,7 +687,7 @@ export default {
   }, 
   methods: { 
   
-  hr(){
+  getAnysisReport(){
     // Swal.fire({
     //                     position: 'top',
     //                     icon: 'success',
@@ -568,8 +697,7 @@ export default {
     //                     }).then(() => {
     //                         this.$refs['login'].hide()
     //                         window.location.reload() 
-    //                         });
-    
+    //                         }); 
 
               Swal.fire({
               icon: 'question',
@@ -622,11 +750,18 @@ chkrds(){
         }
 
         var data = { 
-                      name        : this.tmplr.name,
-                      patient_ID  : this.tmplr.patient_ID,  
+                      
+                      name: this.pN,
+                      patient_ID  : this.pI, 
+                      quiz_statu  : this.pS,
+                      
+
+                      // name        : this.tmplr.name,
+                      // patient_ID  : this.tmplr.patient_ID,  
+                      // quiz_statu  : this.tmplr.quiz_statu,
 
                       prePare     : this.tmplr.prePare,
-                      quiz_statu  : this.tmplr.quiz_statu,
+                      
                       quiz_date   : this.DaTe, 
 
                       quiz_dtl    : this.rds, 
