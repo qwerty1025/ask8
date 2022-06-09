@@ -29,6 +29,8 @@
       <v-tabs-items v-model="tab"> 
 
         <v-tab-item key='k3' value='k3'>   
+
+          <!-- {{ tutorials }} -->
             <v-data-table 
               class="elevation-1"
 

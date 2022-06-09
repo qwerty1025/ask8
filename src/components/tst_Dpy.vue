@@ -1,5 +1,5 @@
 <template> 
-    <div class=" flex justify-center  ">
+    <div class=" flex justify-center ">
     <div class="w-full ">
             <div class="grid grid-cols-9 gap-1">
               
@@ -71,7 +71,7 @@
 
           </v-tabs>  
 
-      <v-tabs-items v-model="tab"> 
+      <v-tabs-items v-model="tab" class="mb-80"> 
         <v-tab-item key='k0' value='k0'>
               <div class="flex justify-center items-stretch ">
                 
@@ -429,19 +429,20 @@
 
            <v-list-item-group 
             color="primary"
-            class="pt-10"  >  
+            class="pt-10 pl-15"  >  
 
             <v-list-item
               v-for="(tutorial, inx) in tutorials"  
               :key="inx"  
               @click="setActiveTutorial(tutorial, inx)" 
             > 
+            
              <div class="grid grid-cols-6 gap-1">
               <div class="col-span-6  ">
                 <!-- {{ this.dayjs(Date.now()).format("HH:mm:ss") }} -->
 
 <!-- {{  cT }} | {{ transCurrentTime(cT)}} -->
-
+                
                 <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
                    {{ tutorial.pos }} 
                    {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
@@ -530,22 +531,71 @@
           <!-- 得分摘要：{{rds}}  -->
             <hr>
             <div class=" mb-30"  >
-              
-              <div>
-                答題計算結果，如以下 4個指數 ：
-                  <br> 
-                  PHYS : {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
-
-                  <br/>
-                  PSYCH : {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
-
-                  <br/>
-                  SOCIAL : {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
-                
-                  <br/>
-                  ENVIR : {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
-                  
+              答題計算結果，如以下 4個指數 ：
+              <div class ="flex my-10"> 
+                <div class ="mx-5">
+                  PHYS : 
+                  <span class="w-1/4 text-6xl font-black"> {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                  </span>
+                </div>
+                <div class ="mx-5">
+                  PSYCH :
+                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
+                  </span>
+                </div> 
+                <div class ="mx-5">
+                  SOCIAL :
+                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
+                  </span>
+                </div> 
+                <div class ="mx-5">
+                  ENVIR :
+                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
+                  </span>
+                </div>  
               </div>
+              <br>
+              <hr>
+
+              <span class=" text-base"> 詳細答題內容 </span>
+              <div class = "m-5 flex">
+                
+              
+                  
+                  <!-- <span class=" flex" v-for="n in item.quiz_dtl.length"  v-if="n >= 1 && n <= 5" > {{ n }} 題: {{ item.quiz_dtl[n] }}  </span>  -->
+                  
+
+                <td class="w-1/5" >
+                  <span class=" text-lg font-black"> 【 1~5 】 </span>
+                  <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 1 && n <= 5" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td>
+
+                <td class="w-1/5"   >
+                  <span class=" text-lg font-black"> 【 6~10 】 </span>
+                  <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 6 && n <= 10" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td>
+
+                <td class="w-1/5"  >
+                  <span class=" text-lg font-black"> 【 11~15 】</span>
+                  <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 15" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td>
+
+                <td class="w-1/5"   >
+                  <span class=" text-lg font-black"> 【 16~20 】 </span>
+                  <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 16 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td>
+
+                <td class="w-1/5"   >
+                  <span class=" text-lg font-black"> 【 21~25 】 </span>
+                  <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 25" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td>
+
+                <td class="w-1/5"   >
+                  <span class=" text-lg font-black"> 【 26~28 】</span>
+                  <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 26 && n <= 28" > {{ n }} 題: {{ rds[n] }}  </span> 
+                </td> 
+              </div>
+
               <div >  
                 <br>
                 <!-- <v-btn class="w-32 h-24" depressed color="error" @click="savePtst(1)" >  完成 </v-btn> -->
@@ -635,7 +685,7 @@ export default {
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
       tab:"k0",
       // radios:[],
-      rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios1:"null",
       radios2:"null",
