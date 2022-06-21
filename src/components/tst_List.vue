@@ -116,7 +116,7 @@
                 </td>
 
                 <td class="w-1/6"   >
-                  <span class=" text-lg font-black"> 26~28 </span>
+                  <span class=" text-lg font-black"> 26~30 </span>
                   <span class=" flex" v-for="n in item.quiz_dtl.length"  v-if="n >= 26 && n <= 28" > {{ n }} 題: {{ item.quiz_dtl[n] }}  </span> 
                 </td> 
                 

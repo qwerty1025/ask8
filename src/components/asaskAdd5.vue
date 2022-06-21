@@ -56,10 +56,22 @@
       <v-row>  
         <v-col cols="12" md="6"  >
           <div class="flex">
+            <v-text-field
+              type="number"   
+              v-model="st.qzSno"
+              step="1"
+              min="0"
+              label="題本序號"
+              solo
+              rounded
+              
+              class="md:w-1/3 mx-2" 
+            ></v-text-field> 
+            
             <v-select
               :items="quxDtaidx"
               v-model="st.pos"
-              label="題本序號"
+              label="大題號"
               solo
               rounded
               class="md:w-1/3 mx-2"
@@ -87,7 +99,8 @@
               rounded
               
               class="md:w-1/3 mx-2" 
-            ></v-text-field> 
+            ></v-text-field>  
+            
           </div>
               <v-textarea
                 clearable
@@ -126,6 +139,7 @@
             <v-textarea solo rounded v-model="st.quesopts[2]" label="選項(C)" rows="1" row-height="15" class="text-xs"></v-textarea>
             <v-textarea solo rounded v-model="st.quesopts[3]" label="選項(D)" rows="1" row-height="15" class="text-xs"></v-textarea>
             <v-textarea solo rounded v-model="st.quesopts[4]" label="選項(E)" rows="1" row-height="15" class="text-xs"></v-textarea> 
+            <v-textarea solo rounded v-model="st.quesopts[5]" label="選項(F)" rows="1" row-height="15" class="text-xs"></v-textarea> 
           </v-col>
    
 
@@ -284,6 +298,7 @@ export default {
         sno: "",
         sno_idx: "",
         sno_dtl: "",
+        qzSno:"",
 
         questype:"",
         question:"",
@@ -306,6 +321,83 @@ export default {
       opts:['極不好', '不好', '中等程度好','好', '極好',],
 
         slt_opts: [
+
+
+          {
+            opts_A: '總是',
+            opts_B: '經常',
+            opts_C: '有時',
+            opts_D: '很少',
+            opts_E: '從沒有',
+            opts_F: ''
+          }, 
+          {
+            opts_A: '無法做',
+            opts_B: '經常',
+            opts_C: '有時',
+            opts_D: '很少',
+            opts_E: '從沒有' ,
+            opts_F: ''
+          }, 
+          {
+            opts_A: '不困難',
+            opts_B: '有一點困難',
+            opts_C: '有些困難',
+            opts_D: '中度困難(須非常用力使用)',
+            opts_E: '很困難(無法使用)' ,
+            opts_F: ''
+          }, 
+          {
+            opts_A: '優',
+            opts_B: '良',
+            opts_C: '可',
+            opts_D: '差',
+            opts_E: '很差',
+            opts_F: ''
+          },
+          {
+            opts_A: '一直都是',
+            opts_B: '大部分時間',
+            opts_C: '經常',
+            opts_D: '有時',
+            opts_E: '很少',
+            opts_F: '從不或完全沒有'
+          }, 
+          {
+            opts_A: '完全沒有妨礙',
+            opts_B: '有一點妨礙',
+            opts_C: '中度妨礙',
+            opts_D: '相當多妨礙',
+            opts_E: '妨礙到極點'
+          },
+          {
+            opts_A: '極好',
+            opts_B: '很好',
+            opts_C: '好',
+            opts_D: '普通',
+            opts_E: '不好'
+          },
+          {
+            opts_A: '完全沒有',
+            opts_B: '有一點',
+            opts_C: '中等程度',
+            opts_D: '非常',
+            opts_E: '極度'
+          },
+          {
+            opts_A: '完全沒有',
+            opts_B: '輕微',
+            opts_C: '中等程度',
+            opts_D: '厲害',
+            opts_E: '非常厲害'
+          },
+          {
+            opts_A: '毫無困難',
+            opts_B: '有點困難',
+            opts_C: '中等困難',
+            opts_D: '非常困難',
+            opts_E: '無法做到' 
+          },
           {
             opts_A: '極不好',
             opts_B: '不好',
@@ -376,11 +468,7 @@ export default {
         ],
 
       cut_opts:['術前','術後一個月','術後三個月','術後四個月','術後六個月','術後九個月','術後一年','術後兩年','術後三年'],
- 
- 
- 
-      ttemp:[],
-
+      ttemp:[], 
       tutorial: {
         title: "",
         description: "",
@@ -414,7 +502,8 @@ export default {
         this.st.quesopts[1]= this.slt_opts[idx].opts_B,
         this.st.quesopts[2]= this.slt_opts[idx].opts_C,
         this.st.quesopts[3]= this.slt_opts[idx].opts_D,
-        this.st.quesopts[4]= this.slt_opts[idx].opts_E 
+        this.st.quesopts[4]= this.slt_opts[idx].opts_E,
+        this.st.quesopts[5]= this.slt_opts[idx].opts_F 
 
     },
 
@@ -430,6 +519,7 @@ export default {
         statu: this.st.statu,
         
         pos: this.st.pos,
+        qzSno:this.st.qzSno,
         sno_idx: this.st.sno_idx,
         sno_dtl:this.st.sno_dtl,
 
@@ -443,8 +533,13 @@ export default {
 
       SeatDataService.create(data)
         .then(() => {
-          console.log("Created new item successfully!");
-          this.msg="You submitted successfully!"
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
 
           // this.submitted = true;
         this.newSt;
