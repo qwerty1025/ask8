@@ -7,6 +7,10 @@ class StDataService {
     return db;
   }
 
+  getSome(str) {
+    return db.orderByChild(str);
+  }
+
   create(od) {
     return db.push(od);
   }

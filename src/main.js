@@ -13,6 +13,9 @@ Vue.use(VueResource)
 import PrettyCheckbox from 'pretty-checkbox-vue';
 Vue.use(PrettyCheckbox);
 
+import VueRadioButton from "vue-radio-button";
+Vue.use(VueRadioButton);
+
 // import JsonCSV from 'vue-json-csv'
 // Vue.use(JsonCSV) 
 

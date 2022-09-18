@@ -40,6 +40,25 @@
                   >
                     載入 路人丙 資料
                   </v-btn>
+
+                  <v-btn
+                    class="mx-3 my-1"
+                    color="secondary" 
+                    solo small
+                    @click="Te(4)"
+                  >
+                    4jan845
+                  </v-btn> 
+
+                  <v-btn
+                    class="mx-3 my-1"
+                    color="secondary" 
+                    solo small
+                    @click="Te(5)"
+                  >
+                    45woo
+                  </v-btn> 
+                  
                   <!-- {{ tutorials }} -->
                 
               </div> 
@@ -50,8 +69,10 @@
             color="light-green darken-4"
             background-color="light-green lighten-2"  
             active-class="font-weight-black .text-lg"
-            
-            fixed-tabs 
+               
+            next-icon="mdi-arrow-right-bold-box-outline"
+            prev-icon="mdi-arrow-left-bold-box-outline"
+            show-arrows
            >  
 
             <v-tab key='k0' href='#k0' v-if="!hide"  >    
@@ -369,7 +390,7 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -552,12 +573,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds_BSRS[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds_BSRS[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds_BSRS[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -757,7 +778,7 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
@@ -971,7 +992,7 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
@@ -1191,12 +1212,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
@@ -1215,12 +1236,49 @@
                         <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+
+
+                        <v-radio-group  v-if="tutorial.sno_idx == 41" v-model="rds[41]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 42" v-model="rds[42]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 43" v-model="rds[43]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 44" v-model="rds[44]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 45" v-model="rds[45]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 46" v-model="rds[46]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 47" v-model="rds[47]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 48" v-model="rds[48]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 49" v-model="rds[49]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 50" v-model="rds[50]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+
+                        <v-radio-group  v-if="tutorial.sno_idx == 51" v-model="rds[51]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 52" v-model="rds[52]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 53" v-model="rds[53]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 54" v-model="rds[54]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 55" v-model="rds[55]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 56" v-model="rds[56]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio-group  v-if="tutorial.sno_idx == 57" v-model="rds[57]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                          <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -1234,23 +1292,60 @@
               答題計算結果，如以下 4個指數 ：
               <div class ="flex my-10"> 
                 <div class ="mx-5">
-                  PHYS : 
-                  <span class="w-1/4 text-6xl font-black"> {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                  (1) overall hand function : 
+                  <br>
+                  <span class="w-1/4 text-3xl font-black"> 
+                    右手 : {{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} 
+                    左手 : {{ Math.round( ((((rds[6]+rds[7]+rds[8]+rds[9]+rds[10]/1)-25 )*(-1))/20)*10000)/100 }}    
                   </span>
                 </div>
                 <div class ="mx-5">
-                  PSYCH :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
+                  (2) activities of daily living : 
+                  <br>
+                  <span class="w-1/4 text-xl font-black"> 
+                    右手_1_handed: {{ Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 }}  
+                    右手_Overall ADL: 
+                    {{ (Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 + Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 ) /2 }}
+                  </span>
+                  <br>
+                  <span class="w-1/4 text-xl font-black"> 
+                    左手_1_handed: {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  
+                    左手_Overall ADL: 
+                    {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}}
+                  </span>
+                  <br>
+                  (2) 2-handed : 
+                  <br>
+                  <span class="w-1/4 text-xl font-black"> 
+                     {{ Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 }}   
                   </span>
                 </div> 
-                <div class ="mx-5">
-                  SOCIAL :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
+                <div class ="mx-5">  
+                  <span class="w-1/4 text-xl font-black"> 
+                    (3) work :  {{ Math.round( ((((rds[28]+rds[29]+rds[30]+rds[31]+rds[32]/1)-5 ))/20)*10000)/100 }}   
                   </span>
                 </div> 
-                <div class ="mx-5">
-                  ENVIR :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
+                <div class ="mx-5"> 
+                  <span class="w-1/4 text-xl font-black"> 
+                    (4) pain :  {{ Math.round( ((((rds[33]+rds[34]+rds[35]+rds[36]+rds[37]/1)-25 )*(-1))/20)*10000)/100 }}    
+                  </span>
+                </div>  
+
+                <div class ="mx-5"> 
+                  (5) aesthetics
+                  <br>
+                  <span class="w-1/4 text-xl font-black"> 
+                    右手 : {{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }} 
+                    左手 : {{ Math.round( ((((rds[42]+rds[43]+rds[44]+rds[45]/1)-4 ))/16)*10000)/100 }}   
+                  </span>
+                </div>  
+
+                <div class ="mx-5"> 
+                   (6) satisfaction 
+                   <br>
+                  <span class="w-1/4 text-xl font-black"> 
+                    右手 : {{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} 
+                    左手 : {{ Math.round( ((((rds[52]+rds[53]+rds[54]+rds[55]+rds[56]+rds[57]/1)-30 )*(-1))/24)*10000)/100 }}   
                   </span>
                 </div>  
               </div>
@@ -1407,12 +1502,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
@@ -1431,12 +1526,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -1553,7 +1648,7 @@
                 
                 <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
                    7 
-                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
+                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} : {{ tutorial.tmp_idx }} 
                 </span>
               </div> 
                <div class="col-span-6  "> 
@@ -1625,12 +1720,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
@@ -1649,12 +1744,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -1667,26 +1762,97 @@
             <div class=" mb-30"  >
               答題計算結果，如以下 4個指數 ：
               <div class ="flex my-10"> 
-                <div class ="mx-5">
-                  PHYS : 
-                  <span class="w-1/4 text-6xl font-black"> {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
-                  </span>
+
+ 
+
+                
+
+                <div class ="mx-5 flex-1"> 
+                  <div class ="mx-5">
+                    PCS : 
+                    <span class="w-1/4 text-6xl font-black"> 
+                      {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                    </span>
+                  </div>
+
+                  <div class ="mx-5">
+                    MCS : 
+                    <span class="w-1/4 text-6xl font-black"> 
+                      {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                    </span>
+                  </div>
+                  <div class ="mx-5">
+                    AGG_PHYS : 
+                    <span class="w-1/4 text-6xl font-black"> 
+                      {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                    </span>
+                  </div>
+                  <div class ="mx-5">
+                    AGG_MENT : 
+                    <span class="w-1/4 text-6xl font-black"> 
+                      {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                    </span>
+                  </div> 
                 </div>
-                <div class ="mx-5">
-                  PSYCH :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
-                  </span>
-                </div> 
-                <div class ="mx-5">
-                  SOCIAL :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
-                  </span>
-                </div> 
-                <div class ="mx-5">
-                  ENVIR :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
-                  </span>
-                </div>  
+                <div class ="mx-5 flex-2">  
+                    <div class ="mx-5">
+                      生理功能 PF(transformed scale) : 
+                      {{ sf_36_PE }}
+                      <span class="w-1/4 text-6xl font-black"> 
+                        {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div>
+                    
+                    <div class ="mx-5">
+                      角色限制－生理 RP(transformed scale) : 
+                      <span class="w-1/4 text-6xl font-black"> 
+                        {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div>
+                    <div class ="mx-5">
+                      身體疼痛 BP(transformed scale) : 
+                      <span class="w-1/4 text-6xl font-black"> 
+                        {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div>
+                
+                    <div class ="mx-5">
+                      一般自覺健康 GH(transformed scale) : 
+                      <span class="w-1/4 text-6xl font-black"> 
+                        {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div>
+                    
+                  </div>
+
+<!--  // - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //  - - //   -->
+
+                  <div class ="mx-5 flex-2"> 
+                    <div class ="mx-5">
+                      活力狀態 VT(transformed scale) : 
+                      <span class="w-1/4 text-6xl font-black"> 
+                        {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div>
+                    <div class ="mx-5">
+                      社會功能 SF(transformed scale) :
+                      <span class="w-1/4 text-6xl font-black">  
+                        {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
+                      </span>
+                    </div> 
+                    <div class ="mx-5">
+                      角色限制－情緒 RE(transformed scale) :
+                      <span class="w-1/4 text-6xl font-black">  
+                        {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
+                      </span>
+                    </div> 
+                    <div class ="mx-5">
+                      心理健康 MH(transformed scale) :
+                      <span class="w-1/4 text-6xl font-black">  
+                        {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}  
+                      </span>
+                    </div>  
+                </div>
               </div>
               <br>
               <hr>
@@ -1771,7 +1937,7 @@
                 
                 <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
                    8
-                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
+                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} : {{ tutorial.tmp_idx }} 
                 </span>
               </div> 
                <div class="col-span-6  "> 
@@ -1843,12 +2009,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                       <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
@@ -1867,12 +2033,12 @@
                         <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                       
                        <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                        <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                        <v-radio color="blue" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                        <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  </v-container>
               </div> 
             </div> 
@@ -2006,6 +2172,7 @@ export default {
       // - - - - - 
         currentTime: Date.now(),
         cT:"",
+        selt_lv:this.$route.params.play_lv,
         // - - - - - 
 
       msg:"",
@@ -2041,6 +2208,8 @@ export default {
       test_DTA :[0,3,	3,	2,	2,	2,	2,	1,	1,	3,	2,	2,	2,	3,	3,	2,	2,	2,	3,	3,	3,	1,	3,	3,	3,	3,	3,	2,	3],
       test_DTA2:[0,5,	4,	2,	2,	5,	4,	3,	5,	5,	3,	4,	4,	4,	4,	4,	4,	4,	4,	5,	5,	5,	5,	5,	5,	5,	1,	5,	4],
       test_DTA3:[0,4,	3,	1,	2,	3,	4,	4,	4,	4,	3,	4,	4,	4,	3,	5,	3,	4,	4,	4,	4,	4,	4,	4,	4,	4,	3,	4,	4,],
+      test_DTA4:[0,3, 3,	4,  2,	1,	2,	2,	2,	3,	2,	2,	3,	4,	2,	2,	1,	2,	3,	1,	1,	5,	3,	2,	1,	2,	1,	2,	3,	2,	1,	2,	3,	2,	4,	5,	5,  5,  5,	1,	1,	1,	3,	3,	5,  4,	5,	4,	4,	2,	5,	4,	2,  3, 	3,	3,	3,	3,],
+      test_DTA5:[0,1,	4,	2,	3,	2,	1,	2,	1,	2,	2,	2,	3,	2,	2,	2,	1,	1,	1,	1,	1,	2,	1,	2,	1,	2,	2,	2,	3,	3,	3,	3,	3,	4,	1,	1,	3,	1,	4,	3,	4,	4,	2,	4,	4,	4,	3,	5,	2,	5,	5,	1,	4,	4,	4,	4,	4,	4,],
 
       tmplr:{
           memo:"",
@@ -2070,6 +2239,121 @@ export default {
     };
   }, 
   computed: {
+
+
+
+         // 這邊是計算 sf-36 的設定內容
+        sf_36_GH: function () {   
+          let rds =this.rds; 
+          let vx = 0;
+          if( rds == 4 ){ vx = 2 }
+          else if( rds == 1 ){ vx = 5 }
+          else if( rds == 2 ){ vx = 4.4 }
+          else if( rds == 3 ){ vx = 3.4 }
+          else if( rds == 5 ){ vx = 1 }
+          else { vx = 99 } 
+
+          let v2 = +rds[33] +rds[34] +rds[35] +rds[36] 
+          let r = vx + v2 ; 
+          
+              return r; 
+        },
+        sf_36_PF: function () {   
+           let rds =this.rds; 
+           let filtered = rds[3]+rds[4]+rds[5]+rds[6]+rds[7]+rds[8]+rds[9]+rds[10]+rds[11]+rds[12];
+          
+              return filtered; 
+        },
+
+        sf_36_RP: function () {   
+           let rds =this.rds; 
+           let filtered = rds[13]+rds[14]+rds[15]+rds[16];
+          
+              return filtered; 
+        },
+        sf_36_RE: function () {   
+          let rds =this.rds;
+          let filtered = rds[17]+rds[18]+rds[19] ;
+          
+              return filtered; 
+        },
+        sf_36_SF: function () {   
+          let rds =this.rds;
+          let filtered = rds[20]+rds[32];
+          
+              return filtered; 
+        },
+        sf_36_MH: function () {   
+          let rds =this.rds;
+          let filtered = rds[24]+rds[25]+( 7-rds[26] )+rds[28]+( 7-rds[30] );
+          
+              return filtered; 
+        },
+        sf_36_VT: function () {   
+          let rds =this.rds;
+          let filtered = ( 7-rds[23] )+ ( 7-rds[27] ) +rds[29]+rds[31] ;
+          
+              return filtered; 
+        }, 
+        
+        sf_36_TranS: function () {   
+          let _TS_aryA =[0,10,4,2,5,4,2,3,5];
+          let _TS_aryB =[0,20,4,10,20,20,8,3,25];
+
+
+          let _TS=[88,88,88,88,88,88,88,88,88]; 
+          _TS[1] = (this.sf_36_PF-_TS_aryA[1])/_TS_aryB[1]*100;
+          _TS[2] = (this.sf_36_PR-_TS_aryA[1])/_TS_aryB[2]*100;
+          _TS[3] = (this.sf_36_BP-_TS_aryA[1])/_TS_aryB[3]*100;
+          _TS[4] = (this.sf_36_GH-_TS_aryA[1])/_TS_aryB[4]*100;
+          _TS[5] = (this.sf_36_VT-_TS_aryA[1])/_TS_aryB[5]*100;
+          _TS[6] = (this.sf_36_SF-_TS_aryA[1])/_TS_aryB[6]*100;
+          _TS[7] = (this.sf_36_RE-_TS_aryA[1])/_TS_aryB[7]*100;
+          _TS[8] = (this.sf_36_MH-_TS_aryA[1])/_TS_aryB[9]*100;
+          
+              return _TS;
+        }, 
+
+         
+
+        sf_36_Z: function () {   
+
+          let _Z_aryA =[0,84.52404,81.19907,75.49196,72.21316,61.05453,83.59753,81.29467,74.84212];
+          let _Z_aryB =[0,22.8949, 33.79729, 23.55879, 20.16964, 20.86942, 22.37642, 33.02717, 18.01189];
+
+          let _Z_arry=[88,88,88,88,88,88,88,88,88]; 
+          _Z_arry[1] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[1];
+          _Z_arry[2] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[2];
+          _Z_arry[3] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[3];
+          _Z_arry[4] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[4];
+          _Z_arry[5] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[5];
+          _Z_arry[6] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[6];
+          _Z_arry[7] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[7];
+          _Z_arry[8] = (this.sf_36_TranS[1]-_Z_aryA[1])/_Z_aryB[9];
+          
+              return _Z_arry; 
+        }, 
+
+        sf_36_AGG: function () {   
+
+          let _PHYS_ary =[0,0.42402,0.35119,0.31754,0.24954,0.02877,-0.00753,-0.19206,-0.22069];
+          let _MENT_ary =[0,-0.22999,-0.12329,-0.09731,-0.01571,0.23534,0.26876,0.43407,0.48581];
+         
+          let _AGG=[88,88,88]; 
+          _AGG[1] = (this.sf_36_Z[1]*_PHYS_ary[1]) + (this.sf_36_Z[2]*_PHYS_ary[2]) + (this.sf_36_Z[3]*_PHYS_ary[3]) + (this.sf_36_Z[4]*_PHYS_ary[4])
+                    (this.sf_36_Z[5]*_PHYS_ary[5]) + (this.sf_36_Z[6]*_PHYS_ary[6]) + (this.sf_36_Z[7]*_PHYS_ary[7]) + (this.sf_36_Z[8]*_PHYS_ary[8]);
+
+          _AGG[2] = (this.sf_36_Z[1]*_MENT_ary[1]) + (this.sf_36_Z[2]*_MENT_ary[2]) + (this.sf_36_Z[3]*_MENT_ary[3]) + (this.sf_36_Z[4]*_MENT_ary[4])
+                    (this.sf_36_Z[5]*_MENT_ary[5]) + (this.sf_36_Z[6]*_MENT_ary[6]) + (this.sf_36_Z[7]*_PHYS_ary[7]) + (this.sf_36_Z[8]*_PHYS_ary[8]);
+           
+          
+              return _AGG;
+        }, 
+
+        
+
+
+
           // 计算属性的 getter
         cmpare1_length: function () {   
           let filtered = this.rds_BSRS.filter(function(value, index, arr){
@@ -2120,6 +2404,8 @@ Te(idx){
   if(idx == 1) { this.rds = this.test_DTA;  }
   else if( idx == 2 ){ this.rds = this.test_DTA2; } 
   else if( idx == 3 ){ this.rds = this.test_DTA3; } 
+  else if( idx == 4 ){ this.rds = this.test_DTA4; } 
+  else if( idx == 5 ){ this.rds = this.test_DTA5; } 
 },
 trns(idx){
   let r ="" ;

@@ -26,6 +26,7 @@
     "vue-draggable": "^2.0.6",
     "vue-json-csv": "^1.2.12",
     "vue-print-nb": "^1.7.5",
+    "vue-radio-button": "^1.0.0",
     "vue-resource": "^1.5.3",
     "vue-router": "^3.4.6",
     "vue-smooth-dnd": "^0.8.1",

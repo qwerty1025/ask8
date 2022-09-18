@@ -32,11 +32,52 @@ export default new Router({
       name: "asaak5_List",
       component: () => import("./components/asaak5_List")
     },
+    // {
+    //   path: "/",
+    //   name: "tst_Dpy",
+    //   component: () => import("./components/tst_Dpy")
+    // },
+    {
+      path: "/tst_RadioBtn",
+      name: "tst_RadioBtn",
+      component: () => import("./components/tst_RadioBtn")
+    },
+
     {
       path: "/",
-      name: "tst_Dpy",
-      component: () => import("./components/tst_Dpy")
+      name: "quizHomepage",
+      component: () => import("./components/quizHomepage")
     },
+
+    {
+      path: "/quizHomepage",
+      name: "quizHomepage",
+      component: () => import("./components/quizHomepage")
+    },
+
+    // {
+    //   path: "/",
+    //   name: "tst_RadioBtn",
+    //   component: () => import("./components/tst_RadioBtn")
+    // },
+    // GetQuiz
+    {
+      path: '/quiz/:play_lv',
+      name: 'Quiz',
+      component: () => import("./components/tst_RadioBtn")
+      // component: () => import("./components/Quiz/quizHere")
+    }, 
+
+    {
+      path: '/quiz2',
+      name: 'Quiz',
+      component: () => import("./components/tst_RadioBtn")
+      // component: () => import("./components/Quiz/quizHere")
+    }, 
+
+    
+
+
     {
       path: "/tst_Dpy",
       name: "tst_Dpy",
