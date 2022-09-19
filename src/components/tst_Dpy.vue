@@ -47,7 +47,7 @@
                     solo small
                     @click="Te(4)"
                   >
-                    4jan845
+                  載入 路人AA 資料
                   </v-btn> 
 
                   <v-btn
@@ -56,7 +56,7 @@
                     solo small
                     @click="Te(5)"
                   >
-                    45woo
+                  載入 路人BB 資料
                   </v-btn> 
                   
                   <!-- {{ tutorials }} -->
