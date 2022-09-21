@@ -1,21 +1,22 @@
 <template> 
     <div class=" flex w-full overflow-y-auto h-screen">  
-      <div class="flex flex-col" v-show="play_lv ==5"  > 
+      <div class="w-full " v-show="play_lv ==5"  > 
         <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
           <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 5" >  
             <div class="grid grid-cols-1 gap-0.5">
-            <div class="col-span-1" v-show="tutorial.sno_dtl !=99">  
+            <div class="col-span-6" v-show="tutorial.sno_dtl !=99">  
               <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
                   {{ tutorial.pos }} 
                   {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
               </span>
             </div> 
-            <div class="col-span-1  "> 
+              <div class="col-span-6  "> 
                 <span class="text-3xl text-green-700 font-semibold w-full">{{ tutorial.question }}</span>
             </div>  
 
-            <div class="col-span-1">  
-              <v-container class="px-0" fluid >   
+            <div class="col-span-6">  
+              <v-container class="px-0" fluid >  
+                  
                   <v-radio-group  v-if="tutorial.sno_idx == 1" v-model="rds[1]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                     <v-radio dense color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1" ></v-radio>   </v-radio-group>
                   <v-radio-group  v-if="tutorial.sno_idx == 2" v-model="rds[2]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
@@ -72,20 +73,20 @@
                     <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                   <v-radio-group  v-if="tutorial.sno_idx == 26" v-model="rds[26]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                   <v-radio-group  v-if="tutorial.sno_idx == 27" v-model="rds[27]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                   
                     <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                   
                     <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                     <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
 
                   <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                    <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                  <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                   <v-radio-group  v-if="tutorial.sno_idx == 32" v-model="rds[32]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                     <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                   <v-radio-group  v-if="tutorial.sno_idx == 33" v-model="rds[33]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
@@ -144,352 +145,48 @@
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                     <v-radio-group  v-if="tutorial.sno_idx == 57" v-model="rds[57]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                       <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-
-                    <v-radio-group  v-if="tutorial.sno_idx == 58" v-model="rds[58]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                    <v-radio-group  v-if="tutorial.sno_idx == 59" v-model="rds[59]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                    <v-radio-group  v-if="tutorial.sno_idx == 60" v-model="rds[60]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                      
-                    <v-radio-group  v-if="tutorial.sno_idx == 61" v-model="rds[61]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                    <v-radio-group  v-if="tutorial.sno_idx == 62" v-model="rds[62]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                    <v-radio-group  v-if="tutorial.sno_idx == 63" v-model="rds[63]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                      <v-radio color="red" class="text-white text-xs mr-5" v-if="quesopts !='' " :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
               </v-container>
             </div> 
           </div>  
                       
-          </v-list-item>  
-        </v-list-item-group>  
+          </v-list-item> 
+            <button class="py-5 m-5 bg-red-500 w-full hover:bg-red-400 text-white 
+                          font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
+                          @click="savePtst(2)" >
+                    填答完成
+            </button> 
+        </v-list-item-group>   
 
-        <div class="grid grid-cols-1 gap-0.5">
-          <div class="col-span-1 flex justify-center ">
-            <a class="text-base text-gray-500"> 操作提示訊息 </a>
-            {{ }}
-
-          </div>
-          <div class="col-span-1">
-            <v-expansion-panels > 
+        <div class=" mb-30"  > 
+          <v-expansion-panels > 
             <v-expansion-panel >
                 <v-expansion-panel-header>
-                    <a class="rounded-full text-lg bg-gray-100 px-5"> 計算結果，如下 ： </a> 
+                    <a class="rounded-full text-lg bg-gray-100 px-5"> DASH 計算結果，如以下 3 個指數 ： </a> 
                 </v-expansion-panel-header>
 
                 <v-expansion-panel-content>  
-
-                  <table class="table-auto">
-                    <thead>
-                      <tr>
-                        <th>Song</th>
-                        <th>Artist</th>
-                        <th>Year</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                        <td>Malcolm Lockyer</td>
-                        <td>1961</td>
-                      </tr>
-                      <tr>
-                        <td>Witchy Woman</td>
-                        <td>The Eagles</td>
-                        <td>1972</td>
-                      </tr>
-                      <tr>
-                        <td>Shining Star</td>
-                        <td>Earth, Wind, and Fire</td>
-                        <td>1975</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <table class="table-auto">
-                    <thead>
-                      <tr>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 text-left 
-                                text-xs font-semibold text-gray-700 uppercase "
-                        >
-                          部位
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase "
-                        >
-                          Overall Hand Function
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                          Activities of Daily Living
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                          Aesthetics
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                          Satisfaction
-                        </th> 
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <div class="flex">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                              />
-                            </div>
-                            <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                右手
-                              </p> 
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} </p> 
-                        </td>
-                      
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Handed</p>  
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 }}     </p> 
-                        
-                          <p class="text-gray-600 whitespace-no-wrap">Overall ADL</p>
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ (Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 + Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 ) /2 }} </p>  -->
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-blue-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Handed : {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
-                          </span> 
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-green-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Overall ADL : {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
+                    <div class=" mb-30"  > 
+                      <div class ="flex my-10"> 
+                        <div class ="mx-5">
+                          DASH失能/症狀分數 :
+                          <span class="w-1/4 text-6xl font-black"> {{ Math.round( (((rds[1] + rds[2] +rds[3] +rds[4] +rds[5] + rds[6] +rds[7] + rds[8] + rds[9] +rds[10] 
+                                                                                  + rds[11] +rds[12] +rds[13] +rds[14] +rds[15] + rds[16] +rds[17] +rds[18] +rds[19] +rds[20] 
+                                                                                  + rds[21] +rds[22] +rds[23] +rds[24] +rds[25] +rds[26] +rds[27] +rds[28] +rds[29]+rds[30] 
+                                                                                  + rds[31] )/31)-1) *100)/100*25  }}  
                           </span>
-                        </td> 
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Aesthetics</p> -->
-                          <p class="text-gray-900  text-xl whitespace-no-wrap">{{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }}  </p> 
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Satisfaction</p> -->
-                          <p class="text-gray-900 text-xl whitespace-no-wrap">{{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} </p> 
-                        </td> 
-                      </tr>
-
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <div class="flex">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                              />
-                            </div>
-                            <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                左手
-                              </p> 
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} </p> 
-                        </td>
-                      
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Handed</p>  
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">   </p>  -->
-                        
-                          
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-blue-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Handed : {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
-                          </span> 
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-green-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Overall ADL : {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
+                        </div>
+                        <div class ="mx-5">
+                          工作自選 :
+                          <span class="w-1/4 text-6xl font-black">  {{ Math.round(((rds[36] +rds[33] +rds[34] +rds[35])-1) *100)/100 }} 
                           </span>
-
-                            <!-- <p class="text-gray-600 whitespace-no-wrap"></p> -->
-
-
-                          <!-- <p class="text-gray-900 whitespace-no-wrap text-xl"></p>  -->
-                        </td> 
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Aesthetics</p> -->
-                          <p class="text-gray-900  text-xl whitespace-no-wrap">{{ Math.round( ((((rds[42]+rds[43]+rds[44]+rds[45]/1)-4 ))/16)*10000)/100 }}     </p> 
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Satisfaction</p> -->
-                          <p class="text-gray-900 text-xl whitespace-no-wrap">{{ Math.round( ((((rds[52]+rds[53]+rds[54]+rds[55]+rds[56]+rds[57]/1)-30 )*(-1))/24)*10000)/100 }}   </p> 
-                        </td> 
-                      </tr>
-
-                      <!-- <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <div class="flex">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                              />
-                            </div>
-                            <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                左手
-                              </p>
-                              <p class="text-gray-600 whitespace-no-wrap">000003</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap">$214,000</p>
-                          <p class="text-gray-600 whitespace-no-wrap">USD</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap">Sept 25, 2019</p>
-                          <p class="text-gray-600 whitespace-no-wrap">Due in 6 days</p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <span
-                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
-                          >
-                            <span
-                              aria-hidden
-                              class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Paid</span>
+                        </div> 
+                        <div class ="mx-5">
+                          音樂自選 :
+                          <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((rds[41] +rds[42] +rds[43] +rds[44])-1) *100)/100 }} 
                           </span>
-                        </td>
-                        <td
-                          class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right"
-                        >
-                          <button
-                            type="button"
-                            class="inline-block text-gray-500 hover:text-gray-700"
-                          >
-                            <svg
-                              class="inline-block h-6 w-6 fill-current"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z"
-                              />
-                            </svg>
-                          </button>
-                        </td>
-                      </tr>  -->
-                    </tbody>
-                  </table>
-
-                  <div class ="flex my-10"> 
-                    <!-- <div class ="mx-5">
-                      (1) overall hand function : 
-                      <br>
-                      <span class="w-1/4 text-3xl font-black"> 
-                        右手 : {{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} 
-                        左手 : {{ Math.round( ((((rds[6]+rds[7]+rds[8]+rds[9]+rds[10]/1)-25 )*(-1))/20)*10000)/100 }}    
-                      </span>
-                    </div>
-                    <div class ="mx-5">
-                      (2) activities of daily living : 
-                      <br>
-                      <span class="w-1/4 text-xl font-black"> 
-                        右手_1_handed: 
-                        {{ Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 }}  
-                        右手_Overall ADL: 
-                        {{ (Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 + Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 ) /2 }}
-                      </span>
-                      <br>
-                      <span class="w-1/4 text-xl font-black"> 
-                        左手_1_handed: 
-                        {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  
-                        左手_Overall ADL: 
-                        {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}}
-                      </span>
-                      <br>
-                      (2) 2-handed : 
-                      <br>
-                      <span class="w-1/4 text-xl font-black"> 
-                        {{ Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 }}   
-                      </span>
-                    </div>  -->
-                    <div class ="mx-5 text-4xl">  
-
-                      <span
-                        class="relative inline-block m-1 px-3 py-1 font-semibold text-red-900 leading-tight"
-                      >
-                        <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
-                        ></span>
-                        <span class="relative"> Work : {{ Math.round( ((((rds[28]+rds[29]+rds[30]+rds[31]+rds[32]/1)-5 ))/20)*10000)/100 }}    </span>
-                      </span> 
-                      <span
-                        class="relative inline-block m-1 px-3 py-1 font-semibold text-yellow-900 leading-tight"
-                      >
-                        <span aria-hidden class="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
-                        ></span>
-                        <span class="relative">Pain : {{ Math.round( ((((rds[33]+rds[34]+rds[35]+rds[36]+rds[37]/1)-25 )*(-1))/20)*10000)/100 }}   </span>
-                      </span>
-                      
-                      <!-- <span class="w-1/4 text-xl font-black"> 
-                        (3) work :  {{ Math.round( ((((rds[28]+rds[29]+rds[30]+rds[31]+rds[32]/1)-5 ))/20)*10000)/100 }}   
-                      </span> -->
-                    </div> 
-                    <div class ="mx-5"> 
-                      <!-- <span class="w-1/4 text-xl font-black"> 
-                        (4) pain :  {{ Math.round( ((((rds[33]+rds[34]+rds[35]+rds[36]+rds[37]/1)-25 )*(-1))/20)*10000)/100 }}    
-                      </span> -->
-                    </div>   
-                    <!-- <div class ="mx-5"> 
-                      (5) aesthetics
-                      <br>
-                      <span class="w-1/4 text-xl font-black"> 
-                        右手 : {{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }} 
-                        左手 : {{ Math.round( ((((rds[42]+rds[43]+rds[44]+rds[45]/1)-4 ))/16)*10000)/100 }}   
-                      </span>
-                    </div>   
-                    <div class ="mx-5"> 
-                      (6) satisfaction 
-                      <br>
-                      <span class="w-1/4 text-xl font-black"> 
-                        右手 : {{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} 
-                        左手 : {{ Math.round( ((((rds[52]+rds[53]+rds[54]+rds[55]+rds[56]+rds[57]/1)-30 )*(-1))/24)*10000)/100 }}   
-                      </span>
-                    </div>   -->
-                  </div>
+                        </div> 
+                      </div> 
+                  </div>  
                     
                 </v-expansion-panel-content>
             </v-expansion-panel>
@@ -501,48 +198,55 @@
 
                 <v-expansion-panel-content>   
                   <span class=" text-base"> 詳細答題內容 </span>
-                  <div class = "m-5 flex"> 
-
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 1~10 】 </span>
-                    <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 1 && n <= 10" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  <div class = "m-5 flex">
+                 
+                  <td class="w-1/8" >
+                    <span class=" text-lg font-black"> 【 1~5 】 </span>
+                    <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 1 && n <= 5" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 6~10 】 </span>
+                    <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 6 && n <= 10" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"  >
+                    <span class=" text-lg font-black"> 【 11~15 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 15" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 16~20 】 </span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 16 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 21~25 】 </span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 25" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 26~30 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 26 && n <= 30" > {{ n }} 題: {{ rds[n] }}  </span> 
                   </td> 
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 11~20 】 </span>
-                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 31~35 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 31 && n <= 35" > {{ n }} 題: {{ rds[n] }}  </span> 
                   </td> 
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 21~30 】</span>
-                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 30" > {{ n }} 題: {{ rds[n] }}  </span> 
-                  </td>  
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 31~40 】</span>
-                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 31 && n <= 40" > {{ n }} 題: {{ rds[n] }}  </span> 
-                  </td> 
-
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 41~50 】</span>
-                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 41 && n <= 50" > {{ n }} 題: {{ rds[n] }}  </span> 
-                  </td> 
-
-                  <td class="w-1/6"   >
-                    <span class=" text-lg font-black"> 【 51~60 】</span>
-                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 51 && n <= 60" > {{ n }} 題: {{ rds[n] }}  </span> 
+  
+                  <td class="w-1/9"   >
+                    <span class=" text-lg font-black"> 【 36~40 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 36 && n <= 40" > {{ n }} 題: {{ rds[n] }}  </span> 
                   </td> 
                 </div>
                     
                     
                 </v-expansion-panel-content>
             </v-expansion-panel>
-        </v-expansion-panels>  
-          </div>
-        </div>
+        </v-expansion-panels>
 
-        <button class="py-5 py-2 px-4 m-2 bg-red-500 w-full hover:bg-red-400 text-white 
-                      font-bold border-b-4 border-red-700 hover:border-red-500 rounded" 
-                      @click="savePtst(2)" >
-                送出答案
-        </button> 
+           
+        </div>  
       </div> 
        
     </div>
@@ -587,8 +291,7 @@ export default {
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
       tab:"k0",
       // radios:[],
-      rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, ],
-      // rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       rds_BSRS:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios1:"null",
