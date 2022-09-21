@@ -827,17 +827,17 @@
                   <span class="w-1/4 text-6xl font-black"> {{ Math.round( (((rds[1] + rds[2] +rds[3] +rds[4] +rds[5] + rds[6] +rds[7] + rds[8] + rds[9] +rds[10] 
                                                                           + rds[11] +rds[12] +rds[13] +rds[14] +rds[15] + rds[16] +rds[17] +rds[18] +rds[19] +rds[20] 
                                                                           + rds[21] +rds[22] +rds[23] +rds[24] +rds[25] +rds[26] +rds[27] +rds[28] +rds[29]+rds[30] 
-                                                                          + rds[31] )/31)-1) *100)/100*25  }}  
+                                                                          + rds[31] )/29)-1) *100)/100*25  }}  
                   </span>
                 </div>
                 <div class ="mx-5">
                   工作自選 :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round(((rds[36] +rds[33] +rds[34] +rds[35])-1) *100)/100 }} 
+                  <span class="w-1/4 text-6xl font-black">  {{ Math.round(((rds[36] +rds[33] +rds[34] +rds[35])/4-1) *100)/100 }} 
                   </span>
                 </div> 
                 <div class ="mx-5">
                   音樂自選 :
-                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((rds[41] +rds[42] +rds[43] +rds[44])-1) *100)/100 }} 
+                  <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((rds[41] +rds[42] +rds[43] +rds[44])/4-1) *100)/100 }} 
                   </span>
                 </div> 
                  

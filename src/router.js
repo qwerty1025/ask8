@@ -69,12 +69,40 @@ export default new Router({
     }, 
 
     {
-      path: '/quiz2',
-      name: 'Quiz',
-      component: () => import("./components/tst_RadioBtn")
-      // component: () => import("./components/Quiz/quizHere")
+      path: '/quiz2', name: 'Quiz_1',
+      component: () => import("./components/tst_RadioBtn1") 
     }, 
 
+    {
+      path: '/quiz2', name: 'Quiz_2',
+      component: () => import("./components/tst_RadioBtn2") 
+    }, 
+    {
+      path: '/quiz3', name: 'Quiz_3',
+      component: () => import("./components/tst_RadioBtn3") 
+    }, 
+
+    {
+      path: '/quiz4', name: 'Quiz_4',
+      component: () => import("./components/tst_RadioBtn4") 
+    }, 
+    {
+      path: '/quiz5', name: 'Quiz_5',
+      component: () => import("./components/tst_RadioBtn5") 
+    }, 
+
+    {
+      path: '/quiz6', name: 'Quiz_6',
+      component: () => import("./components/tst_RadioBtn6") 
+    }, 
+    {
+      path: '/quiz7', name: 'Quiz_7',
+      component: () => import("./components/tst_RadioBtn7") 
+    },   
+    {
+      path: '/quiz8', name: 'Quiz_8',
+      component: () => import("./components/tst_RadioBtn8") 
+    }, 
     
 
 
