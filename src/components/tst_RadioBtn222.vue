@@ -1,7 +1,7 @@
 <template> 
     <div class=" flex w-full"> 
-        
-      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==3"> 
+        <!-- {{ tutorials }} -->
+      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==2"> 
         <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
         <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 2" >  
           <div class="grid grid-cols-6 gap-1">
@@ -80,37 +80,7 @@
                  
                   <v-radio-group  v-if="tutorial.sno_idx == 28" v-model="rds[28]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 29" v-model="rds[29]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 30" v-model="rds[30]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 31" v-model="rds[31]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 32" v-model="rds[32]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-
-                 <v-radio-group  v-if="tutorial.sno_idx == 33" v-model="rds[33]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 34" v-model="rds[34]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 35" v-model="rds[35]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-
-                 <v-radio-group  v-if="tutorial.sno_idx == 36" v-model="rds[36]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  
-                 <v-radio-group  v-if="tutorial.sno_idx == 37" v-model="rds[37]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 41" v-model="rds[41]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <!-- <v-radio-group  v-if="tutorial.sno_idx == 45" v-model="rds[45]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group> -->
             </v-container> 
           </div> 
         </div>  
@@ -140,25 +110,25 @@
                           class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
                                 text-left text-xs font-semibold text-gray-700 uppercase "
                         >
-                        DASH失能/症狀分數
+                        PHYS :
                         </th>
                         <th
                           class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
                                 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                         >
-                        Quick DASH
+                        PSYCH :
                         </th> 
                         <th
                           class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
                                 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                         >
-                        工作自選
-                        </th>
+                        SOCIAL :
+                        </th> 
                         <th
                           class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
                                 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                         >
-                        音樂自選
+                        ENVIR :
                         </th> 
                       </tr>
                     </thead>
@@ -166,29 +136,27 @@
                       <tr>  
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
                           <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            <span class="w-1/4 text-6xl font-black">   {{ Math.round( (((rds[1] + rds[2] +rds[3] +rds[4] +rds[5] + rds[6] +rds[7] + rds[8] + rds[9] +rds[10] 
-                                                                          + rds[11] +rds[12] +rds[13] +rds[14] +rds[15] + rds[16] +rds[17] +rds[18] +rds[19] +rds[20] 
-                                                                          + rds[21] +rds[23] +rds[24] +rds[25] +rds[26] +rds[27] +rds[28] +rds[29]+rds[30] 
-                                                                          + rds[31] )/29)) *100*25)/100  }} 
+                            <span class="w-1/4 text-6xl font-black">   
+                              {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
                             </span> 
                           </p> 
                         </td>  
                         
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
                           <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round( (((rds[1] + rds[7] +rds[10] +rds[14] +rds[16] + rds[18] +rds[23] + rds[24] + rds[25] + rds[27] +rds[30])/10)) *100)/100*25  }} 
+                              {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
                           </p> 
                         </td>
 
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
                           <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round((((rds[33] +rds[34] +rds[35] +rds[36])/4)-1) *100)/100*25 }} 
+                            {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
                           </p> 
                         </td>
 
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
                           <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round((((rds[41] +rds[40] +rds[39] +rds[38])/4)-1) *100)/100*25 }} 
+                            {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}
                           </p> 
                         </td> 
                       </tr> 
@@ -216,32 +184,9 @@
                       <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
                     </td> 
                     <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 21~30 】</span>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 30" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                    <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 31~40 】</span>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n == 31" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                  </div>
-                  <div class = "m-5 flex">  
-                    <td class="w-1/2"   >
-                      <span class=" text-lg font-black"> 【 工作自選 】</span>
-                      <br> 
-                       <span class=" px-3 bg-gray-200 text-gray-900 font-black text-xl rounded-full"
-                        > 32題： {{ rds[32] }}  </span> 
-                       <p class="text-xs text-gary-400">(0:退休人員 ,1:受傷後沒有工作) </p>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 33 && n <= 36" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-
-                    <td class="w-1/2"   >
-                      <span class=" text-lg font-black"> 【 音樂自選 】</span>
-                      <br>  
-                       <span class=" px-3  bg-gray-200 text-gray-900 font-black text-xl rounded-full"
-                        > 37題： {{ rds[37] }}  </span>
-                       <p class="text-xs text-gary-400">(0:我不運動或玩樂器,1:其他) </p>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 38 && n <= 41" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
+                      <span class=" text-lg font-black"> 【 21~28 】</span>
+                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 28" > {{ n }} 題: {{ rds[n] }}  </span> 
+                    </td>  
                   </div> 
                 </v-expansion-panel-content>
             </v-expansion-panel>
@@ -250,7 +195,7 @@
         </div>
         
         
-      <button class="py-5 my-5 bg-red-500 w-full hover:bg-red-400 text-white 
+      <button class="py-5 m-5 bg-red-500 w-full hover:bg-red-400 text-white 
                     font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
                     @click="savePtst(1)" >
               填答完成
@@ -275,7 +220,7 @@ export default {
       // - - - - - 
         currentTime: Date.now(),
         cT:"",
-        play_lv:'3',
+        play_lv:'2',
         // - - - - - 
         selectedButton: "",
         //- - - - -
@@ -291,20 +236,12 @@ export default {
       tab:"k0",
       // radios:[],
       rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,  0,0,0,0,0, 0,0,0,0,0 ],
-      
-      // 宗宗良
-      // rds:[0, 2,2,3,1,1, 2,1,1,1,1, 3,1,1,1,1, 2,1,1,2,2, 1,0,2,3,3, 3,3,4,3,2, 2, 1,3,3,3,3, 0,2,2,2,2],
-      // 靜淑靜
-      // rds:[0, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1, 1,1,1,1,1, 0,1,1,1,1],
-      
-
+       
 
       rds_BSRS:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-      radios1:"null",
-      radios2:"null",
-      ex7:[],
-      ex8: [ { ans: "", },{ ans: "", },{ ans: "", },{ ans: "", },{ ans: "", }],
+       
+       
       // - - - - 
       show: false,
       tutorials: [],

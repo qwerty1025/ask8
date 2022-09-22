@@ -1,6 +1,6 @@
 <template> 
     <div class=" flex justify-center ">
-    <div class="w-full ">
+      <div class="  w-full overflow-y-auto h-screen">  
             <div class="grid grid-cols-9 gap-1">
               
                 <!-- <div class="col-span-3 ..."></div>
@@ -1796,7 +1796,7 @@
                 </div>
                 <div class ="mx-5 flex-2">  
                     <div class ="mx-5">
-                      生理功能 PF(transformed scale) : 
+                      生理功能 PF : 
                       {{ sf_36_PE }}
                       <span class="w-1/4 text-6xl font-black"> 
                         {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
@@ -1804,20 +1804,20 @@
                     </div>
                     
                     <div class ="mx-5">
-                      角色限制－生理 RP(transformed scale) : 
+                      角色限制－生理 RP : 
                       <span class="w-1/4 text-6xl font-black"> 
                         {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
                       </span>
                     </div>
                     <div class ="mx-5">
-                      身體疼痛 BP(transformed scale) : 
+                      身體疼痛 BP : 
                       <span class="w-1/4 text-6xl font-black"> 
                         {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
                       </span>
                     </div>
                 
                     <div class ="mx-5">
-                      一般自覺健康 GH(transformed scale) : 
+                      一般自覺健康 GH  : 
                       <span class="w-1/4 text-6xl font-black"> 
                         {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
                       </span>

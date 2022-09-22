@@ -1,7 +1,7 @@
 <template> 
     <div class=" flex w-full"> 
-        
-      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==3"> 
+        {{ tutorials }}
+      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==1"> 
         <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
         <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 2" >  
           <div class="grid grid-cols-6 gap-1">
@@ -99,105 +99,31 @@
                  <v-radio-group  v-if="tutorial.sno_idx == 36" v-model="rds[36]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  
-                 <v-radio-group  v-if="tutorial.sno_idx == 37" v-model="rds[37]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 38" v-model="rds[38]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <v-radio-group  v-if="tutorial.sno_idx == 39" v-model="rds[39]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  <v-radio-group  v-if="tutorial.sno_idx == 40" v-model="rds[40]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
                  <v-radio-group  v-if="tutorial.sno_idx == 41" v-model="rds[41]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                    <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
-                 <!-- <v-radio-group  v-if="tutorial.sno_idx == 45" v-model="rds[45]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group> -->
+                 <v-radio-group  v-if="tutorial.sno_idx == 42" v-model="rds[42]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                 <v-radio-group  v-if="tutorial.sno_idx == 43" v-model="rds[43]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                 <v-radio-group  v-if="tutorial.sno_idx == 44" v-model="rds[44]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
+                 <v-radio-group  v-if="tutorial.sno_idx == 45" v-model="rds[45]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                   <v-radio color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>   </v-radio-group>
             </v-container> 
           </div> 
         </div>  
                     
         </v-list-item> 
-          
-      </v-list-item-group> 
-      <div class="grid grid-cols-1 gap-0.5">
-          <div class="col-span-1 flex justify-center ">
-            <a class="text-base text-gray-500"> 操作提示訊息 </a>
-            {{ }}
-
-          </div>
-          <div class="col-span-1">
-            <v-expansion-panels > 
-            <v-expansion-panel >
-                <v-expansion-panel-header>
-                    <a class="rounded-full text-lg bg-gray-100 px-5"> 計算結果，如下 ： </a> 
-                </v-expansion-panel-header>
-
-                <v-expansion-panel-content>  
-
-                  <table class="table-auto">
-                    <thead>
-                      <tr> 
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase "
-                        >
-                        DASH失能/症狀分數
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                        Quick DASH
-                        </th> 
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                        工作自選
-                        </th>
-                        <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                        >
-                        音樂自選
-                        </th> 
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>  
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            <span class="w-1/4 text-6xl font-black">   {{ Math.round( (((rds[1] + rds[2] +rds[3] +rds[4] +rds[5] + rds[6] +rds[7] + rds[8] + rds[9] +rds[10] 
-                                                                          + rds[11] +rds[12] +rds[13] +rds[14] +rds[15] + rds[16] +rds[17] +rds[18] +rds[19] +rds[20] 
-                                                                          + rds[21] +rds[23] +rds[24] +rds[25] +rds[26] +rds[27] +rds[28] +rds[29]+rds[30] 
-                                                                          + rds[31] )/29)) *100*25)/100  }} 
-                            </span> 
-                          </p> 
-                        </td>  
-                        
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round( (((rds[1] + rds[7] +rds[10] +rds[14] +rds[16] + rds[18] +rds[23] + rds[24] + rds[25] + rds[27] +rds[30])/10)) *100)/100*25  }} 
-                          </p> 
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round((((rds[33] +rds[34] +rds[35] +rds[36])/4)-1) *100)/100*25 }} 
-                          </p> 
-                        </td>
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            {{ Math.round((((rds[41] +rds[40] +rds[39] +rds[38])/4)-1) *100)/100*25 }} 
-                          </p> 
-                        </td> 
-                      </tr> 
-                    </tbody>
-                  </table> 
-                    
-                </v-expansion-panel-content>
-            </v-expansion-panel>
-
+          <button class="py-5 m-5 bg-red-500 w-full hover:bg-red-400 text-white 
+                        font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
+                        @click="savePtst(1)" >
+                  填答完成
+          </button> 
+      </v-list-item-group>  
+        <div class=" mb-30"  > 
+          <v-expansion-panels >
             <v-expansion-panel >
                 <v-expansion-panel-header>
                     <a class="rounded-full text-lg bg-gray-100 px-5"> 詳細答題內容 </a> 
@@ -205,57 +131,88 @@
 
                 <v-expansion-panel-content>   
                   <span class=" text-base"> 詳細答題內容 </span>
-                  <div class = "m-5 flex"> 
-
-                    <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 1~10 】 </span>
-                      <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 1 && n <= 10" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                    <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 11~20 】 </span>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                    <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 21~30 】</span>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 30" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                    <td class="w-1/4"   >
-                      <span class=" text-lg font-black"> 【 31~40 】</span>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n == 31" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                  </div>
-                  <div class = "m-5 flex">  
-                    <td class="w-1/2"   >
-                      <span class=" text-lg font-black"> 【 工作自選 】</span>
-                      <br> 
-                       <span class=" px-3 bg-gray-200 text-gray-900 font-black text-xl rounded-full"
-                        > 32題： {{ rds[32] }}  </span> 
-                       <p class="text-xs text-gary-400">(0:退休人員 ,1:受傷後沒有工作) </p>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 33 && n <= 36" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-
-                    <td class="w-1/2"   >
-                      <span class=" text-lg font-black"> 【 音樂自選 】</span>
-                      <br>  
-                       <span class=" px-3  bg-gray-200 text-gray-900 font-black text-xl rounded-full"
-                        > 37題： {{ rds[37] }}  </span>
-                       <p class="text-xs text-gary-400">(0:我不運動或玩樂器,1:其他) </p>
-                      <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 38 && n <= 41" > {{ n }} 題: {{ rds[n] }}  </span> 
-                    </td> 
-                  </div> 
-                </v-expansion-panel-content>
-            </v-expansion-panel>
-        </v-expansion-panels>  
-          </div>
-        </div>
-        
-        
-      <button class="py-5 my-5 bg-red-500 w-full hover:bg-red-400 text-white 
-                    font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
-                    @click="savePtst(1)" >
-              填答完成
-      </button> 
+                  <div class = "m-5 flex">
+                 
+                  <td class="w-1/8" >
+                    <span class=" text-lg font-black"> 【 1~5 】 </span>
+                    <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 1 && n <= 5" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
   
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 6~10 】 </span>
+                    <span class="ml-5 flex" v-for="n in rds.length"  v-if="n >= 6 && n <= 10" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"  >
+                    <span class=" text-lg font-black"> 【 11~15 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 11 && n <= 15" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 16~20 】 </span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 16 && n <= 20" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 21~25 】 </span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 21 && n <= 25" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td>
+  
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 26~30 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 26 && n <= 30" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td> 
+                  <td class="w-1/8"   >
+                    <span class=" text-lg font-black"> 【 31~35 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 31 && n <= 35" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td> 
+  
+                  <td class="w-1/9"   >
+                    <span class=" text-lg font-black"> 【 36~40 】</span>
+                    <span class="ml-6 flex" v-for="n in rds.length"  v-if="n >= 36 && n <= 40" > {{ n }} 題: {{ rds[n] }}  </span> 
+                  </td> 
+                </div>
+                    
+                    
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+
+            <v-expansion-panel >
+                <v-expansion-panel-header>
+                    <a class="rounded-full text-lg bg-gray-100 px-5"> 答題計算結果，如以下 4個指數 ： </a> 
+                </v-expansion-panel-header>
+
+                <v-expansion-panel-content>  
+                    <div class=" mb-30"  >
+                      DASH 計算結果，如以下 3 個指數 ：
+                      <div class ="flex my-10"> 
+                        <div class ="mx-5">
+                          DASH失能/症狀分數 :
+                          <span class="w-1/4 text-6xl font-black"> {{ Math.round( (((rds[1] + rds[2] +rds[3] +rds[4] +rds[5] + rds[6] +rds[7] + rds[8] + rds[9] +rds[10] 
+                                                                                  + rds[11] +rds[12] +rds[13] +rds[14] +rds[15] + rds[16] +rds[17] +rds[18] +rds[19] +rds[20] 
+                                                                                  + rds[21] +rds[22] +rds[23] +rds[24] +rds[25] +rds[26] +rds[27] +rds[28] +rds[29]+rds[30] 
+                                                                                  + rds[31] )/31)-1) *100)/100*25  }}  
+                          </span>
+                        </div>
+                        <div class ="mx-5">
+                          工作自選 :
+                          <span class="w-1/4 text-6xl font-black">  {{ Math.round(((rds[36] +rds[33] +rds[34] +rds[35])-1) *100)/100 }} 
+                          </span>
+                        </div> 
+                        <div class ="mx-5">
+                          音樂自選 :
+                          <span class="w-1/4 text-6xl font-black">  {{ Math.round( ((rds[41] +rds[42] +rds[43] +rds[44])-1) *100)/100 }} 
+                          </span>
+                        </div> 
+                      </div> 
+                  </div>  
+                    
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+        </v-expansion-panels>
+
+           
+        </div>  
       </div> 
        
     </div>
@@ -263,48 +220,44 @@
  
 
 <script>
- 
+
+import TutorialDetails  from "./asask5_Mdf";
 import PlayerService    from "../services/playerService";
 import SeatDataService  from "../services/SeatPrepareService";
-import Cookies          from 'js-cookie'  
+import Cookies          from 'js-cookie' 
+
+
+import VueRadioButton from "vue-radio-button";
+
+//  import Swal from 'sweetalert2';
+// window.Swal = Swal;
 
 export default {
-  name: "Quiz-3",  
+  name: "tutorials-list",
+  components: { VueRadioButton },
+  
+
   data() {
     return { 
       // - - - - - 
         currentTime: Date.now(),
         cT:"",
-        play_lv:'3',
+        play_lv:'1',
         // - - - - - 
         selectedButton: "",
         //- - - - -
 
       msg:"",
-      dialog: false,
-      dialog2: false,
-      cut_opts:['術前','術後一個月','術後三個月','術後四個月','術後六個月','術後九個月','術後一年','術後兩年','術後三年'], 
- 
-
-      menu2:false,
+        
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
       tab:"k0",
       // radios:[],
-      rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,  0,0,0,0,0, 0,0,0,0,0 ],
-      
-      // 宗宗良
-      // rds:[0, 2,2,3,1,1, 2,1,1,1,1, 3,1,1,1,1, 2,1,1,2,2, 1,0,2,3,3, 3,3,4,3,2, 2, 1,3,3,3,3, 0,2,2,2,2],
-      // 靜淑靜
-      // rds:[0, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1, 1,1,1,1,1, 0,1,1,1,1],
-      
-
-
+      rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       rds_BSRS:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios1:"null",
       radios2:"null",
-      ex7:[],
-      ex8: [ { ans: "", },{ ans: "", },{ ans: "", },{ ans: "", },{ ans: "", }],
+       
       // - - - - 
       show: false,
       tutorials: [],
@@ -350,18 +303,16 @@ export default {
            
         },
     };
-  }, 
-  
+  },  
   methods: { 
   
-  getAnysisReport(){ 
-
-              Swal.fire({
-              icon: 'question',
-              title: '是否好奇 測試完的結果?',
-              text: '讓我 分析數據後,帶您了解 相關的診斷 建議',
-              footer: '<a href=""> 重新測驗 </a>'
-            })
+  getAnysisReport(){  
+      Swal.fire({
+      icon: 'question',
+      title: '是否好奇 測試完的結果?',
+      text: '讓我 分析數據後,帶您了解 相關的診斷 建議',
+      footer: '<a href=""> 重新測驗 </a>'
+    })
   },
 
 Te(idx){ 
@@ -407,16 +358,28 @@ mdf_here(e) {
       };
 
       SeatDataService.update(e.key,data)
-        .then(() => { 
-        this.newSt; 
+        .then(() => {
+          // Swal.fire({
+          //   position: 'top-end',
+          //   icon: 'success',
+          //   title: '修改成功',
+          //   showConfirmButton: false,
+          //   timer: 500
+          // })
+
+          // this.submitted = true;
+        this.newSt;
+        
         })
         .catch(e => {
           console.log(e);
         });
     },
 
-    savePtst(idx){   
-        if( idx == 1){  
+    savePtst(idx){  
+
+        if( idx == 1){ 
+
            // 題本 1 計算方式
             this.qufd[0]=Math.round(((((((6-this.rds[3])+(6-this.rds[4])+this.rds[10]+this.rds[15]+this.rds[16]+this.rds[17]+this.rds[18])/7)*4)-4)*(100/16))*10)/10; 
             this.qufd[1]=Math.round( ((((this.rds[5] + this.rds[6] +this.rds[7]+this.rds[11]+this.rds[19]+(6-this.rds[26]))/6)*4)-4)*(100/16)*10)/10;
@@ -431,6 +394,12 @@ mdf_here(e) {
                       patient_ID  : this.pI, 
                       quiz_statu  : this.pS,
                       quiz_encode : 1,
+                      
+
+                      // name        : this.tmplr.name,
+                      // patient_ID  : this.tmplr.patient_ID,  
+                      // quiz_statu  : this.tmplr.quiz_statu,
+
                       prePare     : this.tmplr.prePare,
                       
                       quiz_date   : this.DaTe, 
@@ -458,7 +427,11 @@ mdf_here(e) {
           .catch(e => { console.log(e); });  
     },
 
-    savePdta() { 
+    savePdta() {
+
+      //  this.cntDat_qu1();
+      // this.qufd[0]=(6-this.radios[1]-this.radios[2]);
+
       this.qufd[0]=((((((6-this.radios[3])+(6-this.radios[4])+this.radios[10]+this.radios[15]+this.radios[16]+this.radios[17]+this.radios[18])/7)*4)-4)*(100/16)); 
       this.qufd[1]= ((((this.radios[5] + this.radios[6] +this.radios[7]+this.radios[11]+this.radios[19]+(6-+this.radios[26]))/6)*4)-4)*(100/16);
       this.qufd[2]=(((((this.radios[20] + this.radios[21] +this.radios[22]+this.radios[27])/4)*4)-4)*(100/16));           
@@ -502,11 +475,16 @@ mdf_here(e) {
         this.tmplr.quiz_statu = this.pS; 
         this.tmplr.name = this.pN;
         this.tmplr.patient_ID = this.pI;
-        this.tmplr.prePare = this.pP; 
-        this.dialog = false; 
+        this.tmplr.prePare = this.pP;
+
+        this.dialog = false;
+
         this.tab='k3'
         
-    }, 
+    },
+
+
+    
    
     removeCookie() {
       Cookies.remove('login')
@@ -520,7 +498,8 @@ mdf_here(e) {
         let key = item.key;
         let data = item.val();
         _tutorials.push({
-          key: key,  
+          key: key, 
+
 
           pos: data.pos,
           sno: data.sno,
@@ -569,20 +548,48 @@ mdf_here(e) {
         this.ex8[sno_idx].ans
     },
     updateCurrentTime(){ this.cT = Date.now(); },
-    transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); },
- 
-// this.cT = Date.now();
-    
-  }, 
+    transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); },  
+  },
+  // async mounted() {
+  //   // console.log(_tutorials.title);  
+  //    SeatDataService.getAll().on("value", this.onDataChange);  
+  // }, 
   mounted() {
     // console.log(_tutorials.title);  
-    this.interval = setInterval(this.updateCurrentTime, 1000);
-    //  SeatDataService.getAll().on("value", this.onDataChange);  
-     SeatDataService.getSome('pos').equalTo(this.play_lv).on("value", this.onDataChange); 
+    this.interval = setInterval(this.updateCurrentTime, 1000); 
+     SeatDataService.getSome('pos').equalTo('1').on("value", this.onDataChange); 
     //  SeatDataService.getSome('pos').equalTo('3').on("value", this.onDataChange); 
   },
   beforeDestroy() {
      SeatDataService.getAll().off("value", this.onDataChange);
-  },  
+  }, 
+
+    
 };
-</script> 
+</script>
+ 
+
+
+<style>
+.list {
+  text-align: left;
+  /* max-width: 750px; */
+  margin: auto;
+} 
+  .v-radio-label {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    transition: all 500ms;
+  }
+
+  .v-radio-active {
+    box-shadow: 0 15px 15px 0 rgba(12, 67, 75, 0.793);
+  }
+</style>

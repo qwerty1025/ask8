@@ -385,11 +385,17 @@
           </div>
         </div>
 
-        <button class="py-5 py-2 px-4 m-2 bg-red-500 w-full hover:bg-red-400 text-white 
+        <!-- <button class="py-5 py-2 px-4 m-2 bg-red-500 w-full hover:bg-red-400 text-white 
                       font-bold border-b-4 border-red-700 hover:border-red-500 rounded" 
                       @click="savePtst(2)" >
                 送出答案
-        </button> 
+        </button>  -->
+
+        <button class="py-5 my-5 bg-red-500 w-full hover:bg-red-400 text-white 
+                    font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
+                    @click="savePtst(5)" >
+              填答完成
+      </button> 
       </div> 
        
     </div>
@@ -397,8 +403,7 @@
  
 
 <script>
-
-import TutorialDetails  from "./asask5_Mdf";
+ 
 import PlayerService    from "../services/playerService";
 import SeatDataService  from "../services/SeatPrepareService";
 import Cookies          from 'js-cookie' 

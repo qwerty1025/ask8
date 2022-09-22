@@ -242,8 +242,8 @@ export default {
       // {
       //   v ='quiz2'
       // }
-      // window.location.assign("http://localhost:8000/#/quiz"+idx)
-      window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
+      window.location.assign("http://localhost:8000/#/quiz"+idx)
+      // window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
      
     },
     savePtst(){  
