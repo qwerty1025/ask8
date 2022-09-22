@@ -207,36 +207,36 @@
                     </tbody>
                   </table> -->
 
-                  <table class="table-auto">
+                  <table class="table-fixed">
                     <thead>
                       <tr>
                         <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 text-left 
-                                text-xs font-semibold text-gray-700 uppercase "
+                          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left 
+                                text-xs font-semibold text-gray-700   "
                         >
                           部位
                         </th>
                         <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase "
+                          class="px-2 py-3 border-b-2 border-gray-200 bg-gray-100 
+                                text-left text-xs font-semibold text-gray-700  "
                         >
-                          Overall Hand Function
+                          Overall Hand Function  
                         </th>
                         <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                          class="px-2 py-3 border-b-2 border-gray-200 bg-gray-100 
+                                text-center text-xs font-semibold text-gray-700 uppercase "
                         >
                           Activities of Daily Living
                         </th>
                         <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                          class="px-2 py-3 border-b-2 border-gray-200 bg-gray-100 
+                                text-center text-xs font-semibold text-gray-700 uppercase "
                         >
                           Aesthetics
                         </th>
                         <th
-                          class="px-5 py-1 border-b-2 border-gray-200 bg-gray-100 
-                                text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 
+                                text-left text-xs font-semibold text-gray-700 uppercase "
                         >
                           Satisfaction
                         </th> 
@@ -244,116 +244,71 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <div class="flex">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                              />
-                            </div>
-                            <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                右手
-                              </p> 
-                            </div>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
+                          <div class="flex"> 
+                            <p class="text-gray-900 text-4xl font-black "> 右手 </p> 
                           </div>
                         </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} </p> 
-                        </td>
-                      
-
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Handed</p>  
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 }}     </p> 
-                        
-                          <p class="text-gray-600 whitespace-no-wrap">Overall ADL</p>
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ (Math.round( ((((rds[11]+rds[12]+rds[13]+rds[14]+rds[15]/1)-25 )*(-1))/20)*10000)/100 + Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100 ) /2 }} </p>  -->
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-blue-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Handed : {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
-                          </span> 
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-green-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Overall ADL : {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
-                          </span>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white   ">
+                          <p class="text-gray-900 text-4xl font-black ">
+                            {{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} 
+                          </p> 
                         </td> 
 
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Aesthetics</p> -->
-                          <p class="text-gray-900  text-xl whitespace-no-wrap">{{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }}  </p> 
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">  
+                          <span class="relative inline-block m-1 px-5 py-1 text-blue-900 leading-tight" >
+                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full" ></span>
+                            <p>Handed : </p>
+                            <span class="relative text-4xl font-black">{{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
+                          </span> 
+                          <span  class="relative inline-block m-1 px-5 py-1 text-green-900 leading-tight" >
+                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full" ></span>
+                            <p>Overall ADL :  </p>
+                            <span class="relative text-4xl font-black">{{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
+                          </span> 
+                        </td>  
+
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white font-black text-4xl "> 
+                          <p class="text-gray-900">{{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }}  </p> 
                         </td>
 
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Satisfaction</p> -->
-                          <p class="text-gray-900 text-xl whitespace-no-wrap">{{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} </p> 
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white font-black text-4xl "> 
+                          <p class="text-gray-900 ">{{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} </p> 
                         </td> 
                       </tr>
 
-                      <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <div class="flex">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                              />
-                            </div>
-                            <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                左手
-                              </p> 
-                            </div>
+                      <tr> 
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
+                          <div class="flex"> 
+                            <p class="text-gray-900 text-4xl font-black "> 左手 </p> 
                           </div>
                         </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">{{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} </p> 
-                        </td>
-                      
 
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Handed</p>  
-                          <p class="text-gray-900 whitespace-no-wrap text-xl">   </p>  -->
-                        
-                          
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-blue-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Handed : {{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
-                          </span> 
-                          <span
-                            class="relative inline-block m-1 px-3 py-1 font-semibold text-green-900 leading-tight"
-                          >
-                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Overall ADL : {{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
-                          </span>
-
-                            <!-- <p class="text-gray-600 whitespace-no-wrap"></p> -->
-
-
-                          <!-- <p class="text-gray-900 whitespace-no-wrap text-xl"></p>  -->
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white   ">
+                          <p class="text-gray-900 text-4xl font-black ">
+                            {{ Math.round( ((((rds[1]+rds[2]+rds[3]+rds[4]+rds[5]/1)-25 )*(-1))/20)*10000)/100 }} 
+                          </p> 
                         </td> 
 
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Aesthetics</p> -->
-                          <p class="text-gray-900  text-xl whitespace-no-wrap">{{ Math.round( ((((rds[42]+rds[43]+rds[44]+rds[45]/1)-4 ))/16)*10000)/100 }}     </p> 
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white ">  
+                          <span class="relative inline-block m-1 px-5 py-1 text-blue-900 leading-tight" >
+                            <span aria-hidden class="absolute inset-0 bg-blue-200 opacity-50 rounded-full" ></span>
+                            <p>Handed : </p>
+                            <span class="relative text-4xl font-black">{{ Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 }}  </span>
+                          </span> 
+                          <span  class="relative inline-block m-1 px-5 py-1 text-green-900 leading-tight" >
+                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full" ></span>
+                            <p>Overall ADL :  </p>
+                            <span class="relative text-4xl font-black">{{ ( Math.round( ((((rds[16]+rds[17]+rds[18]+rds[19]+rds[20]/1)-25 )*(-1))/20)*10000)/100 +  Math.round( ((((rds[21]+rds[22]+rds[23]+rds[24]+rds[25]+rds[26]+rds[27]/1)-35 )*(-1))/28)*10000)/100  ) /2}} </span>
+                          </span> 
+                        </td>  
+
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white font-black text-4xl "> 
+                          <p class="text-gray-900">{{ Math.round( ((((rds[38]+rds[39]+rds[40]+rds[41]/1)-4 ))/16)*10000)/100 }}  </p> 
                         </td>
 
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white  ">
-                          <!-- <p class="text-gray-600 whitespace-no-wrap">Satisfaction</p> -->
-                          <p class="text-gray-900 text-xl whitespace-no-wrap">{{ Math.round( ((((rds[52]+rds[53]+rds[54]+rds[55]+rds[56]+rds[57]/1)-30 )*(-1))/24)*10000)/100 }}   </p> 
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white font-black text-4xl "> 
+                          <p class="text-gray-900 ">{{ Math.round( ((((rds[46]+rds[47]+rds[48]+rds[49]+rds[50]+rds[51]/1)-30 )*(-1))/24)*10000)/100 }} </p> 
                         </td> 
                       </tr> 
                     </tbody>
@@ -361,7 +316,7 @@
 
                   <div class ="flex my-10"> 
                    
-                    <div class ="mx-5 text-4xl">  
+                    <div class ="mx-5 text-lg font-black">  
 
                       <span
                         class="relative inline-block m-1 px-3 py-1 font-semibold text-red-900 leading-tight"
@@ -479,7 +434,13 @@ export default {
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
       tab:"k0",
       // radios:[],
-      rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, ],
+      // rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, ],
+      
+      rds:[0, 3,3,4,2,1, 2,2,2,3,2, 2,3,4,2,2, 1,2,3,1,1, 5,3,2,1,2, 1,2,3,2,1, 2,3,2,4,5, 5,5,5,1,1, 1,3,3,5,4, 5,4,4,2,5, 4,2,3,3,3, 3,3],
+      
+      
+      
+      
       // rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       rds_BSRS:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       radios:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
