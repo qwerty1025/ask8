@@ -69,7 +69,7 @@ export default new Router({
     }, 
 
     {
-      path: '/quiz2', name: 'Quiz_1',
+      path: '/quiz1', name: 'Quiz_1',
       component: () => import("./components/tst_RadioBtn1") 
     }, 
 

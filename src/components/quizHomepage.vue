@@ -119,17 +119,36 @@
 
         <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
-                            <div class="" v-for="(item, inx) in pLv_N"  :key="inx" v-if="inx > 0">
-                                <!-- <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
-                                       {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </v-btn>   -->
+                            <!-- <div class="" v-for="(item, inx) in pLv_N"  :key="inx" v-if="inx > 0">
+                               
                                 <v-btn class="w-full text-left"  dark  @click="goTopage(inx)" v-if="inx > 0"   >  
                                   {{ pLv_N[inx] }} 
                                 </v-btn>
-                            </div>
+                            </div> -->
+                            <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
+                                  {{ pLv_N[1] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
+                                  {{ pLv_N[2] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
+                                  {{ pLv_N[3] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
+                                  {{ pLv_N[4] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
+                                  {{ pLv_N[5] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
+                                  {{ pLv_N[6] }} 
+                                </v-btn> 
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
+                                  {{ pLv_N[7] }} 
+                                </v-btn>
+                                <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
+                                  {{ pLv_N[8] }} 
+                                </v-btn>
                              
                         </div>
  

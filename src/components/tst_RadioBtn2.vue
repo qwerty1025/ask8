@@ -1,6 +1,6 @@
 <template> 
     <div class=" flex w-full"> 
-      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==1">
+      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==2">
   
              <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
               <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 1" >  

@@ -1,7 +1,7 @@
 <template> 
     <div class=" flex w-full"> 
         
-      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==3"> 
+      <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==8"> 
         <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
         <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 2" >  
           <div class="grid grid-cols-6 gap-1">
@@ -242,7 +242,7 @@ export default {
       // - - - - - 
         currentTime: Date.now(),
         cT:"",
-        play_lv:'3',
+        play_lv:'8',
         // - - - - - 
         selectedButton: "",
         //- - - - -
