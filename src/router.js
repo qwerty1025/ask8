@@ -107,6 +107,11 @@ export default new Router({
 
 
     {
+      path: '/FQA', name: 'Quiz_8',
+      component: () => import("./components/FQA") 
+    }, 
+
+    {
       path: "/tst_Dpy",
       name: "tst_Dpy",
       component: () => import("./components/tst_Dpy")
