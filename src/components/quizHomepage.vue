@@ -5,7 +5,7 @@
           <v-row> 
             <v-col cols="6" sm="6" md="6" >  
               <v-text-field
-                    v-model="DaTe"
+                    v-model="cT_D"
                     label="填表日期"
                     prepend-icon="mdi-calendar" 
                   ></v-text-field>
@@ -13,7 +13,7 @@
 
             <v-col cols="6" sm="6" md="6" > 
               <v-text-field
-                    v-model="DaaTe"
+                    v-model="cT_T"
                     label="填表時間"
                     prepend-icon="mdi-calendar" 
                   ></v-text-field>
@@ -153,13 +153,16 @@ import PlayerService    from "../services/playerService";
 export default {  
   data() {
     return { 
+      // - - - - - 
+      currentTime: Date.now(),
+      cT:"",
 
       pLv_N:['','1.生活品質量表','2.簡式症狀表(BSRS)','3.上肢功能評估問卷(DASH)','4.上肢功能評估問卷(Quick-DASH)','5.MICHIGAN HAND OUTCOMES ','6.波士頓量表','7.SF-36','8.SF-12'],
               
       // - - - - -
       pS:"",
-      pN:"", // 姓名
-      pI:"", // ID
+      pN:"未設定", // 姓名
+      pI:"未設定", // ID
       pP:'未設定', // 評估狀態
       pT:'未設定', // 手術次數
       pOpp:'未設定', // 手術部位
@@ -173,6 +176,8 @@ export default {
       // - - - - - 
         currentTime: Date.now(),
         cT:"",
+        cT_D:this.dayjs(Date.now()).format("YYYY-MM-DD"),
+        cT_T:this.dayjs(Date.now()).format("HH:mm"),
         // selt_lv:this.$route.params.play_lv,
         // playLv_Scr:['','Quiz/1','Quiz/2','Quiz/3','Quiz/4','Quiz/5','Quiz/6','Quiz/7','Quiz/8'],
         // cut_opts:['未設定','左手','右手']
@@ -202,8 +207,8 @@ export default {
       // {
       //   v ='quiz2'
       // }
-      // window.location.assign("http://localhost:8000/#/quiz"+idx)
-      window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
+      window.location.assign("http://localhost:8000/#/quiz"+idx+"/pid="+this.pI+"&name="+this.pN +"&process="+this.pP)
+      // window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
      
     },
     savePtst(){  
@@ -240,6 +245,9 @@ export default {
           })
           .catch(e => { console.log(e); });  
         },
+
+    updateCurrentTime(){ this.cT = Date.now(); },
+    transCurrentTime(cT){ return this.dayjs(cT).format("HH:mm:ss"); },
     
    },
     

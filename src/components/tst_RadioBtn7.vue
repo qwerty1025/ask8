@@ -1,6 +1,9 @@
 <template> 
     <div class=" flex w-full overflow-y-auto h-screen">   
       <div class="flex flex-col" v-show="play_lv ==4"  > 
+         <!-- // 這邊開始安排 ： 該次填寫進度 -->
+         <a class ="mt-3 mr-10 flex justify-end text-lg text-gray-500 ">  〖 {{ pii.pI }} 〗 {{ pii.pN }} , {{ pii.pP }}  正在填寫 7.SF-36</a>
+
         <v-list-item-group  color="primary" class="pt-10 pl-15"  >   
           <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 4" >  
             <div class="grid grid-cols-1 gap-0.5">
@@ -17,7 +20,7 @@
             <div class="col-span-1">  
               <v-container class="px-0" fluid >   
                  <v-radio-group  v-if="tutorial.sno_idx == 1" v-model="rds[1]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                  {{ rds[1] }} <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '0' " :label="quesopts" :value="5" ></v-radio>   
+                   <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '0' " :label="quesopts" :value="5" ></v-radio>   
                    <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '1' " :label="quesopts" :value="4.4" ></v-radio>  
                    <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '2' " :label="quesopts" :value="3.4" ></v-radio>  
                    <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '3' " :label="quesopts" :value="2" ></v-radio>  
@@ -81,7 +84,7 @@
                     
                   </v-radio-group>
                   <v-radio-group  v-if="tutorial.sno_idx == 22" v-model="rds[22]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
-                   {{rds[22]}} 
+                   
                     <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '0' " :label="quesopts" :value="5" ></v-radio>   
                     <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '1' " :label="quesopts" :value="4" ></v-radio>  
                     <v-radio dense color="red" class="text-white text-xs mr-5" v-if="index == '2' " :label="quesopts" :value="3" ></v-radio>  
@@ -450,7 +453,7 @@
 
         <button class="py-5 my-5 bg-red-500 w-full hover:bg-red-400 text-white 
                     font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded" 
-                    @click="savePtst(5)" >
+                    @click="savePtst()" >
               填答完成
       </button> 
       </div> 
@@ -496,11 +499,11 @@ export default {
         DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
         tab:"k0",
         // radios:[],
-        // rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, ],
+        rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, ],
       
       // rds:[0, 3,3,4,2,1, 2,2,2,3,2, 2,3,4,2,2, 1,2,3,1,1, 5,3,2,1,2, 1,2,3,2,1, 2,3,2,4,5, 5,5,5,1,1, 1,3,3,5,4, 5,4,4,2,5, 4,2,3,3,3, 3,3],
       
-      rds:[0, 1,5,1,1,2 ,2,2,2,1,1 ,2,3,1,1,1 ,1,1,1,1,3 ,4.2,4,3,3,4 ,5,4,5,4,4 ,5,4,3,3,3 ,3],
+      // rds:[0, 1,5,1,1,2 ,2,2,2,1,1 ,2,3,1,1,1 ,1,1,1,1,3 ,4.2,4,3,3,4 ,5,4,5,4,4 ,5,4,3,3,3 ,3],
       
       
       // rds:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -510,11 +513,8 @@ export default {
       // radios2:"null",
       // ex7:[],
       // ex8: [ { ans: "", },{ ans: "", },{ ans: "", },{ ans: "", },{ ans: "", }],
-      // - - - - 
-      show: false,
-      tutorials: [],
-      currentTutorial: null,
-      currentIndex: -1, 
+      // - - - -  
+      tutorials: [], 
       
       pS:"",
       pN:"",
@@ -522,13 +522,8 @@ export default {
       pP:[],
       pM:"",
       qufd:[],
-
-      test_DTA :[0,3,	3,	2,	2,	2,	2,	1,	1,	3,	2,	2,	2,	3,	3,	2,	2,	2,	3,	3,	3,	1,	3,	3,	3,	3,	3,	2,	3],
-      test_DTA2:[0,5,	4,	2,	2,	5,	4,	3,	5,	5,	3,	4,	4,	4,	4,	4,	4,	4,	4,	5,	5,	5,	5,	5,	5,	5,	1,	5,	4],
-      test_DTA3:[0,4,	3,	1,	2,	3,	4,	4,	4,	4,	3,	4,	4,	4,	3,	5,	3,	4,	4,	4,	4,	4,	4,	4,	4,	4,	3,	4,	4,],
-      test_DTA4:[0,3, 3,	4,  2,	1,	2,	2,	2,	3,	2,	2,	3,	4,	2,	2,	1,	2,	3,	1,	1,	5,	3,	2,	1,	2,	1,	2,	3,	2,	1,	2,	3,	2,	4,	5,	5,  5,  5,	1,	1,	1,	3,	3,	5,  4,	5,	4,	4,	2,	5,	4,	2,  3, 	3,	3,	3,	3,],
-      test_DTA5:[0,1,	4,	2,	3,	2,	1,	2,	1,	2,	2,	2,	3,	2,	2,	2,	1,	1,	1,	1,	1,	2,	1,	2,	1,	2,	2,	2,	3,	3,	3,	3,	3,	4,	1,	1,	3,	1,	4,	3,	4,	4,	2,	4,	4,	4,	3,	5,	2,	5,	5,	1,	4,	4,	4,	4,	4,	4,],
-
+      pii:[], 
+ 
       tmplr:{
           memo:"",
           name:"",
@@ -666,211 +661,73 @@ export default {
            
           
               return _AGG;
-        }, 
-
-        
-
-
-
-          // 计算属性的 getter
-        cmpare1_length: function () {   
-          let filtered = this.rds_BSRS.filter(function(value, index, arr){
-              return value > 1;
-          });
-          
-              return filtered.length; 
-        },
-        
-
-        cmpare1_sum: function () {  
-          let arr = this.rds_BSRS.filter(function(value, index, arr){
-              return value > 1;
-          });
-
-           var sum=0;
-              for (var i = 0; i < arr.length; i++) {
-                  sum += arr[i];
-              };  
-          return sum; 
-
         },  
 
     },
   methods: { 
-  
-  getAnysisReport(){  
-              Swal.fire({
-              icon: 'question',
-              title: '是否好奇 測試完的結果?',
-              text: '讓我 分析數據後,帶您了解 相關的診斷 建議',
-              footer: '<a href=""> 重新測驗 </a>'
-            })
-  },
+    chk_info() {
 
-Te(idx){ 
-  if(idx == 1) { this.rds = this.test_DTA;  }
-  else if( idx == 2 ){ this.rds = this.test_DTA2; } 
-  else if( idx == 3 ){ this.rds = this.test_DTA3; } 
-  else if( idx == 4 ){ this.rds = this.test_DTA4; } 
-  else if( idx == 5 ){ this.rds = this.test_DTA5; } 
-},
-trns(idx){
-  let r ="" ;
-  if(idx == 1)
-  { r = '生活品質.量表' }
-  return r 
-},   
-chkrds(){
- for(let i = 0; i <= this.rds.length; i++){
+    let _tus = this.$route.params.id.split('&');
+    let kk = {
+              pI: _tus[0].split('=')[1],
+              pN: _tus[1].split('=')[1], 
+              pP: _tus[2].split('=')[1],
+              };  
+              this.pii = kk;
+              this.pP = kk.pP;
+              this.pI = kk.pI;
+              this.pN = kk.pN; 
 
-       if( this.rds[i] == "null" ){
-          this.rds[i] = 0 ; 
-        } 
-        else if( this.rds[i] == 'null' ){
-          this.rds[i] = 0 ; 
-        } 
-        else if( this.rds[i] == '' ){
-          this.rds[i] = 0 ; 
-        }  
-        else if( this.rds[i] == 5){
-          this.rds[i] = 55 ; 
-        }    
-      }
-
-},
- 
-mdf_here(e) {
-      var data = {
-        
-       
-        
-        pos: e.pos,
-  memo: e.memo,     
-
-      };
-
-      SeatDataService.update(e.key,data)
-        .then(() => {
-          // Swal.fire({
-          //   position: 'top-end',
-          //   icon: 'success',
-          //   title: '修改成功',
-          //   showConfirmButton: false,
-          //   timer: 500
-          // })
-
-          // this.submitted = true;
-        this.newSt;
-        
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-
-    savePtst(idx){  
-
-        if( idx == 1){ 
-
+    }, 
+    savePtst(){    
            // 題本 1 計算方式
             this.qufd[0]=Math.round(((((((6-this.rds[3])+(6-this.rds[4])+this.rds[10]+this.rds[15]+this.rds[16]+this.rds[17]+this.rds[18])/7)*4)-4)*(100/16))*10)/10; 
             this.qufd[1]=Math.round( ((((this.rds[5] + this.rds[6] +this.rds[7]+this.rds[11]+this.rds[19]+(6-this.rds[26]))/6)*4)-4)*(100/16)*10)/10;
             this.qufd[2]=Math.round( ((((this.rds[20] + this.rds[21] +this.rds[22]+this.rds[27]                            )/4)*4)-4)*(100/16)*10)/10;       
             this.qufd[3]=Math.round( ((((this.rds[8] + this.rds[9] +this.rds[12] +this.rds[13] +this.rds[14] +this.rds[23] +this.rds[24] +this.rds[25] +this.rds[28]  )/9)*4)-4)*(100/16)*10)/10;
  
-        }
+        
 
-        var data = { 
-                      
-                      name: this.pN,
+        var data = {   
+                      // 填寫-玩家資料
+                      name: this.pN, 
                       patient_ID  : this.pI, 
-                      quiz_statu  : this.pS,
-                      quiz_encode : 1,
+                      quiz_statu  : this.pS, 
+                        
+                      // 填寫-關卡資料
                       
-
-                      // name        : this.tmplr.name,
-                      // patient_ID  : this.tmplr.patient_ID,  
-                      // quiz_statu  : this.tmplr.quiz_statu,
-
-                      prePare     : this.tmplr.prePare,
-                      
-                      quiz_date   : this.DaTe, 
-
+                      play_lv: this.play_lv,
                       quiz_dtl    : this.rds, 
-                      quiz_fdbk   : this.qufd,  
-                      quiz_time: this.transCurrentTime(this.cT),
+                      quiz_fdbk   : this.qufd, 
+                      
+                      // 填寫-系統資料
+                      quiz_time: this.transCurrentTime(this.cT), 
+                      memo: "none",
+                      tk_statu: 1, 
                    };
 
         PlayerService.create(data)
           .then(() => {
-            this.msg= "測試中，登記成功";
-            this.submitted = true;
-
-            this.tab ="k2"; 
-
-            if(this.prePare[2]=="")
-            {
-              this.tab ="k2"; 
-            }
-
-
-
+              Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: '上傳成功',
+              showConfirmButton: false,
+              timer: 500
+            }) 
           })
-          .catch(e => { console.log(e); });  
-    },
-
-    savePdta() {
-
-      //  this.cntDat_qu1();
-      // this.qufd[0]=(6-this.radios[1]-this.radios[2]);
-
-      this.qufd[0]=((((((6-this.radios[3])+(6-this.radios[4])+this.radios[10]+this.radios[15]+this.radios[16]+this.radios[17]+this.radios[18])/7)*4)-4)*(100/16)); 
-      this.qufd[1]= ((((this.radios[5] + this.radios[6] +this.radios[7]+this.radios[11]+this.radios[19]+(6-+this.radios[26]))/6)*4)-4)*(100/16);
-      this.qufd[2]=(((((this.radios[20] + this.radios[21] +this.radios[22]+this.radios[27])/4)*4)-4)*(100/16));           
-      this.qufd[3]=( (((this.radios[8] + this.radios[9] +this.radios[12] +this.radios[13] +this.radios[14] +this.radios[23] +this.radios[24] +this.radios[25] +this.radios[28]  )/9)*4)-4)*(100/16);
-           
-
-      var data = {  
-        name        : this.tmplr.name,
-        patient_ID  : this.tmplr.patient_ID,
-        prePare     : this.tmplr.prePare, 
-        quiz_1_fdbk : this.qufd,
-        quiz_name   : this.tmplr.quiz_name,
-      };
-
-      PlayerService.create(data)
-        .then(() => {
-          this.msg= "第一份，登記成功";
-          this.submitted = true;
-        })
-        .catch(e => {
-          console.log(e);
-        }); 
-    },
-    
-    cntDat_qu1(){
-  
-    },
-
-    saveFirstLogin(){
-        this.tmplr.quiz_statu = this.pS; 
-        this.tmplr.name = this.pN;
-        this.tmplr.patient_ID = this.pI;
-        this.tmplr.prePare = this.pP;
-
-        this.dialog = false;
-
-        this.tab='k3'
-        
-    },
-
-
-    
-   
-    removeCookie() {
-      Cookies.remove('login')
-    },
-
+          .catch(e => { 
+            
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: '上傳失敗',
+              text:e,
+              showConfirmButton: false,
+              timer: 500
+            })  ; 
+          });  
+    }, 
      
     onDataChange    (items) {
        
@@ -900,46 +757,21 @@ mdf_here(e) {
             slted: data.slted,
             statu: data.statu
         });
-      });
-
+      }); 
       this.tutorials = _tutorials; 
-    },
-
-    refreshList() {
-      this.currentTutorial = null;
-      this.currentIndex = -1;
-    },
-
-    setActiveTutorial(tutorial, index) {
-      this.currentTutorial = tutorial;
-      this.currentIndex = index;
-    },
-
-    removeAllTutorials() {
-      SeatDataService.deleteAll()
-        .then(() => {
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-    get(index, sno_idx)
-    {
-        this.ex8[sno_idx].ans
-    },
+    }, 
     updateCurrentTime(){ this.cT = Date.now(); },
-    transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); },
- 
-// this.cT = Date.now();
+    transCurrentTime(idx){ return this.dayjs(idx).format("HH:mm:ss"); }, 
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+     
     
-  },
-  // async mounted() {
-  //   // console.log(_tutorials.title);  
-  //    SeatDataService.getAll().on("value", this.onDataChange);  
-  // }, 
+  }, 
   mounted() {
     // console.log(_tutorials.title);  
+    this.chk_info();
     this.interval = setInterval(this.updateCurrentTime, 1000);
      SeatDataService.getAll().on("value", this.onDataChange);  
     //  SeatDataService.getSome('pos').equalTo(this.play_lv).on("value", this.onDataChange); 
