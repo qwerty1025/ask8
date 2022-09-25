@@ -1,7 +1,7 @@
 <template>  
     <div class="flex items-center bg-gray-50 h-screen"> 
       <div class="flex-1 text-center bg-gray-50 px-4 py-2 m-2"> 
-        <v-container class="grid-list-md text-xs-center">
+         
           <v-row> 
             <v-col cols="6" sm="6" md="6" >  
               <v-text-field
@@ -112,8 +112,7 @@
               <router-link :to="{path:'quiz2/',query: {play_lv: 12345}}">3333跳轉</router-link>  
             </a> -->
             </v-col> 
-          </v-row> 
-        </v-container> 
+          </v-row>  
 
         <v-card flat>
             <div class="grid grid-cols-2 gap-1"> 
@@ -203,8 +202,8 @@ export default {
       // {
       //   v ='quiz2'
       // }
-      window.location.assign("http://localhost:8000/#/quiz"+idx)
-      // window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
+      // window.location.assign("http://localhost:8000/#/quiz"+idx)
+      window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
      
     },
     savePtst(){  
