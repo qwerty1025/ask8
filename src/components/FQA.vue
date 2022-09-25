@@ -1,7 +1,10 @@
 <template> 
     <div id="myvideo" class="w-auto" > 
         <!-- {{ tutorials }}  w-full h-screen -->
-  <v-btn @click="openFullscreen()">openFullscreen</v-btn>
+  <!-- <v-btn @click="openFullscreen()">openFullscreen</v-btn> -->
+   <a class =" text-xs " >  {{  this.dayjs(cT).format("HH:mm:ss")  }}</a> 
+<br>
+   <a class =" text-xs " >  {{  this.dayjs(cT).day()  }}</a> 
       <div class="overflow-x-scroll "  >  
         <div class=" grid grid-rows-2 grid-flow-col gap-0 "> 
             <div v-for="n in 50" :key="n" class="  " >  
@@ -18,7 +21,35 @@
                     
               </div> 
           </div>
-        </div> 
+        </div>
+        <!-- max-height="400" -->
+        <v-card
+    v-scroll.self="onScroll"
+    class="overflow-y-auto h-screen"
+   
+  >
+    <v-banner
+      class="justify-center font-weight-bold text-h5 font-weight-light"
+      sticky
+    >
+    {{ ex4 }} 
+ 
+    </v-banner>
+
+    <v-card-text>
+      <div class=" grid grid-cols-7 gap-0 ">  
+            <div v-for="n in 90" :key="n" class="  " >    
+                <v-checkbox
+                  v-model="ex4[n]" 
+                  color="red" 
+                  :label='dayjs(cT).add(n, "day").format("MM/DD") + weekday[dayjs(cT).add(n, "day").day()] '  
+                ></v-checkbox> 
+                    
+              </div> 
+          </div>
+    </v-card-text>
+  </v-card>
+ 
     </div>
 </template>
  
@@ -39,6 +70,9 @@ export default {
         play_lv:'1',
         // - - - - - 
         selectedButton: "",
+        ex4:[],
+        // ex4:[0, 'null',false,true,"",null, null,null,null,null,null, null,null,null,null,null, null,null,null,null,null, null,null,null,null,null, null,null,null,null,null, null,null,null,null,null, null,null,null,null,null],
+        weekday:['(日)','(一)','(二)','(三)','(四)','(五)','(六)'],
         //- - - - -
 
       msg:"",
@@ -51,7 +85,7 @@ export default {
       DaTe: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10), 
       tab:"k0",
       // radios:[],
-      rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,  0,0,0,0,0, 0,0,0,0,0 ],
+      rds:[0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0 ],
        
 
       rds_BSRS:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
