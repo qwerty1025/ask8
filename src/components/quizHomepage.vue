@@ -1,7 +1,7 @@
 <template>  
     <div class="flex items-center bg-gray-50 h-screen"> 
       <div class="flex-1 text-center bg-gray-50 px-4 py-2 m-2"> 
-        <v-container>
+        <v-container class="grid-list-md text-xs-center">
           <v-row> 
             <v-col cols="6" sm="6" md="6" >  
               <v-text-field
@@ -104,87 +104,48 @@
                 
                 label="診治備註" 
               ></v-textarea>
-            </v-col> 
- 
-            <v-col cols="12" sm="12" md="12">
+            </v-col>  
 
+            <v-col cols="12" sm="12" md="12"> 
             <!--  ref: https://www.796t.com/content/1545760631.html --> 
             <!-- <a class="bg-red-300">
-              <router-link :to="{path:'quiz2/',query: {play_lv: 12345}}">3333跳轉</router-link> 
-
+              <router-link :to="{path:'quiz2/',query: {play_lv: 12345}}">3333跳轉</router-link>  
             </a> -->
             </v-col> 
           </v-row> 
         </v-container> 
 
         <v-card flat>
-                        <div class="grid grid-cols-2 gap-1">
-                            <!-- <div class="" v-for="(item, inx) in pLv_N"  :key="inx" v-if="inx > 0">
-                               
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(inx)" v-if="inx > 0"   >  
-                                  {{ pLv_N[inx] }} 
-                                </v-btn>
-                            </div> -->
-                            <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
-                                  {{ pLv_N[1] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
-                                  {{ pLv_N[2] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
-                                  {{ pLv_N[3] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
-                                  {{ pLv_N[4] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
-                                  {{ pLv_N[5] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
-                                  {{ pLv_N[6] }} 
-                                </v-btn> 
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
-                                  {{ pLv_N[7] }} 
-                                </v-btn>
-                                <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
-                                  {{ pLv_N[8] }} 
-                                </v-btn>
-                             
-                        </div>
- 
-                    </v-card>
-
-                    
-        <!-- <div class="flex w-full flex-row " > 
-          <div class="flex-initial w-64 " v-for="(item, inx) in pLv_N"  :key="inx">
-            <v-btn  dark  @click="goTopage(inx)" v-if="inx > 0"   >  {{ pLv_N[inx] }} </v-btn> 
-          </div> 
-        </div> -->
-        
-
-        <div class="flex " v-for="(item, inx) in pLv_N"  :key="inx" > 
-          <div class="flex-initial m-2">
-            
-          </div>
-           
-        </div>
-
-
+            <div class="grid grid-cols-2 gap-1"> 
+              <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
+                {{ pLv_N[1] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
+                {{ pLv_N[2] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
+                {{ pLv_N[3] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
+                {{ pLv_N[4] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
+                {{ pLv_N[5] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
+                {{ pLv_N[6] }} 
+              </v-btn> 
+              <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
+                {{ pLv_N[7] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
+                {{ pLv_N[8] }} 
+              </v-btn> 
+            </div> 
+        </v-card> 
       </div> 
     </div>   
-</template>
-
- <!-- <v-btn  @click="goTopage(2)"   > 進行 2 填答 </v-btn> 
-                     <v-btn  @click="goTopage(3)"   > 進行 3 填答 </v-btn>  --> 
-                   
-                     <!-- <v-btn to="quiz2/" class="ma-2" color="primary" dark >
-                       Q- 221
-                     </v-btn>  --> 
-                   <!-- </v-col>  -->
-
-
-
- 
+</template> 
 
 <script> 
 import PlayerService    from "../services/playerService";
@@ -242,8 +203,8 @@ export default {
       // {
       //   v ='quiz2'
       // }
-      // window.location.assign("http://localhost:8000/#/quiz"+idx)
-      window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
+      window.location.assign("http://localhost:8000/#/quiz"+idx)
+      // window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
      
     },
     savePtst(){  

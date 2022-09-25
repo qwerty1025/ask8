@@ -44,7 +44,14 @@
                   color="red" 
                   :label='dayjs(cT).add(n, "day").format("MM/DD") + weekday[dayjs(cT).add(n, "day").day()] '  
                 ></v-checkbox> 
-                    
+
+                <!-- <input 
+                      type="checkbox" 
+                      v-model="ex4[n]" 
+                      class="border-gray-300 rounded h-5 w-5"  
+                      
+                      /><a class="">{{ dayjs(cT).add(n, "day").format("MM/DD")  +   weekday[dayjs(cT).add(n, "day").day()]}}}</a>
+                     -->
               </div> 
           </div>
     </v-card-text>
