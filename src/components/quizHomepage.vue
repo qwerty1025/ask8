@@ -207,7 +207,8 @@ export default {
       // {
       //   v ='quiz2'
       // }
-      window.location.assign("http://localhost:8000/#/quiz"+idx+"/pid="+this.pI+"&name="+this.pN +"&process="+this.pP)
+      // window.location.assign("http://localhost:8000/#/quiz"+idx+"/pid="+this.pI+"&name="+this.pN +"&process="+this.pP)
+      window.location.assign("https://qwerty1025.github.io/ask8/#/quiz"+idx+"/pid="+this.pI+"&name="+this.pN +"&process="+this.pP)
       // window.location.assign( "https://qwerty1025.github.io/ask8/#/quiz"+idx)
      
     },
