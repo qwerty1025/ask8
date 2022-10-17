@@ -1,8 +1,20 @@
 <template>  
-    <div class="flex items-center bg-gray-50 h-screen"> 
+<v-container
+      id="scroll-target"
+      
+      class="overflow-y-auto h-screen"
+    >
+      <v-row v-scroll:#scroll-target="onScroll"
+            align="center" justify="center" >
+      </v-row> 
+    <div class="flex items-center bg-gray-50 "> 
       <!-- qq :  {{  qq }} -->
       <div class="flex-1 text-center bg-gray-50 px-4 py-2 m-2"> 
-        <form>
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
           <v-row> 
             <v-col cols="6" sm="6" md="6" >  
               <v-text-field
@@ -22,7 +34,7 @@
 
             <v-col cols="12" sm="6" md="6" >
               <v-text-field 
-                solo required
+                solo required  dense
                 :rules="[() => !!pI || '尚未填寫資料，請留下訊息']"
                 :error-messages="errorMessages"
                  
@@ -35,7 +47,7 @@
               
             <v-col cols="12" sm="6" md="6" > 
               <v-text-field 
-                solo required
+                solo required  dense
                 :rules="[() => !!pN || '尚未填寫資料，請留下訊息']"
                 :error-messages="errorMessages"
                
@@ -49,7 +61,7 @@
                 <div class="w-full flex flex-wrap mb-4 pr-0 md:pr-4">
                   <!-- <label class="w-full block text-xs mb-2 text-gray-400">手術部位</label> -->
                     <div class="relative w-full border-none">
-                      <select required v-model="pP" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
+                      <select dense required v-model="pP" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
                           <option value="未設定" class="pt-6">評估狀態?</option>
                           <option value="術前" >術前</option>  
                           
@@ -71,7 +83,7 @@
                 <div class="w-full flex flex-wrap mb-4 pr-0 md:pr-4">
                   <!-- <label class="w-full block text-xs mb-2 text-gray-400">手術部位</label> -->
                     <div class="relative w-full border-none">
-                      <select required v-model="pOpp" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
+                      <select dense required v-model="pOpp" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
                           <option value="未設定" class="pt-6">手術部位?</option>
                           <option value="左手" >左手</option>
                           <option value="右手" >右手</option> 
@@ -84,7 +96,7 @@
                 <div class="w-full flex flex-wrap mb-4 pr-0 md:pr-4">
                   <!-- <label class="w-full block text-xs mb-2 text-gray-400">手術次數</label> -->
                     <div class="relative w-full border-none">
-                      <select required v-model="pT" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
+                      <select dense required v-model="pT" class="bg-gray-200 text-gray-900 appearance-none border-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full">
                           <option value="未設定" class="pt-6">手術次數?</option>
                           <option value="1" >1</option>
                           <option value="2" >2</option> 
@@ -114,7 +126,15 @@
                 label="診治備註" 
               ></v-textarea>
             </v-col>  
-
+            <a class="text-xs py-2 text-gray-50 bg-blue-600 rounded-t-2xl" > 預排 需測驗項目: </a>
+            <div class="bg-blue-100 grid grid-cols-2 gap-1 rounded-b-2xl">
+              <v-checkbox
+                v-for="n in 8 " 
+                v-model="pLv_N_need[n]"
+                :label="pLv_N[n]"
+                value="true" dense
+              ></v-checkbox>   
+            </div>
             <v-col cols="12" sm="12" md="12"> 
             <!--  ref: https://www.796t.com/content/1545760631.html --> 
             <!-- <a class="bg-red-300">
@@ -123,42 +143,42 @@
             </v-col> 
           </v-row>  
         </form>  
-
-        <v-card flat>
-          <v-btn class="w-full text-left" color="#7c3aed"
-                 dark  @click="submit"    >  
-                測試確認中
+        <!-- {{ pLv_N_need }} -->
+               <v-btn
+                color="#1976D2"
+                dark class="p-13  mr-4"
+                @click="validate"
+                large
+                >
+              - 登記 -
               </v-btn>
 
-            <div class="grid grid-cols-2 gap-1"> 
-              <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
-                {{ pLv_N[1] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
-                {{ pLv_N[2] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
-                {{ pLv_N[3] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
-                {{ pLv_N[4] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
-                {{ pLv_N[5] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
-                {{ pLv_N[6] }} 
-              </v-btn> 
-              <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
-                {{ pLv_N[7] }} 
-              </v-btn>
-              <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
-                {{ pLv_N[8] }} 
-              </v-btn> 
+
+
+
+<hr class="my-5">
+<h3>完成進度</h3>
+
+              <div class="mt-10 grid grid-cols-2 gap-1 rounded-b-2xl">
+              
+              
+                <v-card v-for="n in 8 "  bg-gray-100 > 
+                <div class="flex flex-row grid items-end ">
+                  <div class="text-base  p-3 "> {{ pLv_N[n] }} </div>
+                  <v-btn large dark rounded 
+                        :color="getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[0]"
+                         class="item-end mx-10 mb-3 " > 
+                         {{ getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[1] }}
+                  </v-btn>
+                </div> 
+              </v-card>   
             </div> 
-        </v-card> 
+      </v-form>
       </div> 
-    </div>   
+    </div>
+
+  </v-container>
+       
 </template> 
 
 <script> 
@@ -171,7 +191,7 @@ export default {
       // - - - - - 
       currentTime: Date.now(),
       cT:"",
-
+      
       // 
       qq :"",
 
@@ -205,24 +225,37 @@ export default {
 
         errorMessages:"",
         formHasErrors: false, 
+
+        pLv_N_need:     ['',false,false,true,true,true,false,false,false],
+        pLv_N_finsh_chk:['',false,false,true,false,false,false,false,false],
+     
     };
   },
-  watch: {
-      name () {
-        this.errorMessages = ''
-      },
+  computed: {
+      
     },  
   methods: { 
-    
-    submit () {
-      this.formHasErrors = false
+    // getCHK_text(x) {   if(x == true){ return "已完成" }else{ return "加油，還差這一份"} },
+    getCHK(x,y) { 
 
-      Object.keys(this.form).forEach(f => {
-        if (!this.form[f]) this.formHasErrors = true
+        let ary =["#E539352","毋須填寫"];
 
-        this.$refs[f].validate(true)
-      })
-    },
+        if( y == true)
+        { ary =["#43A047","已完成"]; }
+        else if( x== false && y== false)  
+        { ary =["#424242","毋須填寫"]; } 
+        else if( x== true && y== false) 
+        { ary =["#E53935","加油，還差這一份"]; }
+
+       
+        
+        return ary
+       }, 
+
+     
+    validate () {
+        this.$refs.form.validate()
+      },
     
     goTopage(idx){
       // let v = '';

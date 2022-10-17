@@ -67,7 +67,7 @@
                 </v-expansion-panel>
                 <v-expansion-panel >
                   <v-expansion-panel-header>
-                    
+                    <a class="text-xs"> 開發中.內部資訊: </a>
                   </v-expansion-panel-header>
                   <v-expansion-panel-content class = "mb-30">
                     
@@ -193,8 +193,17 @@ export default {
   }, 
   mounted() { 
     this.interval = setInterval(this.updateCurrentTime, 1000);
-    PlayerService.getAll().on("value", this.Play_onDataChange);  
-    // PlayerService.getSome('name').equalTo('Test_0925').on("value", this.Play_onDataChange);
+    // 設定，讀取全部的 
+    // PlayerService.getAll().on("value", this.Play_onDataChange);  
+    
+    // 設定，某屬性.等於一個值
+    PlayerService.getAll().orderByChild("patient_ID").equalTo(445).on("value", this.Play_onDataChange);  
+    
+    // 設定，某屬性.等於一個值
+    // PlayerService.getT("patient_ID").orderByValue().on("value", this.Play_onDataChange);  
+    
+
+    // PlayerService.getSome('name').equalTo('chang').on("value", this.Play_onDataChange);
     //  SeatDataService.getSome('pos').equalTo(this.play_lv).on("value", this.onDataChange); 
     //  SeatDataService.getSome('pos').equalTo('3').on("value", this.onDataChange); 
   },

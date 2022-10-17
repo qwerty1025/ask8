@@ -1,7 +1,7 @@
 import firebase from "../firebase";
 
 // const db = firebase.ref("/players");
-const db = firebase.ref("/ask8_Score");
+const db = firebase.ref("/ask8_quizBooking");
 
 class StDataService {
   getAll() {

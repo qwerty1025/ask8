@@ -46,7 +46,7 @@ export default new Router({
     {
       path: "/",
       name: "quizHomepage",
-      component: () => import("./components/quizHomepage")
+      component: () => import("./components/playerLoading")
     },
 
     {
