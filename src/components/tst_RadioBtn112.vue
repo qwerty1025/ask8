@@ -4,17 +4,7 @@
       <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==1"> 
        <!-- // 這邊開始安排 ： 該次填寫進度 -->
 
-       <!-- <div class="flex items-center pl-4 rounded border border-gray-200 dark:border-gray-700">
-            <input id="bordered-radio-1" type="radio" value="" 
-                   name="bordered-radio" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="bordered-radio-1" class="py-4 ml-2 w-full text-base font-medium text-gray-900 dark:text-gray-300">Default radio</label>
-        </div>
-        <div class="flex items-center pl-4 rounded border border-gray-200 dark:border-gray-700">
-            <input checked id="bordered-radio-2" type="radio" value="" 
-                   name="bordered-radio" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="bordered-radio-2" class="py-4 ml-2 w-full text-xl font-medium text-gray-900 dark:text-gray-300">Checked state</label>
-        </div> -->
-
+       sssss
 
 
 
@@ -49,6 +39,15 @@
                 </div>
 
                 <div  v-if="tutorial.sno_idx == 2" v-model="rds[2]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
+                    <div class="flex items-center ">
+                      <radio name="robot" :value="index+1" v-model="rds[2]" 
+                             class="pl-2 mx-6 my-1 py-2 rounded border border-gray-200 w-2/3" >
+                        {{ quesopts }}
+                      </radio>
+                  </div> 
+                </div>
+
+                <!-- <div  v-if="tutorial.sno_idx == 2" v-model="rds[2]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                     <div class="flex items-center mx-6 my-2 rounded border border-gray-200 dark:border-gray-700">
                       <input id="bordered-radio-1" type="radio" :value="index+1" name="bordered-radio" 
                              class="w-6 h-6 ml-3 text-blue-600 bg-gray-100 border-gray-300 
@@ -70,7 +69,7 @@
                              class="py-2 my-2 ml-6 w-2/3 text-2xl font-medium  text-gray-900 
                                     dark:text-gray-300">{{ quesopts }}</label>
                   </div> 
-                </div>
+                </div> -->
                  <!-- <v-radio-group  v-if="tutorial.sno_idx == 2" v-model="rds[2]" row v-for="(quesopts, index) in tutorial.quesopts" :key="index" >
                    <v-radio dense color="red" class="text-white text-xs mr-5" :label="quesopts" :value="index+1"  ></v-radio>  
                  </v-radio-group> -->
@@ -437,3 +436,37 @@ export default {
   },  
 };
 </script> 
+
+
+<style>
+    body {
+      background-color: rgba(31, 41, 55); /* cool gray 800 */
+      color: white;
+    }
+
+    .tabAnim {
+      z-index: -9;
+    }
+
+    #option0:checked ~ div {
+      --tw-translate-x: 0%;
+    }
+
+    #option1:checked ~ div {
+      --tw-translate-x: 100%;
+    }
+
+    #option2:checked ~ div {
+      --tw-translate-x: 200%;
+    }
+
+    #option3:checked ~ div {
+      --tw-translate-x: 300%;
+    }
+
+    #option4:checked ~ div {
+      --tw-translate-x: 400%;
+    }
+
+
+</style>

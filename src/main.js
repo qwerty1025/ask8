@@ -22,6 +22,8 @@ Vue.use(VueRadioButton);
 import JsonCSV from 'vue-json-csv';
 Vue.use(JsonCSV) ;
 
+import CheckboxRadio from 'vue-checkbox-radio'; 
+Vue.use(CheckboxRadio);
 
 import dayjs from 'dayjs';
 Vue.prototype.dayjs = dayjs; 
