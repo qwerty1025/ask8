@@ -2,67 +2,40 @@
     <div class=" flex w-full"> 
         
       <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==1"> 
-       <!-- // 這邊開始安排 ： 該次填寫進度 -->
-
-       sssss
-
-
-
+       <!-- // 這邊開始安排 ： 該次填寫進度 -->  
         <a class ="mt-3 mr-10 flex justify-end text-lg text-gray-500 ">  〖 {{ pii.pI }} 〗 {{ pii.pN }} , {{ pii.pP }}  正在填寫 1.生活品質量表</a>
 
         <div  color="primary" class="pt-2 pl-15"  >   
-        <div v-for="(tutorial, inx) in tutorials" :key="inx"  
-             v-if="tutorial.qzSno == 1"
-              @click="setActiveTutorial(tutorial, inx)"  >  
+          <div v-for="(tutorial, inx) in tutorials" :key="inx"  
+              v-if="tutorial.qzSno == 1"
+                @click="setActiveTutorial(tutorial, inx)"  >  
+    
+              <div class="flex-row ml-5">  
+                  <div class="   ">  
+                    <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
+                        {{ tutorial.pos }} 
+                        {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
+                    </span>
+                  </div> 
 
-          <!-- <div class="grid grid-cols-6 gap-1 ml-5"> 
-            <div class="col-span-6  ">  
-              <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
-                  {{ tutorial.pos }} 
-                  {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
-              </span>
-            </div> 
-            <div class="col-span-6  "> 
-              <span class="text-3xl text-green-700 font-semibold w-full">{{ tutorial.question }}</span>
-            </div>  
+                  <div class="  "> 
+                    <span class="text-3xl text-green-700 font-semibold w-full">{{ tutorial.question }}</span>
+                  </div>  
 
-            <div class="col-span-6" v-for="nn in 28" v-show="tutorial.sno_dtl != 99">   
-                <div  v-if="tutorial.sno_idx == nn" v-model="rds[tutorial.sno_idx]" row 
-                      v-for="(quesopts, index) in tutorial.quesopts" :key="index" class="flex "> 
-                      <radio v-model="rds[tutorial.sno_idx]" :value="index+1" required
-                              class="mx-6 my-1 p-2 rounded border border-gray-200 w-2/3 text-3xl" >
-                        {{ quesopts }}
-                      </radio> 
-                </div>  
-            </div>  -->
-
-            <div class="grid grid-cols-6 gap-1 ml-5"> 
-            <div class="col-span-6  ">  
-              <span small class="text-white text-xs mr-5 p-1 px-3 justify-center rounded-3xl bg-yellow-500"   >
-                  {{ tutorial.pos }} 
-                  {{ tutorial.sno }}_{{ tutorial.sno_idx }} : {{ tutorial.sno_dtl }} 
-              </span>
-            </div> 
-            <div class="col-span-6  "> 
-              <span class="text-3xl text-green-700 font-semibold w-full">{{ tutorial.question }}</span>
-            </div>  
-
-            <div class="col-span-6" v-for="nn in 28"  v-show="tutorial.sno_dtl != 99">   
-                <div  v-if="tutorial.sno_idx == nn" v-model="rds[tutorial.sno_idx]"  
-                      v-for="(quesopts, index) in tutorial.quesopts" :key="index" class="flex "> 
-                      <radio v-model="rds[tutorial.sno_idx]" :value="index+1" required
-                              class="mx-6 my-1 p-2 rounded border border-gray-200 w-2/3 text-3xl" >
-                        {{ quesopts }}
-                      </radio> 
-                </div>  
-            </div> 
-
-
-        </div>  
-                    
+                  <div class=" " v-for="nn in 28"  v-show="tutorial.sno_dtl != 99" >   
+                      <div  v-if="tutorial.sno_idx == nn" v-model="rds[tutorial.sno_idx]"  
+                            v-for="(quesopts, index) in tutorial.quesopts" :key="index" class=""> 
+                            <radio v-model="rds[tutorial.sno_idx]" :value="index+1"  
+                                    class="mx-6 my-1 p-2 rounded border border-gray-200 w-2/3 text-3xl" >
+                              {{ quesopts }}
+                            </radio> 
+                      </div>  
+                  </div>  
+              </div>  
+                      
+          </div>  
         </div> 
-          
-      </div> 
+
       <div class="grid grid-cols-1 gap-0.5">
           <div class="col-span-1 flex justify-center ">
             <a class="text-base text-gray-500"> 操作提示訊息 </a>
@@ -111,33 +84,33 @@
                       <tr>  
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
                           <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
-                            <span class="w-1/4 text-6xl font-black">   
+                            <span class="w-1/4 text-4xl font-black">   
                               {{ Math.round( ((((((6-rds[3])+(6-rds[4])+rds[10]+rds[15]+rds[16]+rds[17]+rds[18])/7)*4)-4)*(100/16)) *100)/100 }}  
                             </span> 
                           </p> 
                         </td>  
                         
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
+                          <p class="text-gray-900 font-black text-4xl whitespace-no-wrap">
                               {{ Math.round( ((((rds[5] + rds[6] +rds[7]+rds[11]+rds[19]+(6-rds[26]))/6)*4)-4)*(100/16) *100)/100 }} 
                           </p> 
                         </td>
 
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
+                          <p class="text-gray-900 font-black text-4xl whitespace-no-wrap">
                             {{ Math.round( (((((rds[20] +rds[21]+rds[22]+rds[27])/4)*4)-4)*(100/16)) *100)/100 }}  
                           </p> 
                         </td>
 
                         <td class="px-5 py-5 border-b border-gray-200 bg-white  "> 
-                          <p class="text-gray-900 font-black text-6xl whitespace-no-wrap">
+                          <p class="text-gray-900 font-black text-4xl whitespace-no-wrap">
                             {{ Math.round( ( (((rds[8] + rds[9] +rds[12] +rds[13] +rds[14] +rds[23] +rds[24] +rds[25] +rds[28]  )/9)*4)-4)*(100/16)  *100)/100 }}
                           </p> 
                         </td> 
                       </tr> 
                     </tbody>
-                  </table> 
-                    
+                  </table>  
+                  
                 </v-expansion-panel-content>
             </v-expansion-panel>
 

@@ -6,11 +6,11 @@ Vue.use(Router);
 export default new Router({
   // mode: "history",
   routes: [ 
-    {
-      path: "/RRT",
-      name: "RRT",
-      component: () => import("./components/RRT")
-    },
+    // {
+    //   path: "/RRT",
+    //   name: "RRT",
+    //   component: () => import("./components/RRT")
+    // },
      
     {
       path: "/asaskAdd5",
@@ -55,10 +55,10 @@ export default new Router({
     },
 
      // path: '/users/:id',
-     {
-      path: '/111', name: '',
-      component: () => import("./components/tst_RadioBtn112") 
-    },
+    //  {
+    //   path: '/111', name: '',
+    //   component: () => import("./components/tst_RadioBtn112") 
+    // },
 
     {
       path: "/qH",
