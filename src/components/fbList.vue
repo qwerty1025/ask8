@@ -6,7 +6,7 @@
           <v-row dense>
             <v-col
               v-for="(item, inx) in tus" :key="inx"
-              :cols="4" >
+              :cols="6" >
               <v-card> 
                   <v-card-title > 
                     <v-chip
@@ -79,8 +79,7 @@
               </v-card>
             </v-col>
           </v-row>
-        </v-container>
-         
+        </v-container> 
       </div>  
     </div>
 </template> 
@@ -180,13 +179,15 @@ export default {
            quiz_dtl: data.quiz_dtl,
            quiz_fdbk : data.quiz_fdbk,
            
+           pLv_N_need: data.pLv_N_need,
+           
            memo: data.memo,
            tk_statu: data.tk_statu,
           
   
          });
        }); 
-       this.tus = _tutorials; 
+       this.tus = _tutorials.reverse(); 
      },  
     updateCurrentTime(){ this.cT = Date.now(); },
     transCurrentTime(idx){ return this.dayjs(idx).format("YYYY-MM-DD HH:mm:ss"); },  

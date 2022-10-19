@@ -11,6 +11,12 @@ export default new Router({
     //   name: "RRT",
     //   component: () => import("./components/RRT")
     // },
+
+    {
+      path: "/",
+      name: "quizHomepage",
+      component: () => import("./components/playerLoading")
+    },
      
     {
       path: "/asaskAdd5",
@@ -46,13 +52,7 @@ export default new Router({
       path: "/tst_RadioBtn",
       name: "tst_RadioBtn",
       component: () => import("./components/tst_RadioBtn")
-    },
-
-    {
-      path: "/",
-      name: "quizHomepage",
-      component: () => import("./components/playerLoading")
-    },
+    }, 
 
      // path: '/users/:id',
     //  {
@@ -90,16 +90,16 @@ export default new Router({
     }, 
     {
       path: '/quiz2/:id', name: 'Quiz_2',
-      component: () => import("./components/tst_RadioBtn2") 
+      component: () => import("./components/tst_RadioBtn22") 
     }, 
     {
       path: '/quiz3/:id', name: 'Quiz_3',
-      component: () => import("./components/tst_RadioBtn3") 
+      component: () => import("./components/tst_RadioBtn33") 
     }, 
 
     {
       path: '/quiz4/:id', name: 'Quiz_4',
-      component: () => import("./components/tst_RadioBtn4") 
+      component: () => import("./components/tst_RadioBtn44") 
     }, 
     {
       path: '/quiz5/:id', name: 'Quiz_5',
@@ -108,15 +108,15 @@ export default new Router({
 
     {
       path: '/quiz6/:id', name: 'Quiz_6',
-      component: () => import("./components/tst_RadioBtn6") 
+      component: () => import("./components/tst_RadioBtn66") 
     }, 
     {
       path: '/quiz7/:id', name: 'Quiz_7',
-      component: () => import("./components/tst_RadioBtn7") 
+      component: () => import("./components/tst_RadioBtn77") 
     },   
     {
       path: '/quiz8/:id', name: 'Quiz_8',
-      component: () => import("./components/tst_RadioBtn8") 
+      component: () => import("./components/tst_RadioBtn88") 
     }, 
 
 
