@@ -151,10 +151,43 @@
                 large
                 >
               - 登記 -
+              </v-btn> 
+
+              <v-card flat>
+
+
+              <v-btn class="w-full text-left" color="#7c3aed"
+                 dark  @click="submit"    >  
+                測試確認中
               </v-btn>
 
-
-
+            <div class="grid grid-cols-2 gap-1"> 
+              <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
+                {{ pLv_N[1] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
+                {{ pLv_N[2] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
+                {{ pLv_N[3] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
+                {{ pLv_N[4] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
+                {{ pLv_N[5] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
+                {{ pLv_N[6] }} 
+              </v-btn> 
+              <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
+                {{ pLv_N[7] }} 
+              </v-btn>
+              <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
+                {{ pLv_N[8] }} 
+              </v-btn> 
+            </div> 
+        </v-card> 
 
 <hr class="my-5">
 <h3>完成進度</h3>
@@ -163,16 +196,17 @@
               
               
                 <v-card v-for="n in 8 "  bg-gray-100 > 
-                <div class="flex flex-row grid items-end ">
-                  <div class="text-base  p-3 "> {{ pLv_N[n] }} </div>
-                  <v-btn large dark rounded 
-                        :color="getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[0]"
-                         class="item-end mx-10 mb-3 " > 
-                         {{ getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[1] }}
-                  </v-btn>
-                </div> 
-              </v-card>   
+                  <div class="flex flex-row grid items-end ">
+                    <div class="text-base  p-3 "> {{ pLv_N[n] }} </div>
+                    <v-btn large dark rounded 
+                          :color="getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[0]"
+                          class="item-end mx-10 mb-3 " > 
+                          {{ getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[1] }}
+                    </v-btn>
+                  </div> 
+                </v-card>   
             </div> 
+            <hr class="my-5">
       </v-form>
       </div> 
     </div>
@@ -254,7 +288,31 @@ export default {
 
      
     validate () {
-        this.$refs.form.validate()
+        this.$refs.form.validate();
+ 
+        if( this.$refs.form.validate() == false)
+        {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: '修改中!', 
+                showConfirmButton: false,
+                timer: 1200
+            }) 
+        }
+        else if(this.$refs.form.validate() == true )
+        {
+          Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '修改完畢!',
+                    text: '請記得.確認收費',
+                    showConfirmButton: false,
+                    timer: 1200
+                }) 
+        }
+        
+        savePtst();
       },
     
     goTopage(idx){

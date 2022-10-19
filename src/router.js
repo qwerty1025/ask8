@@ -50,7 +50,7 @@ export default new Router({
     },
 
     {
-      path: "/quizHomepage",
+      path: "/qH",
       name: "quizHomepage",
       component: () => import("./components/quizHomepage")
     },
