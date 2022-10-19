@@ -19,13 +19,12 @@ Vue.use(VueRadioButton);
 // import JsonCSV from 'vue-json-csv'
 // Vue.use(JsonCSV) 
 
-import JsonCSV from 'vue-json-csv'
-Vue.use(JsonCSV) 
+import JsonCSV from 'vue-json-csv';
+Vue.use(JsonCSV) ;
 
 
 import dayjs from 'dayjs';
-Vue.prototype.dayjs = dayjs;
-
+Vue.prototype.dayjs = dayjs; 
 
 import axios from 'axios'
 // import VueAxios from 'vue-axios'
@@ -52,7 +51,7 @@ Vue.config.productionTip = false
 
 
 import Swal from 'sweetalert2';
-window.Swal = Swal;
+window.Swal = Swal; 
 
 new Vue({
   // store, 
@@ -62,5 +61,6 @@ new Vue({
   // draggable,
   vuetify, 
   print,
+  VueRadioButton,
   render: h => h(App)
 }).$mount('#app')

@@ -5,7 +5,12 @@ Vue.use(Router);
 
 export default new Router({
   // mode: "history",
-  routes: [
+  routes: [ 
+    {
+      path: "/RRT",
+      name: "RRT",
+      component: () => import("./components/RRT")
+    },
      
     {
       path: "/asaskAdd5",
@@ -49,6 +54,12 @@ export default new Router({
       component: () => import("./components/playerLoading")
     },
 
+     // path: '/users/:id',
+     {
+      path: '/111', name: '',
+      component: () => import("./components/tst_RadioBtn112") 
+    },
+
     {
       path: "/qH",
       name: "quizHomepage",
@@ -71,14 +82,11 @@ export default new Router({
     {
       path: '/fbList', name: 'fbList',
       component: () => import("./components/fbList") 
-    }, 
-
-
-    // path: '/users/:id',
+    },  
 
     {
       path: '/quiz1/:id', name: 'Quiz_1',
-      component: () => import("./components/tst_RadioBtn1") 
+      component: () => import("./components/tst_RadioBtn112") 
     }, 
     {
       path: '/quiz2/:id', name: 'Quiz_2',

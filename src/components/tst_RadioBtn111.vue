@@ -4,7 +4,7 @@
       <div class="overflow-y-auto  w-full h-screen" v-show="play_lv ==1"> 
        <!-- // 這邊開始安排 ： 該次填寫進度 -->
         <a class ="mt-3 mr-10 flex justify-end text-lg text-gray-500 ">  〖 {{ pii.pI }} 〗 {{ pii.pN }} , {{ pii.pP }}  正在填寫 </a>
-
+ssssss
         <v-list-item-group  color="primary" class="pt-2 pl-15"  >   
         <v-list-item v-for="(tutorial, inx) in tutorials" :key="inx"  @click="setActiveTutorial(tutorial, inx)" v-if="tutorial.qzSno == 1" >  
           <div class="grid grid-cols-6 gap-1">
