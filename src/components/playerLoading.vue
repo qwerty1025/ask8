@@ -133,6 +133,7 @@
                 v-model="pLv_N_need[n]"
                 :label="pLv_N[n]"
                 value="true" dense
+                class="truncate"
               ></v-checkbox>   
             </div>
             <v-col cols="12" sm="12" md="12"> 
@@ -155,9 +156,9 @@
 
               <hr class="my-5">
               <h3>已登記清單</h3> 
-              <div class="mt-10 grid grid-cols-2 gap-1 rounded-b-2xl">  
+              <div class="mt-10 grid md:grid-cols-2  xs:grid-cols-1 gap-1 rounded-b-2xl">  
                 <v-card v-for="VV in QZbking "  bg-gray-100 > 
-
+                  
                   <div class="flex flex-row p-3"> 
                     <div class=" flex items-center"> 
                       <div class="grid grid-cols-2 gap-0.2 mr-3">
@@ -172,13 +173,13 @@
                           {{  VV.Asking_times }}
                         </a>
                       </div> 
-                      <a class=" text-4xl font-black "> {{  VV.name  }} </a> 
+                      <a class=" xs:text-2xl md:text-4xl font-black "> {{  VV.name  }} </a> 
                     </div>
                    
                     <div class=" flex flex-col justify-end"> 
                         <!-- <v-btn small dark rounded class="flex-none ml-1 " >  修改 </v-btn> -->
-                        <v-btn dark class="flex-none ml-1 " >  載入.填寫流程 </v-btn>  
-                      <a class="text-xs pr-2 pt-1">  預計 {{  VV.cT_D  }} {{  VV.cT_T  }} 答</a> 
+                        <v-btn dark color="#2563eb" class="ml-1 " >  載入作答 </v-btn>  
+                      <a class="text-xs pr-2 pt-1">  預計 {{  VV.cT_D  }} {{  VV.cT_T  }} 作答</a> 
                     </div>  
                   </div>  
 
@@ -189,13 +190,13 @@
                     
                     
 
-                    <div class="bg-gray-100 "> 
+                    <div class="bg-gray-100 ">  
                       <div v-if="i > 0 " v-for="(m,i) in VV.pLv_N_need" :key="i" v-show="m == 'true' " >
                        
                         <v-expansion-panels >  
                           <v-expansion-panel >
                           <v-expansion-panel-header>
-                            <a class ="text-left text-ms text-gray-900"> {{ pLv_N[i] }} , {{ cfg(m) }}</a>  
+                            <a class ="text-left text-ms text-gray-900 truncate"> {{ pLv_N[i] }} , {{ cfg(m) }}</a>  
                             <v-spacer></v-spacer> 
                             <v-btn dark class=" ml-1 " >  前往作答 </v-btn>  
                             <!-- <v-btn dark class=" ml-1 " >  看結果 </v-btn>   -->
@@ -205,16 +206,49 @@
                             <a class ="text-xs text-gray-500 "> 關鍵指標：</a>
                             <br> 
                             <div class=" grid grid-cols-5  gap-0 ">    </div>
-
-                            <hr>
+                            
+                            <hr class="">
                             <a class ="text-xs text-gray-500 "> 答題細節：</a> 
-                             
-                            <br>
+                             <!-- {{ VV }} -->
+                            <hr class="mb-4">
                             <!-- <v-btn class="my-1"   dark> 修改</v-btn> -->
-                            <v-btn class="my-1"   dark> csv 下載</v-btn>
+                            <download-csv 
+                              dark 
+                              class=" bg-green-800 hover:bg-green-500 
+                                      w-120 h-120 text-white font-bold 
+                                      
+                                      py-2 px-4 rounded"
+                                      :data   = " TxsAry(VV)"
+	                                    :name    = "VV.name  +'-'+ VV.patient_ID +'-'+  VV.Operation_part +'-'+ VV.Asking_times+'.csv'"
+                            
+                              
+                            >下載 {{ VV.name +'_'+  pLv_N[i] }}.CSV
+                            </download-csv> 
+
+                            <!-- <download-csv 
+                              dark 
+                              class=" bg-green-800 hover:bg-green-500 
+                                      w-120 h-120 text-white font-bold 
+                                      
+                                      py-2 px-4 rounded"
+                                      :data   = " TxsAry(VV)"
+	                                    name    = "[題本１].csv"
+                            
+                              
+                            >下載已填寫資料 [題本１].CSV
+                            </download-csv>  -->
+
+                            <!-- name    = "[題本１]資料回報.csv"  
+                              :fields="[' Dname' ]"
+                              :las="las" -->
+
+                              <!-- :data   = "json_data" -->
+                            
                             <!-- @click="deleteTutorial(item)" -->
                           </v-expansion-panel-content>
                           </v-expansion-panel>
+ 
+                          
                          </v-expansion-panels> 
                       </div>  
                     </div> 
@@ -242,33 +276,33 @@
             
 
             <v-card flat> 
-                  <v-btn class="w-full text-left" color="#7c3aed" dark  @click="submit"    >  
-                    測試確認中
+                  <v-btn class="w-full text-left" color="#059669" dark  @click="submit"    >  
+                    前往 填寫表單
                   </v-btn>
 
                   <div class="grid grid-cols-2 gap-1"> 
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(1)"    >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(1)"    >  
                       {{ pLv_N[1] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(2)"    >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(2)"    >  
                       {{ pLv_N[2] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(3)"   >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(3)"   >  
                       {{ pLv_N[3] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(4)"     >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(4)"     >  
                       {{ pLv_N[4] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(5)"  >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(5)"  >  
                       {{ pLv_N[5] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(6)"   >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(6)"   >  
                       {{ pLv_N[6] }} 
                     </v-btn> 
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(7)"  >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(7)"  >  
                       {{ pLv_N[7] }} 
                     </v-btn>
-                    <v-btn class="w-full text-left"  dark  @click="goTopage(8)"   >  
+                    <v-btn class="w-full text-left"  color="#6ee7b7"  @click="goTopage(8)"   >  
                       {{ pLv_N[8] }} 
                     </v-btn> 
                   </div> 
@@ -291,12 +325,134 @@
 import PlayerService    from "../services/playerService";
 import quizBookingService   from "../services/quizBookingService";
 
-
-// import SeatDataService  from "../services/SeatPrepareService";
-
+import Vue from 'vue' 
+import JsonCSV from 'vue-json-csv'
+Vue.component('downloadCsv', JsonCSV)
 export default {  
   data() {
     return { 
+
+      json_data: [
+            {
+                'name': 'Tony Peña',
+                'city': 'New York',
+                'country': 'United States',
+                'birthdate': '1978-03-15',
+                'phone': {
+                    'mobile': '1-541-754-3010',
+                    'landline': '(541) 754-3010'
+                }
+            },
+            {
+                'name': 'Thessaloniki',
+                'city': 'Athens',
+                'country': 'Greece',
+                'birthdate': '1987-11-23',
+                'phone': {
+                    'mobile': '+1 855 275 5071',
+                    'landline': '(2741) 2621-244'
+                }
+            }
+        ],
+      Dname:33,
+
+      las: {
+                'name': 'Tony Peña',
+                'city': 'New York',
+                'country': 'United States',
+                'birthdate': '1978-03-15',
+                'phone': {
+                    'mobile': '1-541-754-3010',
+                    'landline': '(541) 754-3010'
+                }
+            },
+      
+      labels: { 
+                key:'流水編號', 
+
+                name:'姓名',  
+                patient_ID:'病號',
+                quiz_date:'登記日期',
+                quiz_time:'預計時間',
+
+                cvs_fdbk_1:'指標_1', 
+                cvs_fdbk_2:'指標_2', 
+                cvs_fdbk_3:'指標_3', 
+                cvs_fdbk_4:'指標_4', 
+ 
+                cvs_dtl_1:'第1題',
+                cvs_dtl_2:'第2題',
+                cvs_dtl_3:'第3題',
+                cvs_dtl_4:'第4題',
+                cvs_dtl_5:'第5題',
+                cvs_dtl_6:'第6題',
+                cvs_dtl_7:'第7題',
+                cvs_dtl_8:'第8題',
+                cvs_dtl_9:'第9題',
+                cvs_dtl_10:'第10題',
+                cvs_dtl_11:'第11題',
+                cvs_dtl_12:'第12題',
+                cvs_dtl_13:'第13題',
+                cvs_dtl_14:'第14題',
+                cvs_dtl_15:'第15題',
+                cvs_dtl_16:'第16題',
+                cvs_dtl_17:'第17題',
+                cvs_dtl_18:'第18題',
+                cvs_dtl_19:'第19題',
+                cvs_dtl_20:'第20題',
+                cvs_dtl_21:'第21題',
+                cvs_dtl_22:'第22題',
+                cvs_dtl_23:'第23題',
+                cvs_dtl_24:'第24題',
+                cvs_dtl_25:'第25題',
+                cvs_dtl_26:'第26題',
+                cvs_dtl_27:'第27題',
+                cvs_dtl_28:'第28題',
+                quiz_encode:'題本編號',
+                  
+            },
+        // fields: [ 'name','ply_amt','key','phone','plyd'],
+        fields: [ 
+                        'quiz_encode',
+                        'name',
+                        'patient_ID',
+                        'quiz_date',
+                        'quiz_time',
+                        
+                        // 'cvs_fdbk_1',
+                        // 'cvs_fdbk_2',
+                        // 'cvs_fdbk_3',
+                        // 'cvs_fdbk_4',
+                        // 'cvs_dtl_1',
+                        // 'cvs_dtl_2',
+                        // 'cvs_dtl_3',
+                        // 'cvs_dtl_4',
+                        // 'cvs_dtl_5',
+                        // 'cvs_dtl_6',
+                        // 'cvs_dtl_7',
+                        // 'cvs_dtl_8',
+                        // 'cvs_dtl_9',
+                        // 'cvs_dtl_10',
+                        // 'cvs_dtl_11',
+                        // 'cvs_dtl_12',
+                        // 'cvs_dtl_13',
+                        // 'cvs_dtl_14',
+                        // 'cvs_dtl_15',
+                        // 'cvs_dtl_16',
+                        // 'cvs_dtl_17',
+                        // 'cvs_dtl_18',
+                        // 'cvs_dtl_19',
+                        // 'cvs_dtl_20',
+                        // 'cvs_dtl_21',
+                        // 'cvs_dtl_22',
+                        // 'cvs_dtl_23',
+                        // 'cvs_dtl_24',
+                        // 'cvs_dtl_25',
+                        // 'cvs_dtl_26',
+                        // 'cvs_dtl_27',
+                        // 'cvs_dtl_28',
+                      ],
+
       // - - - - - 
       currentTime: Date.now(),
       cT:"",
@@ -346,7 +502,11 @@ export default {
     },  
   methods: { 
     // getCHK_text(x) {   if(x == true){ return "已完成" }else{ return "加油，還差這一份"} },
-    
+     
+    TxsAry(items){  
+      let ary =[items]; 
+      return ary; 
+    },
     cfg(h){  
       if( h == true)
       {return "查看填答結果" }

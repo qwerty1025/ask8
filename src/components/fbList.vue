@@ -63,15 +63,51 @@
                     </div> 
                     <br>
                     <v-btn class="my-1"  @click="deleteTutorial(item)" dark> 刪除 </v-btn>
+ 
+                   
+                    <!-- <download-csv 
+                              dark 
+                              class=" bg-green-800 hover:bg-green-500 
+                                      w-120 h-120 text-white font-bold 
+                                      
+                                      py-2 px-4 rounded"
+                                      :data   = " TxsAry(item)"
+	                                    :name    = "item.name  +'-'+  item.Operation_part +'-'+ VV.Asking_times+'.csv'"
+                            
+                              
+                            >下載 {{ item.name +'_'+  pLv_N[item.play_lv] }}.CSV
+                    </download-csv>  -->
+
                   </v-expansion-panel-content>
                 </v-expansion-panel>
                 <v-expansion-panel >
                   <v-expansion-panel-header>
+                    
+                    
+                    <v-spacer></v-spacer>
                     <a class="text-xs"> 詳細作答.資訊: </a>
                   </v-expansion-panel-header>
                   <v-expansion-panel-content class = "mb-30">
+
+                    <download-csv 
+                              dark 
+                              class=" bg-green-800 hover:bg-green-500 
+                                      w-120 h-120 text-white font-bold  
+                                      py-2 px-4 rounded"
+                                      :data   = "TxsAry(item)"
+	                                    
+                                      :name    = "item.name +'.csv'"
+                              
+                            >下載 {{ item.name  }}.CSV
+                    </download-csv> 
+                    <!-- :name    = "item.name  +'-'+  item.Operation_part +'.csv'" -->
+
+
                     
                     <a class ="text-xs text-gray-500 ">{{item}} </a>
+
+                    
+                    
  
                   </v-expansion-panel-content>
                 </v-expansion-panel>
@@ -87,6 +123,9 @@
  
 import PlayerService    from "../services/playerService"; 
 
+import Vue from 'vue' 
+import JsonCSV from 'vue-json-csv'
+Vue.component('downloadCsv', JsonCSV)
 export default {
   name: "Quiz-3",  
   data() {
@@ -142,10 +181,48 @@ export default {
         pM:"",
 
         qufd:[],   
+
+        las: {
+                'name': 'Tony Peña',
+                'city': 'New York',
+                'country': 'United States',
+                'birthdate': '1978-03-15',
+                'phone': {
+                    'mobile': '1-541-754-3010',
+                    'landline': '(541) 754-3010'
+                }
+            },
+            
+      json_data: [
+            {
+                'name': 'Tony Peña',
+                'city': 'New York',
+                'country': 'United States',
+                'birthdate': '1978-03-15',
+                'phone': {
+                    'mobile': '1-541-754-3010',
+                    'landline': '(541) 754-3010'
+                }
+            },
+            {
+                'name': 'Thessaloniki',
+                'city': 'Athens',
+                'country': 'Greece',
+                'birthdate': '1987-11-23',
+                'phone': {
+                    'mobile': '+1 855 275 5071',
+                    'landline': '(2741) 2621-244'
+                }
+            }
+        ],
     };
   }, 
   
   methods: {  
+    TxsAry(items){  
+      let ary =[items]; 
+      return ary; 
+    },
     deleteTutorial(item) {
       PlayerService.delete(item.key)
             .then(() => {
