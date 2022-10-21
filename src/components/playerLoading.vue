@@ -155,7 +155,7 @@
               </v-btn>  
 
               <hr class="my-5">
-              <h3>已登記清單</h3> 
+              <h3>已登記清單 (*)表示功能待上線.未啟用</h3> 
               <div class="mt-10 grid md:grid-cols-2  xs:grid-cols-1 gap-1 rounded-b-2xl">  
                 <v-card v-for="VV in QZbking "  bg-gray-100 > 
                   
@@ -178,7 +178,7 @@
                    
                     <div class=" flex flex-col justify-end"> 
                         <!-- <v-btn small dark rounded class="flex-none ml-1 " >  修改 </v-btn> -->
-                        <v-btn dark color="#2563eb" class="ml-1 " >  載入作答 </v-btn>  
+                        <v-btn dark color="#2563eb" class="ml-1 " >  載入作答(*) </v-btn>  
                       <a class="text-xs pr-2 pt-1">  預計 {{  VV.cT_D  }} {{  VV.cT_T  }} 作答</a> 
                     </div>  
                   </div>  
@@ -198,7 +198,7 @@
                           <v-expansion-panel-header>
                             <a class ="text-left text-ms text-gray-900 truncate"> {{ pLv_N[i] }} , {{ cfg(m) }}</a>  
                             <v-spacer></v-spacer> 
-                            <v-btn dark class=" ml-1 " >  前往作答 </v-btn>  
+                            <v-btn dark class=" ml-1 " >  前往作答(*) </v-btn>  
                             <!-- <v-btn dark class=" ml-1 " >  看結果 </v-btn>   -->
                             
                           </v-expansion-panel-header>
@@ -265,7 +265,7 @@
                       <v-btn large dark rounded 
                             :color="getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[0]"
                             class="item-end mx-10 mb-3 " > 
-                            {{ getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[1] }}
+                            {{ getCHK(pLv_N_need[n],pLv_N_finsh_chk[n])[1]  }} (*)
                       </v-btn>
                     </div> 
                   </v-card>   

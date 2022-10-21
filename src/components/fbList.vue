@@ -27,7 +27,9 @@
 
                   <v-expansion-panel >
                   <v-expansion-panel-header>
-                    <v-btn small @click="deleteTutorial(item)" dark> 刪除 </v-btn> 
+                    <!-- <v-btn small @click="deleteTutorial(item)" dark> 刪除 </v-btn>  -->
+                    
+                    <a class ="text-xs text-gray-500 "> 答題細節 </a>
                     <!-- [ {{ item.play_lv }} ] {{  item.key }} | {{  item.quiz_time }}  <a class ="rounded-full py-1 px-3 m-1 bg-red-200 ">{{ item.tk_statu }} </a>  -->
                     <v-spacer></v-spacer> 
                     
@@ -82,13 +84,6 @@
                 </v-expansion-panel>
                 <v-expansion-panel >
                   <v-expansion-panel-header>
-                    
-                    
-                    <v-spacer></v-spacer>
-                    <a class="text-xs"> 詳細作答.資訊: </a>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content class = "mb-30">
-
                     <download-csv 
                               dark 
                               class=" bg-green-800 hover:bg-green-500 
@@ -100,6 +95,13 @@
                               
                             >下載 {{ item.name  }}.CSV
                     </download-csv> 
+                    
+                    <v-spacer></v-spacer>
+                    <a class="text-xs"> 更多資訊: </a>
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content class = "mb-30">
+
+                   
                     <!-- :name    = "item.name  +'-'+  item.Operation_part +'.csv'" -->
 
 
