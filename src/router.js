@@ -11,6 +11,11 @@ export default new Router({
     //   name: "RRT",
     //   component: () => import("./components/RRT")
     // },
+    {
+      path: "/TPH",
+      name: "quizHomepage",
+      component: () => import("./components/playerTempHub")
+    },
 
     {
       path: "/",

@@ -305,6 +305,26 @@ export default {
     };
   },  
   methods: { 
+
+    // updataQzBking(item,n){   
+    //     var data = {   
+    //           pLv_RealDO[n]: '',
+             
+    //         };
+
+    //     quizBookingService.create(data)
+    //       .then(() => { 
+    //         Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: '會員資料上傳完畢!',
+    //                 text: '各別修改內容，請點選',
+    //                 showConfirmButton: false,
+    //                 timer: 1200
+    //             }) 
+    //       })
+    //       .catch(e => { console.log(e); });  
+    //     },
   
   getAnysisReport(){  
       Swal.fire({

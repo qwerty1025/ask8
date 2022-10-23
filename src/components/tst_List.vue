@@ -394,39 +394,6 @@ export default {
       tutorials: [],
       currentTutorial: null,
       currentIndex: -1,
-      las: {
-                'name': 'Tony Peña',
-                'city': 'New York',
-                'country': 'United States',
-                'birthdate': '1978-03-15',
-                'phone': {
-                    'mobile': '1-541-754-3010',
-                    'landline': '(541) 754-3010'
-                }
-            },
-            
-      json_data: [
-            {
-                'name': 'Tony Peña',
-                'city': 'New York',
-                'country': 'United States',
-                'birthdate': '1978-03-15',
-                'phone': {
-                    'mobile': '1-541-754-3010',
-                    'landline': '(541) 754-3010'
-                }
-            },
-            {
-                'name': 'Thessaloniki',
-                'city': 'Athens',
-                'country': 'Greece',
-                'birthdate': '1987-11-23',
-                'phone': {
-                    'mobile': '+1 855 275 5071',
-                    'landline': '(2741) 2621-244'
-                }
-            }
-        ],
        
     };
   }, 
